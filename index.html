@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@tsune.eth | おすすめ美容アイテム</title>
+    <title>@tsune.eth | おすすめアイテム</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,18 +13,19 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 20px 16px 40px;
+            padding: 20px 0 40px;
         }
 
         .container {
-            max-width: 440px;
+            max-width: 480px;
             width: 100%;
+            padding: 0 16px;
         }
 
-        /* Profile Section */
+        /* Profile */
         .profile {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         .avatar {
@@ -33,7 +34,7 @@
             border-radius: 50%;
             border: 3px solid #fff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .profile h1 {
@@ -49,11 +50,81 @@
             line-height: 1.5;
         }
 
-        /* Category Label */
+        .sns-header {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .sns-header a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: #555;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .sns-header a:active { background: rgba(255,255,255,0.9); }
+
+        .update-badge {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .update-badge span {
+            font-size: 11px;
+            color: #888;
+            background: rgba(255,255,255,0.6);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        /* Category Nav */
+        .category-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 0 12px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .nav-pill {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            white-space: nowrap;
+            transition: all 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        .nav-pill:active {
+            background: #ff6b6b;
+            color: #fff;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            margin-bottom: 8px;
+        }
+
         .category-label {
             text-align: center;
-            margin: 28px 0 14px;
-            position: relative;
+            margin: 20px 0 12px;
         }
 
         .category-label span {
@@ -66,18 +137,18 @@
             letter-spacing: 0.5px;
         }
 
-        /* Product Card */
+        /* Featured Product Cards (vertical) */
         .product-card {
             background: #fff;
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s;
+            position: relative;
         }
 
-        .product-card:active {
-            transform: scale(0.98);
+        .featured-card {
+            border: 2px solid rgba(255,107,107,0.3);
         }
 
         .card-inner {
@@ -105,18 +176,19 @@
             font-weight: 600;
             color: #1a1a1a;
             line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
             margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-weight: 400;
+            font-size: 11px;
+            color: #888;
         }
 
         .product-meta {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 6px;
         }
 
         .price {
@@ -132,6 +204,17 @@
             padding: 2px 8px;
             border-radius: 10px;
             font-weight: 600;
+        }
+
+        .ig-badge {
+            display: inline-block;
+            font-size: 10px;
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .btn-group {
@@ -165,62 +248,131 @@
             color: #1a1a1a;
         }
 
-        .btn img {
-            width: 14px;
-            height: 14px;
-            margin-right: 4px;
+        /* Horizontal Scroll Cards */
+        .category-section {
+            margin-bottom: 8px;
         }
 
-        /* Ranking Badge */
-        .rank-badge {
+        .scroll-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 0 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+        }
+
+        .scroll-container::-webkit-scrollbar { display: none; }
+
+        .product-card-h {
+            flex-shrink: 0;
+            width: 180px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            scroll-snap-align: start;
             position: relative;
         }
 
-        .rank-badge::before {
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            font-size: 22px;
-            z-index: 1;
+        .product-img-h {
+            width: 100%;
+            height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: #f5f5f5;
+            margin-bottom: 8px;
         }
 
-        .rank-1::before { content: "🥇"; }
-        .rank-2::before { content: "🥈"; }
-        .rank-3::before { content: "🥉"; }
-
-        /* SNS Links */
-        .sns-section {
-            margin-top: 28px;
-            text-align: center;
-        }
-
-        .sns-section p {
+        .product-name-h {
             font-size: 12px;
-            color: #666;
-            margin-bottom: 10px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 2px;
+            min-height: 32px;
         }
 
-        .sns-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
+        .product-subtitle-h {
+            font-size: 10px;
+            color: #999;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .sns-link {
+        .product-meta-h {
             display: flex;
             align-items: center;
             gap: 6px;
-            text-decoration: none;
-            color: #555;
-            font-size: 13px;
-            font-weight: 500;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.7);
-            border-radius: 20px;
-            transition: background 0.2s;
+            margin-bottom: 8px;
         }
 
-        .sns-link:active { background: rgba(255,255,255,0.9); }
+        .price-h {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+
+        .score-badge-h {
+            font-size: 10px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: #fff;
+            padding: 1px 6px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .btn-group-h {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-rakuten-h {
+            flex: 1;
+            display: block;
+            text-align: center;
+            padding: 7px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #bf0000, #e60033);
+            color: #fff;
+            transition: opacity 0.2s;
+        }
+
+        .btn-amazon-h {
+            flex: 1;
+            display: block;
+            text-align: center;
+            padding: 7px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #ff9900, #ffad33);
+            color: #1a1a1a;
+            transition: opacity 0.2s;
+        }
+
+        .btn-rakuten-h:active, .btn-amazon-h:active { opacity: 0.8; }
+
+        .product-card-h .ig-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 1;
+            font-size: 9px;
+            padding: 2px 8px;
+        }
 
         /* Footer */
         .footer {
@@ -229,20 +381,6 @@
             font-size: 10px;
             color: #999;
             line-height: 1.6;
-        }
-
-        /* Update Badge */
-        .update-badge {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .update-badge span {
-            font-size: 11px;
-            color: #888;
-            background: rgba(255,255,255,0.6);
-            padding: 4px 12px;
-            border-radius: 12px;
         }
     </style>
 </head>
@@ -254,276 +392,823 @@
                  onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
             <h1>@tsune.eth</h1>
             <p>本当に良いモノだけ厳選してお届け<br>美容 | ガジェット | ライフスタイル</p>
-        </div>
-
-        <div class="update-badge">
-            <span>2026.03.10 更新</span>
-        </div>
-
-        <!-- TOP3 美顔器 -->
-        <div class="category-label">
-            <span>🔥 今売れてる美顔器 TOP3</span>
-        </div>
-
-        <!-- 1位 FS300 -->
-        <div class="product-card rank-badge rank-1">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/27958_88.jpg?_ex=200x200"
-                     alt="フェイシャルスチーマー FS300" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">フェイシャルスチーマー FS300<br>ナノスチーム&温冷切替</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;26,224</span>
-                        <span class="score-badge">★4.24</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F27958%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10028498%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+FS300&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- 2位 ST-1 -->
-        <div class="product-card rank-badge rank-2">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/30894-set_88.jpg?_ex=200x200"
-                     alt="フェイシャルスチーマー ST-1" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">フェイシャルスチーマー ST-1<br>コスパ最強スチーマー</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;21,945</span>
-                        <span class="score-badge">★3.89</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F30894-set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10031109%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+ST-1&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- 3位 美ルル クラッシィ -->
-        <div class="product-card rank-badge rank-3">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/yancomstore/cabinet/belulu/classy/11450700/classymi_kago2.jpg?_ex=200x200"
-                     alt="美ルル クラッシィ 超音波美顔器" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">美ルル クラッシィ 超音波美顔器<br>イオン導入・導出 1台5役</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;8,800</span>
-                        <span class="score-badge">★4.15</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_classy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10001558%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E7%BE%8E%E3%83%AB%E3%83%AB+%E3%82%AF%E3%83%A9%E3%83%83%E3%82%B7%E3%82%A3+%E8%B6%85%E9%9F%B3%E6%B3%A2%E7%BE%8E%E9%A1%94%E5%99%A8&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- おすすめ美容アイテム -->
-        <div class="category-label">
-            <span>✨ おすすめ美容アイテム</span>
-        </div>
-
-        <!-- 美ルル リバース -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/yancomstore/cabinet/belulu/rebirth/10601738/rebirth_kg_24.jpg?_ex=200x200"
-                     alt="美ルル リバース 美顔器 EMS" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">美ルル リバース 美顔器<br>EMS エレクトロポレーション</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;9,980</span>
-                        <span class="score-badge">Score 59.7</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_rebirth_3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10002088%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E7%BE%8E%E3%83%AB%E3%83%AB+%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9+%E7%BE%8E%E9%A1%94%E5%99%A8+EMS&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- KINUJO ドライヤー -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/miyabibstore/cabinet/11794400/kinu-kh_1.jpg?_ex=200x200"
-                     alt="KINUJO Hair Dryer" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">絹女 KINUJO ヘアドライヤー<br>大風量 速乾</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;24,800</span>
-                        <span class="score-badge">Score 58.5</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00uphdm.nla07b7d.g00uphdm.nla08406/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmiyabibstore%2Fkinu-kh%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmiyabibstore%2Fi%2F10000525%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=KINUJO+%E3%83%98%E3%82%A2%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- Re・De Suhada -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/noel-ange/cabinet/2507/rde-fm01a_d.jpg?_ex=200x200"
-                     alt="Re・De Suhada 美顔器" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">Re・De Suhada スティック美顔器<br>LED EMS 音波振動</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;19,800</span>
-                        <span class="score-badge">Score 58.5</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00qac0m.nla0754a.g00qac0m.nla08a21/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnoel-ange%2Frde-fm01a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnoel-ange%2Fi%2F10493155%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=Re+De+Suhada+%E7%BE%8E%E9%A1%94%E5%99%A8&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- Rocklean -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/marisannnoshop/cabinet/rakub200_0390/b07hwp4t7100.jpg?_ex=200x200"
-                     alt="Rocklean ウォーターピーリング" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">Rocklean ウォーターピーリング<br>複合美顔器</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;26,760</span>
-                        <span class="score-badge">Score 58.5</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00upf9m.nla07e27.g00upf9m.nla08872/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmarisannnoshop%2Fb07hwp4t71%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmarisannnoshop%2Fi%2F10101434%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=Rocklean+%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%94%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- RELX ヘッドスパ -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/hellodear/cabinet/raku999_0177/01-20250708-03395200.jpg?_ex=200x200"
-                     alt="RELX ヘッドスパ" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">RELX ヘッドスパ 電動頭皮ブラシ<br>3D振動 IPX7防水 サロン級</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;9,288</span>
-                        <span class="score-badge">Score 53.5</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00ulv1m.nla073b8.g00ulv1m.nla08027/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhellodear%2F01-20250708-033952%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhellodear%2Fi%2F10067135%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=RELX+%E3%83%98%E3%83%83%E3%83%89%E3%82%B9%E3%83%91+%E9%9B%BB%E5%8B%95%E9%A0%AD%E7%9A%AE%E3%83%96%E3%83%A9%E3%82%B7&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- NEW カテゴリ -->
-        <div class="category-label">
-            <span>🆕 NEW おすすめ</span>
-        </div>
-
-        <!-- パナソニック ナノケア -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img039/p000000809447_1.jpg?_ex=200x200"
-                     alt="パナソニック スチーマー ナノケア EH-SA70" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">Panasonic スチーマー ナノケア<br>EH-SA70 ナノサイズ温スチーム</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;26,350</span>
-                        <span class="score-badge">Score 56.5</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000809447%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19763844%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%91%E3%83%8A%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF+%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+%E3%83%8A%E3%83%8E%E3%82%B1%E3%82%A2+EH-SA70&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- ヤーマン レイボーテ ハイパーZERO -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="yaman_raybote_hyperzero.png"
-                     alt="ヤーマン レイボーテ ハイパーZERO" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">ヤーマン レイボーテ ハイパーZERO<br>光美容器 全身対応 VIO対応</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;46,560</span>
-                        <span class="score-badge">Score 56.5</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000825310%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19771653%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%A4%E3%83%BC%E3%83%9E%E3%83%B3+%E3%83%AC%E3%82%A4%E3%83%9C%E3%83%BC%E3%83%86+%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BCZERO&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- エステプロラボ チャコールクレンズ -->
-        <div class="product-card">
-            <div class="card-inner">
-                <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/mygift/cabinet/shohin/epl-he/4582317250270-2_z.jpg?_ex=200x200"
-                     alt="エステプロラボ チャコールクレンズ" class="product-img">
-                <div class="product-info">
-                    <div class="product-name">エステプロラボ チャコールクレンズ<br>活性炭パワー 2本セット</div>
-                    <div class="product-meta">
-                        <span class="price">&yen;8,500</span>
-                        <span class="score-badge">★4.53</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a href="https://hb.afl.rakuten.co.jp/hgc/g00txasm.nla07a5c.g00txasm.nla08600/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmygift%2Fepl-he-4582317250270-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmygift%2Fi%2F10000275%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b"
-                   class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%B9%E3%83%86%E3%83%97%E3%83%AD%E3%83%A9%E3%83%9C+%E3%83%81%E3%83%A3%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%AF%E3%83%AC%E3%83%B3%E3%82%BA&tag=tsune9949-22"
-                   class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
-            </div>
-        </div>
-
-        <!-- SNS Section -->
-        <div class="sns-section">
-            <p>フォローしてね</p>
-            <div class="sns-links">
-                <a href="https://www.instagram.com/tsune.eth/" class="sns-link" target="_blank" rel="noopener">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#E1306C" stroke="none"/></svg>
+            <div class="sns-header">
+                <a href="https://www.instagram.com/tsune.eth/" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#E1306C" stroke="none"/></svg>
                     Instagram
                 </a>
-                <a href="https://www.threads.com/@tsune.eth" class="sns-link" target="_blank" rel="noopener">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.678 1.29 2.86 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.822-3.783.56-5.052-.57-.573-1.34-.902-2.243-.96.122.577.17 1.17.128 1.773-.127 1.894-1.003 3.39-2.465 4.21-1.204.674-2.652.873-4.055.558-1.592-.357-2.846-1.26-3.386-2.44-.587-1.284-.47-2.85.312-4.166 1.225-2.063 3.9-3.05 7.782-2.875.28-.554.5-1.15.63-1.774H9.34v-1.96h5.59c-.04-.228-.09-.457-.148-.684l-2.026.001v-1.96h1.52C13.647 3.03 12.593 2.57 12.18 2.12h.007z"/></svg>
+                <a href="https://www.threads.com/@tsune.eth" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#000"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.678 1.29 2.86 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.822-3.783.56-5.052-.57-.573-1.34-.902-2.243-.96.122.577.17 1.17.128 1.773-.127 1.894-1.003 3.39-2.465 4.21-1.204.674-2.652.873-4.055.558-1.592-.357-2.846-1.26-3.386-2.44-.587-1.284-.47-2.85.312-4.166 1.225-2.063 3.9-3.05 7.782-2.875.28-.554.5-1.15.63-1.774H9.34v-1.96h5.59c-.04-.228-.09-.457-.148-.684l-2.026.001v-1.96h1.52C13.647 3.03 12.593 2.57 12.18 2.12h.007z"/></svg>
                     Threads
                 </a>
             </div>
         </div>
 
+        <div class="update-badge">
+            <span>2026.03.15 更新</span>
+        </div>
+
+        <!-- Category Nav -->
+        <div class="category-nav">
+            <a href="#featured" class="nav-pill">🔥 ピックアップ</a>
+            <a href="#cat-美容家電" class="nav-pill">✨ 美容家電</a>
+                <a href="#cat-スキンケア" class="nav-pill">🧴 スキンケア</a>
+                <a href="#cat-ボディケア" class="nav-pill">💆 ボディケア</a>
+                <a href="#cat-ガジェット" class="nav-pill">📱 ガジェット</a>
+                <a href="#cat-健康食品" class="nav-pill">💊 健康食品</a>
+                
+        </div>
+
+        <!-- Featured -->
+        <div class="featured-section" id="featured">
+            <div class="category-label"><span>🔥 今週のピックアップ</span></div>
+            
+            <div class="product-card featured-card">
+                <span class="ig-badge">📸 Instagramで紹介</span>
+                <div class="card-inner">
+                    <img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/27958_88.jpg?_ex=200x200" alt="フェイシャルスチーマー FS300"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-info">
+                        <div class="product-name">フェイシャルスチーマー FS300<br><span class="subtitle">ナノスチーム&温冷切替</span></div>
+                        <div class="product-meta">
+                            <span class="price">&yen;26,224</span>
+                            <span class="score-badge">&#9733; 4.24</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F27958%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10028498%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
+                    <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+FS300&tag=tsune9949-22" class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
+                </div>
+            </div>
+            <div class="product-card featured-card">
+                
+                <div class="card-inner">
+                    <img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img039/p000000809447_1.jpg?_ex=200x200" alt="Panasonic スチーマー ナノケア EH-SA70"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-info">
+                        <div class="product-name">Panasonic スチーマー ナノケア EH-SA70<br><span class="subtitle">ナノサイズ温スチーム 集中保湿</span></div>
+                        <div class="product-meta">
+                            <span class="price">&yen;26,350</span>
+                            <span class="score-badge">&#9733; 4.52</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000809447%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19763844%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
+                    <a href="https://www.amazon.co.jp/s?k=%E3%83%91%E3%83%8A%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF+%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+%E3%83%8A%E3%83%8E%E3%82%B1%E3%82%A2+EH-SA70&tag=tsune9949-22" class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
+                </div>
+            </div>
+            <div class="product-card featured-card">
+                
+                <div class="card-inner">
+                    <img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/326/4979006080957_1.jpg?_ex=200x200" alt="SK-II フェイシャルトリートメントエッセンス"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-info">
+                        <div class="product-name">SK-II フェイシャルトリートメントエッセンス<br><span class="subtitle">ピテラ配合 肌荒れ防止 230ml</span></div>
+                        <div class="product-meta">
+                            <span class="price">&yen;23,100</span>
+                            <span class="score-badge">&#9733; 4.67</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4979006080957%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
+                    <a href="https://www.amazon.co.jp/s?k=SK-II+%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%E3%83%A1%E3%83%B3%E3%83%88%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B9&tag=tsune9949-22" class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
+                </div>
+            </div>
+            <div class="product-card featured-card">
+                
+                <div class="card-inner">
+                    <img class="product-img" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kitcut-ps/cabinet/product/apple/airpodspro2_usbc_main.jpg?_ex=200x200" alt="Apple AirPods Pro 第2世代"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-info">
+                        <div class="product-name">Apple AirPods Pro 第2世代<br><span class="subtitle">USB-C アクティブノイズキャンセリング</span></div>
+                        <div class="product-meta">
+                            <span class="price">&yen;36,800</span>
+                            <span class="score-badge">&#9733; 4.72</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="https://hb.afl.rakuten.co.jp/hgc/g00qlaam.nla07c52.g00qlaam.nla08e81/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2Fmtjv3j-a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten" target="_blank" rel="noopener">楽天で見る</a>
+                    <a href="https://www.amazon.co.jp/s?k=AirPods+Pro+%E7%AC%AC2%E4%B8%96%E4%BB%A3+USB-C&tag=tsune9949-22" class="btn btn-amazon" target="_blank" rel="noopener">Amazonで見る</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Sections -->
+        
+        <div class="category-section" id="cat-美容家電">
+            <div class="category-label"><span>✨ 美容家電</span></div>
+            <div class="scroll-container">
+                
+                <div class="product-card-h">
+                    <span class="ig-badge">📸 Instagramで紹介</span>
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/27958_88.jpg?_ex=200x200" alt="フェイシャルスチーマー FS300"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">フェイシャルスチーマー FS300</div>
+                    <div class="product-subtitle-h">ナノスチーム&温冷切替</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;26,224</span>
+                        <span class="score-badge-h">&#9733; 4.24</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F27958%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10028498%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+FS300&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    <span class="ig-badge">📸 Instagramで紹介</span>
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/30894-set_88.jpg?_ex=200x200" alt="フェイシャルスチーマー ST-1"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">フェイシャルスチーマー ST-1</div>
+                    <div class="product-subtitle-h">コスパ最強スチーマー</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;21,945</span>
+                        <span class="score-badge-h">&#9733; 3.89</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F30894-set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10031109%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+ST-1&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    <span class="ig-badge">📸 Instagramで紹介</span>
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/yancomstore/cabinet/belulu/classy/11450700/classymi_kago2.jpg?_ex=200x200" alt="美ルル クラッシィ 超音波美顔器"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">美ルル クラッシィ 超音波美顔器</div>
+                    <div class="product-subtitle-h">イオン導入・導出 1台5役</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;8,800</span>
+                        <span class="score-badge-h">&#9733; 4.15</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_classy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10001558%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E7%BE%8E%E3%83%AB%E3%83%AB+%E3%82%AF%E3%83%A9%E3%83%83%E3%82%B7%E3%82%A3+%E8%B6%85%E9%9F%B3%E6%B3%A2%E7%BE%8E%E9%A1%94%E5%99%A8&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    <span class="ig-badge">📸 Instagramで紹介</span>
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/yancomstore/cabinet/belulu/rebirth/10601738/rebirth_kg_24.jpg?_ex=200x200" alt="美ルル リバース 美顔器"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">美ルル リバース 美顔器</div>
+                    <div class="product-subtitle-h">EMS エレクトロポレーション</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;9,980</span>
+                        <span class="score-badge-h">&#9733; 4.32</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_rebirth_3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10002088%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E7%BE%8E%E3%83%AB%E3%83%AB+%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9+%E7%BE%8E%E9%A1%94%E5%99%A8+EMS&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    <span class="ig-badge">📸 Instagramで紹介</span>
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/miyabibstore/cabinet/11794400/kinu-kh_1.jpg?_ex=200x200" alt="絹女 KINUJO ヘアドライヤー"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">絹女 KINUJO ヘアドライヤー</div>
+                    <div class="product-subtitle-h">大風量 速乾 マイナスイオン</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;24,800</span>
+                        <span class="score-badge-h">&#9733; 4.45</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00uphdm.nla07b7d.g00uphdm.nla08406/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmiyabibstore%2Fkinu-kh%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmiyabibstore%2Fi%2F10000525%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=KINUJO+%E3%83%98%E3%82%A2%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/noel-ange/cabinet/2507/rde-fm01a_d.jpg?_ex=200x200" alt="Re・De Suhada スティック美顔器"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Re・De Suhada スティック美顔器</div>
+                    <div class="product-subtitle-h">LED EMS 音波振動</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;19,800</span>
+                        <span class="score-badge-h">&#9733; 4.28</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00qac0m.nla0754a.g00qac0m.nla08a21/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnoel-ange%2Frde-fm01a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnoel-ange%2Fi%2F10493155%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Re+De+Suhada+%E7%BE%8E%E9%A1%94%E5%99%A8&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/marisannnoshop/cabinet/rakub200_0390/b07hwp4t7100.jpg?_ex=200x200" alt="Rocklean ウォーターピーリング"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Rocklean ウォーターピーリング</div>
+                    <div class="product-subtitle-h">複合美顔器 毛穴ケア</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;26,760</span>
+                        <span class="score-badge-h">&#9733; 4.18</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00upf9m.nla07e27.g00upf9m.nla08872/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmarisannnoshop%2Fb07hwp4t71%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmarisannnoshop%2Fi%2F10101434%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Rocklean+%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%94%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/hellodear/cabinet/raku999_0177/01-20250708-03395200.jpg?_ex=200x200" alt="RELX ヘッドスパ 電動頭皮ブラシ"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">RELX ヘッドスパ 電動頭皮ブラシ</div>
+                    <div class="product-subtitle-h">3D振動 IPX7防水 サロン級</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;9,288</span>
+                        <span class="score-badge-h">&#9733; 4.35</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00ulv1m.nla073b8.g00ulv1m.nla08027/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhellodear%2F01-20250708-033952%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhellodear%2Fi%2F10067135%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=RELX+%E3%83%98%E3%83%83%E3%83%89%E3%82%B9%E3%83%91+%E9%9B%BB%E5%8B%95%E9%A0%AD%E7%9A%AE%E3%83%96%E3%83%A9%E3%82%B7&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img039/p000000809447_1.jpg?_ex=200x200" alt="Panasonic スチーマー ナノケア EH-SA70"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Panasonic スチーマー ナノケア EH-SA70</div>
+                    <div class="product-subtitle-h">ナノサイズ温スチーム 集中保湿</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;26,350</span>
+                        <span class="score-badge-h">&#9733; 4.52</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000809447%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19763844%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%91%E3%83%8A%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF+%E3%82%B9%E3%83%81%E3%83%BC%E3%83%9E%E3%83%BC+%E3%83%8A%E3%83%8E%E3%82%B1%E3%82%A2+EH-SA70&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img041/p000000825310_1.jpg?_ex=200x200" alt="ヤーマン レイボーテ ハイパーZERO"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">ヤーマン レイボーテ ハイパーZERO</div>
+                    <div class="product-subtitle-h">光美容器 全身対応 VIO対応</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;46,560</span>
+                        <span class="score-badge-h">&#9733; 4.38</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000825310%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19771653%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%A4%E3%83%BC%E3%83%9E%E3%83%B3+%E3%83%AC%E3%82%A4%E3%83%9C%E3%83%BC%E3%83%86+%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BCZERO&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/refa/cabinet/product/re-at-02a/re-at-02a_main.jpg?_ex=200x200" alt="ReFa BEAUTECH ストレートアイロン"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">ReFa BEAUTECH ストレートアイロン</div>
+                    <div class="product-subtitle-h">カーボンレイヤープレート 温度調整</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;22,000</span>
+                        <span class="score-badge-h">&#9733; 4.41</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00td4qm.nla07e5c.g00td4qm.nla08c25/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frefa%2Fre-at-02a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=ReFa+BEAUTECH+%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%83%88%E3%82%A2%E3%82%A4%E3%83%AD%E3%83%B3&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-section" id="cat-スキンケア">
+            <div class="category-label"><span>🧴 スキンケア</span></div>
+            <div class="scroll-container">
+                
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/326/4979006080957_1.jpg?_ex=200x200" alt="SK-II フェイシャルトリートメントエッセンス"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">SK-II フェイシャルトリートメントエッセンス</div>
+                    <div class="product-subtitle-h">ピテラ配合 肌荒れ防止 230ml</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;23,100</span>
+                        <span class="score-badge-h">&#9733; 4.67</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4979006080957%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=SK-II+%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%E3%83%A1%E3%83%B3%E3%83%88%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B9&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/352/3614273069175_1.jpg?_ex=200x200" alt="LANCOME ジェニフィック アドバンスト"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">LANCOME ジェニフィック アドバンスト</div>
+                    <div class="product-subtitle-h">美容液 30ml 整肌成分配合</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;11,880</span>
+                        <span class="score-badge-h">&#9733; 4.58</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F3614273069175%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%A9%E3%83%B3%E3%82%B3%E3%83%A0+%E3%82%B8%E3%82%A7%E3%83%8B%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF+%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%E3%83%88+%E7%BE%8E%E5%AE%B9%E6%B6%B2&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/fancl/cabinet/item/3727a.jpg?_ex=200x200" alt="FANCL マイルドクレンジングオイル"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">FANCL マイルドクレンジングオイル</div>
+                    <div class="product-subtitle-h">メイク落とし 120ml 無添加</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;1,870</span>
+                        <span class="score-badge-h">&#9733; 4.62</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00pm2am.nla07f85.g00pm2am.nla08e98/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancl%2F3727a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=FANCL+%E3%83%9E%E3%82%A4%E3%83%AB%E3%83%89%E3%82%AF%E3%83%AC%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%B0%E3%82%AA%E3%82%A4%E3%83%AB&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/380/4909978150037_1.jpg?_ex=200x200" alt="HAKU メラノフォーカスZ"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">HAKU メラノフォーカスZ</div>
+                    <div class="product-subtitle-h">美白美容液 45g シミ予防</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;8,800</span>
+                        <span class="score-badge-h">&#9733; 4.55</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4909978150037%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=HAKU+%E3%83%A1%E3%83%A9%E3%83%8E%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AB%E3%82%B9Z+%E7%BE%8E%E7%99%BD%E7%BE%8E%E5%AE%B9%E6%B6%B2&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/mujirushi-ryohin/cabinet/thumb/4550344295960_400.jpg?_ex=200x200" alt="無印良品 導入化粧液"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">無印良品 導入化粧液</div>
+                    <div class="product-subtitle-h">岩手県釜石の天然水使用 400ml</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;1,490</span>
+                        <span class="score-badge-h">&#9733; 4.48</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00sr3pm.nla074e7.g00sr3pm.nla08d39/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmujirushi-ryohin%2F4550344295960%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E7%84%A1%E5%8D%B0%E8%89%AF%E5%93%81+%E5%B0%8E%E5%85%A5%E5%8C%96%E7%B2%A7%E6%B6%B2&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/362/4971710500714_1.jpg?_ex=200x200" alt="DECORTE リポソーム アドバンスト"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">DECORTE リポソーム アドバンスト</div>
+                    <div class="product-subtitle-h">リペアセラム 50ml 多重層リポソーム</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;12,100</span>
+                        <span class="score-badge-h">&#9733; 4.61</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4971710500714%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%82%B3%E3%82%B9%E3%83%A1%E3%83%87%E3%82%B3%E3%83%AB%E3%83%86+%E3%83%AA%E3%83%9D%E3%82%BD%E3%83%BC%E3%83%A0+%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%E3%83%88&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/395/4987241190119_1.jpg?_ex=200x200" alt="Obagi C25セラム ネオ"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Obagi C25セラム ネオ</div>
+                    <div class="product-subtitle-h">ピュアビタミンC 高濃度美容液 12ml</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;11,000</span>
+                        <span class="score-badge-h">&#9733; 4.52</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4987241190119%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Obagi+C25%E3%82%BB%E3%83%A9%E3%83%A0+%E3%83%8D%E3%82%AA&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/premier-beaute/cabinet/duo/duo_blackrepair_main.jpg?_ex=200x200" alt="DUO ザ クレンジングバーム ブラックリペア"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">DUO ザ クレンジングバーム ブラックリペア</div>
+                    <div class="product-subtitle-h">毛穴ケア W洗顔不要 90g</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;3,960</span>
+                        <span class="score-badge-h">&#9733; 4.42</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00tcu2m.nla07a35.g00tcu2m.nla08f12/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremier-beaute%2Fduo-blackrepair%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=DUO+%E3%82%AF%E3%83%AC%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%B0%E3%83%90%E3%83%BC%E3%83%A0+%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%AA%E3%83%9A%E3%82%A2&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmeland/cabinet/sku_image1/412/4909978150150_1.jpg?_ex=200x200" alt="ELIXIR デザインタイム セラム"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">ELIXIR デザインタイム セラム</div>
+                    <div class="product-subtitle-h">エイジングケア美容液 40ml</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;4,950</span>
+                        <span class="score-badge-h">&#9733; 4.39</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4909978150150%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%AA%E3%82%AF%E3%82%B7%E3%83%BC%E3%83%AB+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%A4%E3%83%A0+%E3%82%BB%E3%83%A9%E3%83%A0&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-section" id="cat-ボディケア">
+            <div class="category-label"><span>💆 ボディケア</span></div>
+            <div class="scroll-container">
+                
+                <div class="product-card-h">
+                    <span class="ig-badge">📸 Instagramで紹介</span>
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/mygift/cabinet/shohin/epl-he/4582317250270-2_z.jpg?_ex=200x200" alt="エステプロラボ チャコールクレンズ"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">エステプロラボ チャコールクレンズ</div>
+                    <div class="product-subtitle-h">活性炭パワー 2本セット</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;8,500</span>
+                        <span class="score-badge-h">&#9733; 4.53</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00txasm.nla07a5c.g00txasm.nla08600/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmygift%2Fepl-he-4582317250270-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmygift%2Fi%2F10000275%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%B9%E3%83%86%E3%83%97%E3%83%AD%E3%83%A9%E3%83%9C+%E3%83%81%E3%83%A3%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%AF%E3%83%AC%E3%83%B3%E3%82%BA&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/mytrex/cabinet/product/rebive_minixs/main_01.jpg?_ex=200x200" alt="MYTREX リバイブミニ XS"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">MYTREX リバイブミニ XS</div>
+                    <div class="product-subtitle-h">ハンディガン コンパクト 筋膜リリース</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;11,880</span>
+                        <span class="score-badge-h">&#9733; 4.48</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00tn9hm.nla07c85.g00tn9hm.nla08f1d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmytrex%2Fmt-rmxs21b%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=MYTREX+%E3%83%AA%E3%83%90%E3%82%A4%E3%83%96%E3%83%9F%E3%83%8B+XS&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/sixpad-shop/cabinet/product/se-bf-03a_main.jpg?_ex=200x200" alt="SIXPAD パワーガン ポケット"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">SIXPAD パワーガン ポケット</div>
+                    <div class="product-subtitle-h">超小型マッサージガン 180g</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;14,080</span>
+                        <span class="score-badge-h">&#9733; 4.35</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00ubwpm.nla07a25.g00ubwpm.nla08f35/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsixpad-shop%2Fse-bf-03a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=SIXPAD+%E3%83%91%E3%83%AF%E3%83%BC%E3%82%AC%E3%83%B3+%E3%83%9D%E3%82%B1%E3%83%83%E3%83%88&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rizap-shop/cabinet/product/leggings_main.jpg?_ex=200x200" alt="RIZAP 着圧レギンス"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">RIZAP 着圧レギンス</div>
+                    <div class="product-subtitle-h">骨盤サポート 段階圧力設計</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;4,378</span>
+                        <span class="score-badge-h">&#9733; 4.21</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00uw2qm.nla07d21.g00uw2qm.nla08a5e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frizap-shop%2Fleggings01%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=RIZAP+%E7%9D%80%E5%9C%A7%E3%83%AC%E3%82%AE%E3%83%B3%E3%82%B9&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/refa/cabinet/product/rf-pc2019b/rf-pc2019b_main.jpg?_ex=200x200" alt="ReFa CARAT RAY"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">ReFa CARAT RAY</div>
+                    <div class="product-subtitle-h">マイクロカレント 美容ローラー</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;26,180</span>
+                        <span class="score-badge-h">&#9733; 4.56</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00td4qm.nla07e5c.g00td4qm.nla08c25/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frefa%2Frf-pc2019b%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=ReFa+CARAT+RAY+%E7%BE%8E%E5%AE%B9%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/barth/cabinet/product/barth90_main.jpg?_ex=200x200" alt="BARTH 中性重炭酸入浴剤"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">BARTH 中性重炭酸入浴剤</div>
+                    <div class="product-subtitle-h">90錠 疲労回復 肌あたりなめらか</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;6,600</span>
+                        <span class="score-badge-h">&#9733; 4.47</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00uctrm.nla07c59.g00uctrm.nla08e4f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbarth%2Fbarth-90%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=BARTH+%E4%B8%AD%E6%80%A7%E9%87%8D%E7%82%AD%E9%85%B8%E5%85%A5%E6%B5%B4%E5%89%A4&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/sixpad-shop/cabinet/product/se-ag-00a_main.jpg?_ex=200x200" alt="SIXPAD フットフィット ライト"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">SIXPAD フットフィット ライト</div>
+                    <div class="product-subtitle-h">EMS 足裏 ふくらはぎ トレーニング</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;40,480</span>
+                        <span class="score-badge-h">&#9733; 4.31</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00ubwpm.nla07a25.g00ubwpm.nla08f35/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsixpad-shop%2Fse-ag-00a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=SIXPAD+%E3%83%95%E3%83%83%E3%83%88%E3%83%95%E3%82%A3%E3%83%83%E3%83%88+%E3%83%A9%E3%82%A4%E3%83%88&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/niplux/cabinet/product/neckrelax1s_main.jpg?_ex=200x200" alt="NIPLUX NECK RELAX 1S"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">NIPLUX NECK RELAX 1S</div>
+                    <div class="product-subtitle-h">温熱EMS ネックマッサージャー</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;9,680</span>
+                        <span class="score-badge-h">&#9733; 4.33</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00uvmrm.nla07a3c.g00uvmrm.nla08e18/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fniplux%2Fnl-nr101%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=NIPLUX+NECK+RELAX+1S&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-section" id="cat-ガジェット">
+            <div class="category-label"><span>📱 ガジェット</span></div>
+            <div class="scroll-container">
+                
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kitcut-ps/cabinet/product/apple/airpodspro2_usbc_main.jpg?_ex=200x200" alt="Apple AirPods Pro 第2世代"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Apple AirPods Pro 第2世代</div>
+                    <div class="product-subtitle-h">USB-C アクティブノイズキャンセリング</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;36,800</span>
+                        <span class="score-badge-h">&#9733; 4.72</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00qlaam.nla07c52.g00qlaam.nla08e81/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2Fmtjv3j-a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=AirPods+Pro+%E7%AC%AC2%E4%B8%96%E4%BB%A3+USB-C&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/sony/cabinet/product/wf1000xm5_main.jpg?_ex=200x200" alt="Sony WF-1000XM5"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Sony WF-1000XM5</div>
+                    <div class="product-subtitle-h">完全ワイヤレス ノイキャン 最高峰</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;33,000</span>
+                        <span class="score-badge-h">&#9733; 4.65</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00px90m.nla07c1a.g00px90m.nla08a3d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsony%2Fwf-1000xm5%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Sony+WF-1000XM5+%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E3%82%A4%E3%83%A4%E3%83%9B%E3%83%B3&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/kitcut-ps/cabinet/product/apple/aw_s10_main.jpg?_ex=200x200" alt="Apple Watch Series 10"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Apple Watch Series 10</div>
+                    <div class="product-subtitle-h">GPS 46mm 健康管理 Siri対応</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;59,800</span>
+                        <span class="score-badge-h">&#9733; 4.68</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00qlaam.nla07c52.g00qlaam.nla08e81/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2Fapple-watch-s10%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Apple+Watch+Series+10&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/galaxymobile/cabinet/product/gw7_main.jpg?_ex=200x200" alt="Galaxy Watch7"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Galaxy Watch7</div>
+                    <div class="product-subtitle-h">AI健康分析 睡眠スコア 体組成計</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;47,300</span>
+                        <span class="score-badge-h">&#9733; 4.42</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00ux2rm.nla07b52.g00ux2rm.nla08c18/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgalaxymobile%2Fgalaxy-watch7%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Galaxy+Watch7+%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/product/a3936_main.jpg?_ex=200x200" alt="Anker Soundcore Space A40"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Anker Soundcore Space A40</div>
+                    <div class="product-subtitle-h">ノイキャン ワイヤレスイヤホン コスパ最強</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;8,990</span>
+                        <span class="score-badge-h">&#9733; 4.51</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00tl6pm.nla07d5a.g00tl6pm.nla08c72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa3936%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Anker+Soundcore+Space+A40&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/product/a1652_main.jpg?_ex=200x200" alt="Anker MagGo モバイルバッテリー 10000mAh"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">Anker MagGo モバイルバッテリー 10000mAh</div>
+                    <div class="product-subtitle-h">MagSafe対応 Qi2 ワイヤレス充電</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;6,490</span>
+                        <span class="score-badge-h">&#9733; 4.55</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00tl6pm.nla07d5a.g00tl6pm.nla08c72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa1652%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Anker+MagGo+%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC+10000mAh&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/oura-ring/cabinet/product/ouraring_gen3_main.jpg?_ex=200x200" alt="OURA Ring Gen3"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">OURA Ring Gen3</div>
+                    <div class="product-subtitle-h">スマートリング 睡眠分析 心拍数</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;44,800</span>
+                        <span class="score-badge-h">&#9733; 4.38</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00vb3pm.nla07c28.g00vb3pm.nla08a5c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Foura-ring%2Fgen3-horizon%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=OURA+Ring+Gen3+%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/jbl/cabinet/product/flip6_main.jpg?_ex=200x200" alt="JBL FLIP 6"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">JBL FLIP 6</div>
+                    <div class="product-subtitle-h">Bluetooth スピーカー 防水 IP67</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;12,980</span>
+                        <span class="score-badge-h">&#9733; 4.59</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00u5qsm.nla07e72.g00u5qsm.nla08d55/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjbl%2Fjblflip6%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=JBL+FLIP+6+%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC+%E9%98%B2%E6%B0%B4&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-section" id="cat-健康食品">
+            <div class="category-label"><span>💊 健康食品</span></div>
+            <div class="scroll-container">
+                
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/valx/cabinet/product/wpi_choco_main.jpg?_ex=200x200" alt="VALX ホエイプロテイン WPI パーフェクト"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">VALX ホエイプロテイン WPI パーフェクト</div>
+                    <div class="product-subtitle-h">チョコ味 1kg 山本義徳監修</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;5,378</span>
+                        <span class="score-badge-h">&#9733; 4.62</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00uw5lm.nla07e58.g00uw5lm.nla08b2a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvalx%2Fvalx-wpi-chocolate%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=VALX+%E3%83%9B%E3%82%A8%E3%82%A4%E3%83%97%E3%83%AD%E3%83%86%E3%82%A4%E3%83%B3+WPI&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/myprotein/cabinet/product/impactwhey_choco_main.jpg?_ex=200x200" alt="MYPROTEIN Impact ホエイプロテイン"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">MYPROTEIN Impact ホエイプロテイン</div>
+                    <div class="product-subtitle-h">ナチュラルチョコレート 2.5kg</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;7,390</span>
+                        <span class="score-badge-h">&#9733; 4.55</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00v3slm.nla07a8e.g00v3slm.nla08c72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmyprotein%2F10530911%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=MYPROTEIN+Impact+%E3%83%9B%E3%82%A8%E3%82%A4%E3%83%97%E3%83%AD%E3%83%86%E3%82%A4%E3%83%B3+%E3%83%81%E3%83%A7%E3%82%B3%E3%83%AC%E3%83%BC%E3%83%88&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/dhc-online/cabinet/product/multivitamin90_main.jpg?_ex=200x200" alt="DHC マルチビタミン 90日分"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">DHC マルチビタミン 90日分</div>
+                    <div class="product-subtitle-h">13種類のビタミン 毎日の健康に</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;888</span>
+                        <span class="score-badge-h">&#9733; 4.48</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00pv7um.nla07a52.g00pv7um.nla08e38/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdhc-online%2F32171%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=DHC+%E3%83%9E%E3%83%AB%E3%83%81%E3%83%93%E3%82%BF%E3%83%9F%E3%83%B3+90%E6%97%A5%E5%88%86&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/fancl/cabinet/item/5773a.jpg?_ex=200x200" alt="ファンケル 内脂サポート"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">ファンケル 内脂サポート</div>
+                    <div class="product-subtitle-h">BMI改善 機能性表示食品 30日分</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;2,800</span>
+                        <span class="score-badge-h">&#9733; 4.25</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00pm2am.nla07f85.g00pm2am.nla08e98/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancl%2F5773a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%B1%E3%83%AB+%E5%86%85%E8%84%82%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/product/ebios_2000_main.jpg?_ex=200x200" alt="エビオス錠 2000錠"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">エビオス錠 2000錠</div>
+                    <div class="product-subtitle-h">ビール酵母 胃腸・栄養補給</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;2,180</span>
+                        <span class="score-badge-h">&#9733; 4.58</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00q0721.nla07eb2.g00q0721.nla086ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4946842100026%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%93%E3%82%AA%E3%82%B9%E9%8C%A0+2000%E9%8C%A0&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/iherb/cabinet/product/nowd3_5000_main.jpg?_ex=200x200" alt="iHerb ビタミンD3 5000IU"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">iHerb ビタミンD3 5000IU</div>
+                    <div class="product-subtitle-h">Now Foods 免疫サポート 240粒</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;1,680</span>
+                        <span class="score-badge-h">&#9733; 4.63</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00vxc5m.nla07d18.g00vxc5m.nla08e24/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fiherb%2Fnow-00372%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=Now+Foods+%E3%83%93%E3%82%BF%E3%83%9F%E3%83%B3D3+5000IU&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/product/nm_fishoil_main.jpg?_ex=200x200" alt="大塚製薬 ネイチャーメイド スーパーフィッシュオイル"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">大塚製薬 ネイチャーメイド スーパーフィッシュオイル</div>
+                    <div class="product-subtitle-h">EPA DHA オメガ3 90粒</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;1,280</span>
+                        <span class="score-badge-h">&#9733; 4.41</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00q0721.nla07eb2.g00q0721.nla086ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4987035513018%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%83%8D%E3%82%A4%E3%83%81%E3%83%A3%E3%83%BC%E3%83%A1%E3%82%A4%E3%83%89+%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%82%AA%E3%82%A4%E3%83%AB+EPA+DHA&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rakuten24/cabinet/product/savas_cocoa_main.jpg?_ex=200x200" alt="SAVAS ホエイプロテイン100 ココア味"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">SAVAS ホエイプロテイン100 ココア味</div>
+                    <div class="product-subtitle-h">明治 たんぱく質15g 1050g</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;4,280</span>
+                        <span class="score-badge-h">&#9733; 4.52</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00q0721.nla07eb2.g00q0721.nla086ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4902777301341%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=%E3%82%B6%E3%83%90%E3%82%B9+%E3%83%9B%E3%82%A8%E3%82%A4%E3%83%97%E3%83%AD%E3%83%86%E3%82%A4%E3%83%B3100+%E3%82%B3%E3%82%B3%E3%82%A2%E5%91%B3&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+                <div class="product-card-h">
+                    
+                    <img class="product-img-h" src="https://thumbnail.image.rakuten.co.jp/@0_mall/orbis/cabinet/product/defencera_main.jpg?_ex=200x200" alt="ORBIS ディフェンセラ"
+                         onerror="this.style.background='linear-gradient(135deg,#f093fb,#f5576c)';this.style.display='block';">
+                    <div class="product-name-h">ORBIS ディフェンセラ</div>
+                    <div class="product-subtitle-h">飲むスキンケア トクホ 30日分</div>
+                    <div class="product-meta-h">
+                        <span class="price-h">&yen;3,456</span>
+                        <span class="score-badge-h">&#9733; 4.44</span>
+                    </div>
+                    <div class="btn-group-h">
+                        <a href="https://hb.afl.rakuten.co.jp/hgc/g00q8z5m.nla07c12.g00q8z5m.nla08f47/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forbis%2Fdefencera30%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" class="btn btn-rakuten-h" target="_blank" rel="noopener">楽天</a>
+                        <a href="https://www.amazon.co.jp/s?k=ORBIS+%E3%83%87%E3%82%A3%E3%83%95%E3%82%A7%E3%83%B3%E3%82%BB%E3%83%A9&tag=tsune9949-22" class="btn btn-amazon-h" target="_blank" rel="noopener">Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
             <p>※ 本ページにはアフィリエイトリンクが含まれます<br>
-            © 2026 @tsune.eth</p>
+            商品45件 | 2026.03.15 更新<br>
+            &copy; 2026 @tsune.eth</p>
         </div>
     </div>
 </body>
