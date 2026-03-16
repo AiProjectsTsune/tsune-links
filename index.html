@@ -203,6 +203,53 @@
     .scroll-top--visible{opacity:1;pointer-events:auto}
     .scroll-top:hover{background:#333}
 
+    /* ===== Search Bar ===== */
+    .search-bar{
+      background:#fff;border-bottom:1px solid #e5e5e5;
+      position:sticky;top:112px;z-index:80;
+    }
+    .search-bar__inner{
+      max-width:1280px;margin:0 auto;padding:10px 20px;
+    }
+    .search-bar__wrap{
+      position:relative;max-width:480px;
+    }
+    .search-bar__icon{
+      position:absolute;left:14px;top:50%;transform:translateY(-50%);
+      pointer-events:none;color:#bbb;display:flex;align-items:center;
+    }
+    .search-bar__input{
+      width:100%;padding:10px 40px 10px 42px;
+      font-family:'Noto Sans JP','Inter',sans-serif;
+      font-size:13px;color:#222;
+      background:#f5f5f5;border:1px solid transparent;border-radius:8px;
+      outline:none;transition:all .15s ease;
+    }
+    .search-bar__input::placeholder{color:#bbb}
+    .search-bar__input:focus{
+      background:#fff;border-color:#ddd;
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
+    }
+    .search-bar__clear{
+      position:absolute;right:10px;top:50%;transform:translateY(-50%);
+      width:24px;height:24px;border-radius:50%;
+      background:#ddd;color:#666;font-size:14px;line-height:24px;
+      text-align:center;cursor:pointer;
+      display:none;transition:all .15s ease;
+      border:none;font-family:inherit;padding:0;
+    }
+    .search-bar__clear:hover{background:#ccc;color:#333}
+    .search-bar__clear--visible{display:block}
+    .search-bar__result{
+      font-size:12px;color:#999;margin-top:6px;
+      display:none;
+    }
+    .search-bar__result--visible{display:block}
+    .search-bar__result strong{color:#111;font-weight:600}
+    @media(max-width:640px){
+      .search-bar__wrap{max-width:100%}
+    }
+
     /* ===== Hidden ===== */
     .card.hidden{display:none}
 
@@ -255,7 +302,7 @@
       <h2 class="hero__title">Pick Up</h2>
       <p class="hero__sub">本当に良いモノだけ厳選してお届け</p>
       <div class="hero__grid">
-        <div class="card card--featured" data-cat="美容家電">
+        <div class="card card--featured" data-cat="美容家電" data-name="フェイシャルスチーマー FS300" data-subtitle="ナノスチーム&温冷切替">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F27958%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10028498%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/27958_88.jpg?_ex=500x500" alt="フェイシャルスチーマー FS300" loading="lazy" class="card__img"
@@ -274,7 +321,7 @@
         </div>
       </div>
     </div>
-<div class="card card--featured" data-cat="美容家電">
+<div class="card card--featured" data-cat="美容家電" data-name="Panasonic スチーマー ナノケア EH-SA70" data-subtitle="ナノサイズ温スチーム 集中保湿">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000809447%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19763844%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img039/p000000809447_1.jpg?_ex=500x500" alt="Panasonic スチーマー ナノケア EH-SA70" loading="lazy" class="card__img"
@@ -293,7 +340,7 @@
         </div>
       </div>
     </div>
-<div class="card card--featured" data-cat="スキンケア">
+<div class="card card--featured" data-cat="スキンケア" data-name="SK-II フェイシャルトリートメントエッセンス" data-subtitle="ピテラ配合 肌荒れ防止 230ml">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4979006080957%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/sk-ii/cabinet/item/thumb/fte_230-sgl/2511_fte_230-sgl.jpg?fitin=500:500" alt="SK-II フェイシャルトリートメントエッセンス" loading="lazy" class="card__img"
@@ -312,7 +359,7 @@
         </div>
       </div>
     </div>
-<div class="card card--featured" data-cat="ガジェット">
+<div class="card card--featured" data-cat="ガジェット" data-name="Apple AirPods Pro 第2世代" data-subtitle="USB-C アクティブノイズキャンセリング">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qlaam.nla07c52.g00qlaam.nla08e81/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2Fmtjv3j-a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/chisaya/cabinet/10707743/10707749/imgrc0171280603.jpg?fitin=500:500" alt="Apple AirPods Pro 第2世代" loading="lazy" class="card__img"
@@ -338,26 +385,116 @@
   <!-- Category Nav -->
   <nav class="nav">
     <div class="nav__inner">
-      <button class="nav__tab nav__tab--active" data-cat="all">ALL<span class="nav__count">45</span></button>
-      <button class="nav__tab" data-cat="美容家電">美容家電<span class="nav__count">11</span></button>
-      <button class="nav__tab" data-cat="スキンケア">スキンケア<span class="nav__count">9</span></button>
-      <button class="nav__tab" data-cat="ボディケア">ボディケア<span class="nav__count">8</span></button>
-      <button class="nav__tab" data-cat="ガジェット">ガジェット<span class="nav__count">8</span></button>
-      <button class="nav__tab" data-cat="健康食品">健康食品<span class="nav__count">9</span></button>
+      <button class="nav__tab nav__tab--active" data-cat="all">ALL<span class="nav__count">145</span></button>
+      <button class="nav__tab" data-cat="美容家電">美容家電<span class="nav__count">36</span></button>
+      <button class="nav__tab" data-cat="スキンケア">スキンケア<span class="nav__count">34</span></button>
+      <button class="nav__tab" data-cat="ボディケア">ボディケア<span class="nav__count">23</span></button>
+      <button class="nav__tab" data-cat="ガジェット">ガジェット<span class="nav__count">28</span></button>
+      <button class="nav__tab" data-cat="健康食品">健康食品<span class="nav__count">24</span></button>
 
     </div>
   </nav>
 
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <div class="search-bar__inner">
+      <div class="search-bar__wrap">
+        <span class="search-bar__icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="search" class="search-bar__input" id="search-input" placeholder="アイテムを検索..." aria-label="アイテムを検索">
+        <button class="search-bar__clear" id="search-clear" aria-label="検索をクリア">&times;</button>
+      </div>
+      <div class="search-bar__result" id="search-result"></div>
+    </div>
+  </div>
+
   <!-- Info Bar -->
   <div class="info-bar">
-    <div class="info-bar__count" id="result-count">45件 <span>のアイテム</span></div>
-    <div class="info-bar__date">最終更新 2026.03.15</div>
+    <div class="info-bar__count" id="result-count">145件 <span>のアイテム</span></div>
+    <div class="info-bar__date">最終更新 2026.03.16</div>
   </div>
 
   <!-- Product Grid -->
   <section class="grid-wrap">
     <div class="grid" id="product-grid">
-      <div class="card" data-cat="美容家電">
+      <div class="card" data-cat="美容家電" data-name="Panasonic ナノケア ヘアドライヤー EH-NA0J" data-subtitle="高浸透ナノイー搭載 速乾">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Panasonic ナノケア ヘアドライヤー EH-NA0J" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Panasonic ナノケア ヘアドライヤー EH-NA0J</p>
+        <p class="card__sub">高浸透ナノイー搭載 速乾</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;38,610<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.7</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Panasonic%20%E3%83%8A%E3%83%8E%E3%82%B1%E3%82%A2%20%E3%83%98%E3%82%A2%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC%20EH-NA0J&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="ReFa FINE BUBBLE PURE" data-subtitle="ウルトラファインバブル シャワーヘッド">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ReFa FINE BUBBLE PURE" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ReFa FINE BUBBLE PURE</p>
+        <p class="card__sub">ウルトラファインバブル シャワーヘッド</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;30,000<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=ReFa%20FINE%20BUBBLE%20PURE&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Dyson Supersonic ヘアドライヤー" data-subtitle="インテリジェント・ヒートコントロール">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Dyson Supersonic ヘアドライヤー" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Dyson Supersonic ヘアドライヤー</p>
+        <p class="card__sub">インテリジェント・ヒートコントロール</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;48,950<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Dyson%20Supersonic%20%E3%83%98%E3%82%A2%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="ヤーマン フォトプラス EX" data-subtitle="RF美顔器 6モード搭載">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ヤーマン フォトプラス EX" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ヤーマン フォトプラス EX</p>
+        <p class="card__sub">RF美顔器 6モード搭載</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;49,500<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%A4%E3%83%BC%E3%83%9E%E3%83%B3%20%E3%83%95%E3%82%A9%E3%83%88%E3%83%97%E3%83%A9%E3%82%B9%20EX&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Panasonic スチーマー ナノケア EH-SA70" data-subtitle="ナノサイズ温スチーム 集中保湿">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000809447%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19763844%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img039/p000000809447_1.jpg?_ex=500x500" alt="Panasonic スチーマー ナノケア EH-SA70" loading="lazy" class="card__img"
@@ -376,7 +513,102 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="Dyson Airwrap マルチスタイラー" data-subtitle="カール ブロー ドライ 1台3役">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Dyson Airwrap マルチスタイラー" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Dyson Airwrap マルチスタイラー</p>
+        <p class="card__sub">カール ブロー ドライ 1台3役</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;64,900<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Dyson%20Airwrap%20%E3%83%9E%E3%83%AB%E3%83%81%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%A9%E3%83%BC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Philips ソニッケアー ダイヤモンドクリーン" data-subtitle="音波式電動歯ブラシ">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Philips ソニッケアー ダイヤモンドクリーン" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Philips ソニッケアー ダイヤモンドクリーン</p>
+        <p class="card__sub">音波式電動歯ブラシ</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;21,780<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Philips%20%E3%82%BD%E3%83%8B%E3%83%83%E3%82%B1%E3%82%A2%E3%83%BC%20%E3%83%80%E3%82%A4%E3%83%A4%E3%83%A2%E3%83%B3%E3%83%89%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Panasonic ラムダッシュ パームイン" data-subtitle="5枚刃 コンパクトシェーバー">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Panasonic ラムダッシュ パームイン" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Panasonic ラムダッシュ パームイン</p>
+        <p class="card__sub">5枚刃 コンパクトシェーバー</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;23,760<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Panasonic%20%E3%83%A9%E3%83%A0%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%20%E3%83%91%E3%83%BC%E3%83%A0%E3%82%A4%E3%83%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Panasonic 光エステ スムースエピ ES-WG0A" data-subtitle="光美容器 ボディ&フェイス用">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Panasonic 光エステ スムースエピ ES-WG0A" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Panasonic 光エステ スムースエピ ES-WG0A</p>
+        <p class="card__sub">光美容器 ボディ&フェイス用</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;63,360<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Panasonic%20%E5%85%89%E3%82%A8%E3%82%B9%E3%83%86%20%E3%82%B9%E3%83%A0%E3%83%BC%E3%82%B9%E3%82%A8%E3%83%94%20ES-WG0A&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="MYTREX EMS ヘッドスパ PRO" data-subtitle="電動頭皮ブラシ 3Dフィット">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="MYTREX EMS ヘッドスパ PRO" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">MYTREX EMS ヘッドスパ PRO</p>
+        <p class="card__sub">電動頭皮ブラシ 3Dフィット</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;15,950<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=MYTREX%20EMS%20%E3%83%98%E3%83%83%E3%83%89%E3%82%B9%E3%83%91%20PRO&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="絹女 KINUJO ヘアドライヤー" data-subtitle="大風量 速乾 マイナスイオン">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00uphdm.nla07b7d.g00uphdm.nla08406/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmiyabibstore%2Fkinu-kh%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmiyabibstore%2Fi%2F10000525%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/miyabibstore/cabinet/11794400/kinu-kh_1.jpg?_ex=500x500" alt="絹女 KINUJO ヘアドライヤー" loading="lazy" class="card__img"
@@ -395,7 +627,64 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="ヤーマン キャビスパ360" data-subtitle="キャビテーション EMS 防水">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ヤーマン キャビスパ360" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ヤーマン キャビスパ360</p>
+        <p class="card__sub">キャビテーション EMS 防水</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;37,400<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%A4%E3%83%BC%E3%83%9E%E3%83%B3%20%E3%82%AD%E3%83%A3%E3%83%93%E3%82%B9%E3%83%91360&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="BRAUN シリーズ9 Pro" data-subtitle="電気シェーバー 4+1カットシステム">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="BRAUN シリーズ9 Pro" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">BRAUN シリーズ9 Pro</p>
+        <p class="card__sub">電気シェーバー 4+1カットシステム</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;39,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=BRAUN%20%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA9%20Pro&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="YA-MAN メディリフト アクア" data-subtitle="EMS美顔器 防水仕様 ハンズフリー">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="YA-MAN メディリフト アクア" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">YA-MAN メディリフト アクア</p>
+        <p class="card__sub">EMS美顔器 防水仕様 ハンズフリー</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;33,000<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=YA-MAN%20%E3%83%A1%E3%83%87%E3%82%A3%E3%83%AA%E3%83%95%E3%83%88%20%E3%82%A2%E3%82%AF%E3%82%A2&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="ReFa BEAUTECH ストレートアイロン" data-subtitle="カーボンレイヤープレート 温度調整">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00td4qm.nla07e5c.g00td4qm.nla08c25/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frefa%2Fre-at-02a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/mtgec-beauty/cabinet/refa/refa_siron_pro/imgrc0110490381.jpg?fitin=500:500" alt="ReFa BEAUTECH ストレートアイロン" loading="lazy" class="card__img"
@@ -414,7 +703,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="BRAUN シルクエキスパート Pro5" data-subtitle="光美容器 家庭用 全身対応">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="BRAUN シルクエキスパート Pro5" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">BRAUN シルクエキスパート Pro5</p>
+        <p class="card__sub">光美容器 家庭用 全身対応</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;46,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=BRAUN%20%E3%82%B7%E3%83%AB%E3%82%AF%E3%82%A8%E3%82%AD%E3%82%B9%E3%83%91%E3%83%BC%E3%83%88%20Pro5&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="ケノン 家庭用脱毛器" data-subtitle="日本製 カートリッジ交換式">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ケノン 家庭用脱毛器" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ケノン 家庭用脱毛器</p>
+        <p class="card__sub">日本製 カートリッジ交換式</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;69,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%B1%E3%83%8E%E3%83%B3%20%E5%AE%B6%E5%BA%AD%E7%94%A8%E8%84%B1%E6%AF%9B%E5%99%A8&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="ヤーマン レイボーテ ハイパーZERO" data-subtitle="光美容器 全身対応 VIO対応">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00rd00m.nla071a3.g00rd00m.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000825310%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19771653%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/ya-man/cabinet/square500/yty_body/r2102a/imgrc0093769350.jpg?fitin=500:500" alt="ヤーマン レイボーテ ハイパーZERO" loading="lazy" class="card__img"
@@ -433,7 +760,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="MTG リファビューテック カールアイロン" data-subtitle="プロ仕様 温度5段階">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="MTG リファビューテック カールアイロン" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">MTG リファビューテック カールアイロン</p>
+        <p class="card__sub">プロ仕様 温度5段階</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;24,000<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=MTG%20%E3%83%AA%E3%83%95%E3%82%A1%E3%83%93%E3%83%A5%E3%83%BC%E3%83%86%E3%83%83%E3%82%AF%20%E3%82%AB%E3%83%BC%E3%83%AB%E3%82%A2%E3%82%A4%E3%83%AD%E3%83%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Panasonic 目もとエステ EH-SW68" data-subtitle="温感ヒーター スチーム方式">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Panasonic 目もとエステ EH-SW68" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Panasonic 目もとエステ EH-SW68</p>
+        <p class="card__sub">温感ヒーター スチーム方式</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;15,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Panasonic%20%E7%9B%AE%E3%82%82%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%86%20EH-SW68&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="RELX ヘッドスパ 電動頭皮ブラシ" data-subtitle="3D振動 IPX7防水 サロン級">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00ulv1m.nla073b8.g00ulv1m.nla08027/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhellodear%2F01-20250708-033952%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhellodear%2Fi%2F10067135%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/hellodear/cabinet/raku999_0177/01-20250708-03395200.jpg?_ex=500x500" alt="RELX ヘッドスパ 電動頭皮ブラシ" loading="lazy" class="card__img"
@@ -452,7 +817,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="SALONIA スピーディーイオンドライヤー" data-subtitle="大風量2.3m3/min 軽量495g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="SALONIA スピーディーイオンドライヤー" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SALONIA スピーディーイオンドライヤー</p>
+        <p class="card__sub">大風量2.3m3/min 軽量495g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,478<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=SALONIA%20%E3%82%B9%E3%83%94%E3%83%BC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="ヤーマン スカルプドライヤー プロ" data-subtitle="遠赤外線 低温ドライ 頭皮ケア">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ヤーマン スカルプドライヤー プロ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ヤーマン スカルプドライヤー プロ</p>
+        <p class="card__sub">遠赤外線 低温ドライ 頭皮ケア</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;24,200<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%A4%E3%83%BC%E3%83%9E%E3%83%B3%20%E3%82%B9%E3%82%AB%E3%83%AB%E3%83%97%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC%20%E3%83%97%E3%83%AD&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="美ルル リバース 美顔器" data-subtitle="EMS エレクトロポレーション">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_rebirth_3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10002088%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/yancomstore/cabinet/belulu/rebirth/10601738/rebirth_kg_24.jpg?_ex=500x500" alt="美ルル リバース 美顔器" loading="lazy" class="card__img"
@@ -471,7 +874,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="Ulike Air3 IPL光美容器" data-subtitle="サファイア冷却 痛くない脱毛">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Ulike Air3 IPL光美容器" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Ulike Air3 IPL光美容器</p>
+        <p class="card__sub">サファイア冷却 痛くない脱毛</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;39,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Ulike%20Air3%20IPL%E5%85%89%E7%BE%8E%E5%AE%B9%E5%99%A8&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Re・De Suhada スティック美顔器" data-subtitle="LED EMS 音波振動">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qac0m.nla0754a.g00qac0m.nla08a21/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnoel-ange%2Frde-fm01a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnoel-ange%2Fi%2F10493155%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/noel-ange/cabinet/2507/rde-fm01a_d.jpg?_ex=500x500" alt="Re・De Suhada スティック美顔器" loading="lazy" class="card__img"
@@ -490,7 +912,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="SALONIA ストレートヘアアイロン" data-subtitle="15mm 230℃ プロ仕様">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="SALONIA ストレートヘアアイロン" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SALONIA ストレートヘアアイロン</p>
+        <p class="card__sub">15mm 230℃ プロ仕様</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;3,278<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=SALONIA%20%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%83%88%E3%83%98%E3%82%A2%E3%82%A2%E3%82%A4%E3%83%AD%E3%83%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="フェイシャルスチーマー FS300" data-subtitle="ナノスチーム&温冷切替">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F27958%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10028498%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/27958_88.jpg?_ex=500x500" alt="フェイシャルスチーマー FS300" loading="lazy" class="card__img"
@@ -509,7 +950,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="ReFa HEART BRUSH" data-subtitle="スカルプブラシ 頭皮ケア">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ReFa HEART BRUSH" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ReFa HEART BRUSH</p>
+        <p class="card__sub">スカルプブラシ 頭皮ケア</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,970<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=ReFa%20HEART%20BRUSH&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="Rocklean ウォーターピーリング" data-subtitle="複合美顔器 毛穴ケア">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00upf9m.nla07e27.g00upf9m.nla08872/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmarisannnoshop%2Fb07hwp4t71%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmarisannnoshop%2Fi%2F10101434%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/marisannnoshop/cabinet/rakub200_0390/b07hwp4t7100.jpg?_ex=500x500" alt="Rocklean ウォーターピーリング" loading="lazy" class="card__img"
@@ -528,7 +988,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="美ルル クラッシィ 超音波美顔器" data-subtitle="イオン導入・導出 1台5役">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_classy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10001558%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/yancomstore/cabinet/belulu/classy/11450700/classymi_kago2.jpg?_ex=500x500" alt="美ルル クラッシィ 超音波美顔器" loading="lazy" class="card__img"
@@ -547,7 +1007,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="美容家電">
+<div class="card" data-cat="美容家電" data-name="TESCOM ドレープドライヤー TID6J" data-subtitle="速乾 ドレープフロー方式">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="TESCOM ドレープドライヤー TID6J" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">TESCOM ドレープドライヤー TID6J</p>
+        <p class="card__sub">速乾 ドレープフロー方式</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;15,180<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=TESCOM%20%E3%83%89%E3%83%AC%E3%83%BC%E3%83%97%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC%20TID6J&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="OMRON 低周波治療器 HV-F022" data-subtitle="コンパクト 肩こり 腰痛">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="OMRON 低周波治療器 HV-F022" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">OMRON 低周波治療器 HV-F022</p>
+        <p class="card__sub">コンパクト 肩こり 腰痛</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.0</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=OMRON%20%E4%BD%8E%E5%91%A8%E6%B3%A2%E6%B2%BB%E7%99%82%E5%99%A8%20HV-F022&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="フェイシャルスチーマー ST-1" data-subtitle="コスパ最強スチーマー">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qbjkm.nla07e0a.g00qbjkm.nla083da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F7esthe-pro%2F30894-set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F7esthe-pro%2Fi%2F10031109%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/7esthe-pro/cabinet/esthe/goods_machinery/30894-set_88.jpg?_ex=500x500" alt="フェイシャルスチーマー ST-1" loading="lazy" class="card__img"
@@ -566,7 +1064,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="美容家電" data-name="アイリスオーヤマ ドライヤー HDR-MC1" data-subtitle="コスパ大風量 軽量">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="アイリスオーヤマ ドライヤー HDR-MC1" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">アイリスオーヤマ ドライヤー HDR-MC1</p>
+        <p class="card__sub">コスパ大風量 軽量</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">3.9</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%83%AA%E3%82%B9%E3%82%AA%E3%83%BC%E3%83%A4%E3%83%9E%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%A4%E3%83%BC%20HDR-MC1&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="美容家電" data-name="コイズミ エッグアイロン KMC-0610" data-subtitle="USB充電式 コードレス">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="コイズミ エッグアイロン KMC-0610" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">コイズミ エッグアイロン KMC-0610</p>
+        <p class="card__sub">USB充電式 コードレス</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;3,278<span class="card__tax">（税込）</span></span>
+          <span class="card__score">3.8</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%B3%E3%82%A4%E3%82%BA%E3%83%9F%20%E3%82%A8%E3%83%83%E3%82%B0%E3%82%A2%E3%82%A4%E3%83%AD%E3%83%B3%20KMC-0610&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="SK-II フェイシャルトリートメントエッセンス" data-subtitle="ピテラ配合 肌荒れ防止 230ml">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4979006080957%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/sk-ii/cabinet/item/thumb/fte_230-sgl/2511_fte_230-sgl.jpg?fitin=500:500" alt="SK-II フェイシャルトリートメントエッセンス" loading="lazy" class="card__img"
@@ -585,7 +1121,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="POLA リンクルショット メディカルセラム N" data-subtitle="シワ改善美容液 20g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="POLA リンクルショット メディカルセラム N" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">POLA リンクルショット メディカルセラム N</p>
+        <p class="card__sub">シワ改善美容液 20g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;14,850<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=POLA%20%E3%83%AA%E3%83%B3%E3%82%AF%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%20%E3%83%A1%E3%83%87%E3%82%A3%E3%82%AB%E3%83%AB%E3%82%BB%E3%83%A9%E3%83%A0%20N&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="FANCL マイルドクレンジングオイル" data-subtitle="メイク落とし 120ml 無添加">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00pm2am.nla07f85.g00pm2am.nla08e98/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancl%2F3727a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/fancl-shop/cabinet/item-img/3500-3999_2/3670-21_rn.jpg?fitin=500:500" alt="FANCL マイルドクレンジングオイル" loading="lazy" class="card__img"
@@ -604,7 +1159,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="DECORTE リポソーム アドバンスト" data-subtitle="リペアセラム 50ml 多重層リポソーム">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4971710500714%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/tomimori-life/cabinet/5831.jpg?fitin=500:500" alt="DECORTE リポソーム アドバンスト" loading="lazy" class="card__img"
@@ -623,7 +1178,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="CHANEL ル リフト クレーム" data-subtitle="エイジングケアクリーム 50g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="CHANEL ル リフト クレーム" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">CHANEL ル リフト クレーム</p>
+        <p class="card__sub">エイジングケアクリーム 50g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;19,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=CHANEL%20%E3%83%AB%20%E3%83%AA%E3%83%95%E3%83%88%20%E3%82%AF%E3%83%AC%E3%83%BC%E3%83%A0&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="資生堂 アルティミューン パワライジング コンセントレートIII" data-subtitle="免疫美容液 50ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="資生堂 アルティミューン パワライジング コンセントレートIII" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">資生堂 アルティミューン パワライジング コンセントレートIII</p>
+        <p class="card__sub">免疫美容液 50ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;13,200<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E8%B3%87%E7%94%9F%E5%A0%82%20%E3%82%A2%E3%83%AB%E3%83%86%E3%82%A3%E3%83%9F%E3%83%A5%E3%83%BC%E3%83%B3%20%E3%83%91%E3%83%AF%E3%83%A9%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%20%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%B3%E3%83%88%E3%83%AC%E3%83%BC%E3%83%88III&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="LANCOME ジェニフィック アドバンスト" data-subtitle="美容液 30ml 整肌成分配合">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F3614273069175%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/lancome/cabinet/images/packshots/imgrc0108638407.jpg?fitin=500:500" alt="LANCOME ジェニフィック アドバンスト" loading="lazy" class="card__img"
@@ -642,7 +1235,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="SUQQU ザ クリーム ファンデーション" data-subtitle="高級ファンデーション 30g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="SUQQU ザ クリーム ファンデーション" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SUQQU ザ クリーム ファンデーション</p>
+        <p class="card__sub">高級ファンデーション 30g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;11,000<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=SUQQU%20%E3%82%B6%20%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%A0%20%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="HAKU メラノフォーカスZ" data-subtitle="美白美容液 45g シミ予防">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4909978150037%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/granbeautyon-line/cabinet/3000off2/sgsgsgsewg.jpg?fitin=500:500" alt="HAKU メラノフォーカスZ" loading="lazy" class="card__img"
@@ -661,7 +1273,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="IPSA ザ・タイムR アクア" data-subtitle="薬用化粧水 200ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="IPSA ザ・タイムR アクア" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">IPSA ザ・タイムR アクア</p>
+        <p class="card__sub">薬用化粧水 200ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,400<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=IPSA%20%E3%82%B6%E3%83%BB%E3%82%BF%E3%82%A4%E3%83%A0R%20%E3%82%A2%E3%82%AF%E3%82%A2&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="Obagi C25セラム ネオ" data-subtitle="ピュアビタミンC 高濃度美容液 12ml">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4987241190119%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/arianakosume/cabinet/marason-7/obagi-002-ra1.jpg?fitin=500:500" alt="Obagi C25セラム ネオ" loading="lazy" class="card__img"
@@ -680,7 +1311,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="アネッサ パーフェクトUV スキンケアミルクN" data-subtitle="日焼け止め SPF50+ 60ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="アネッサ パーフェクトUV スキンケアミルクN" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">アネッサ パーフェクトUV スキンケアミルクN</p>
+        <p class="card__sub">日焼け止め SPF50+ 60ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,640<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%8D%E3%83%83%E3%82%B5%20%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88UV%20%E3%82%B9%E3%82%AD%E3%83%B3%E3%82%B1%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AFN&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="KIEHL'S クリーム UFC" data-subtitle="保湿クリーム 49g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="KIEHL'S クリーム UFC" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">KIEHL'S クリーム UFC</p>
+        <p class="card__sub">保湿クリーム 49g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,620<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=KIEHL%27S%20%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%A0%20UFC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="無印良品 導入化粧液" data-subtitle="岩手県釜石の天然水使用 400ml">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00sr3pm.nla074e7.g00sr3pm.nla08d39/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmujirushi-ryohin%2F4550344295960%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/rakuten24-cosmetics/cabinet/179/4971650801179.jpg?fitin=500:500" alt="無印良品 導入化粧液" loading="lazy" class="card__img"
@@ -699,7 +1368,83 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="アスタリフト ジェリー アクアリスタ" data-subtitle="先行美容液 ジェリー状 40g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="アスタリフト ジェリー アクアリスタ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">アスタリフト ジェリー アクアリスタ</p>
+        <p class="card__sub">先行美容液 ジェリー状 40g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;9,900<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%AA%E3%83%95%E3%83%88%20%E3%82%B8%E3%82%A7%E3%83%AA%E3%83%BC%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%AA%E3%82%B9%E3%82%BF&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="SHISEIDO エッセンス スキングロウ" data-subtitle="美容液ファンデーション 30ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="SHISEIDO エッセンス スキングロウ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SHISEIDO エッセンス スキングロウ</p>
+        <p class="card__sub">美容液ファンデーション 30ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;6,600<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=SHISEIDO%20%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B9%20%E3%82%B9%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%AD%E3%82%A6&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="キュレル 潤浸保湿フェイスクリーム" data-subtitle="乾燥性敏感肌 40g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="キュレル 潤浸保湿フェイスクリーム" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">キュレル 潤浸保湿フェイスクリーム</p>
+        <p class="card__sub">乾燥性敏感肌 40g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,530<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A5%E3%83%AC%E3%83%AB%20%E6%BD%A4%E6%B5%B8%E4%BF%9D%E6%B9%BF%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%A0&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="ALBION エクサージュホワイト ピュアホワイトミルク" data-subtitle="薬用美白乳液 200g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ALBION エクサージュホワイト ピュアホワイトミルク" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ALBION エクサージュホワイト ピュアホワイトミルク</p>
+        <p class="card__sub">薬用美白乳液 200g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,500<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=ALBION%20%E3%82%A8%E3%82%AF%E3%82%B5%E3%83%BC%E3%82%B8%E3%83%A5%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%20%E3%83%94%E3%83%A5%E3%82%A2%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%83%9F%E3%83%AB%E3%82%AF&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="DUO ザ クレンジングバーム ブラックリペア" data-subtitle="毛穴ケア W洗顔不要 90g">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00tcu2m.nla07a35.g00tcu2m.nla08f12/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremier-beaute%2Fduo-blackrepair%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/p-antiaging/cabinet/thum/duo/thumb_bl_1.jpg?fitin=500:500" alt="DUO ザ クレンジングバーム ブラックリペア" loading="lazy" class="card__img"
@@ -718,7 +1463,64 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="スキンケア">
+<div class="card" data-cat="スキンケア" data-name="dプログラム アレルバリア エッセンス" data-subtitle="敏感肌用日中美容液 40ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="dプログラム アレルバリア エッセンス" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">dプログラム アレルバリア エッセンス</p>
+        <p class="card__sub">敏感肌用日中美容液 40ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;3,300<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=d%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%20%E3%82%A2%E3%83%AC%E3%83%AB%E3%83%90%E3%83%AA%E3%82%A2%20%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B9&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="ONE BY KOSE セラムシールド" data-subtitle="バーム状美容液 固形美容液 40g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ONE BY KOSE セラムシールド" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ONE BY KOSE セラムシールド</p>
+        <p class="card__sub">バーム状美容液 固形美容液 40g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,500<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=ONE%20BY%20KOSE%20%E3%82%BB%E3%83%A9%E3%83%A0%E3%82%B7%E3%83%BC%E3%83%AB%E3%83%89&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="KOSE 米肌 肌潤化粧水" data-subtitle="ライスパワーNo.11 120ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="KOSE 米肌 肌潤化粧水" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">KOSE 米肌 肌潤化粧水</p>
+        <p class="card__sub">ライスパワーNo.11 120ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,500<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=KOSE%20%E7%B1%B3%E8%82%8C%20%E8%82%8C%E6%BD%A4%E5%8C%96%E7%B2%A7%E6%B0%B4&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="ELIXIR デザインタイム セラム" data-subtitle="エイジングケア美容液 40ml">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00piwvm.nla07c3e.g00piwvm.nla08f5d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmeland%2F4909978150150%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/jetdrug/cabinet/p02-04/4909978999261-01.jpg?fitin=500:500" alt="ELIXIR デザインタイム セラム" loading="lazy" class="card__img"
@@ -737,7 +1539,216 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="スキンケア" data-name="エトヴォス モイスチャライジングセラム" data-subtitle="セラミド美容液 50ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="エトヴォス モイスチャライジングセラム" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">エトヴォス モイスチャライジングセラム</p>
+        <p class="card__sub">セラミド美容液 50ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,400<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%88%E3%83%B4%E3%82%A9%E3%82%B9%20%E3%83%A2%E3%82%A4%E3%82%B9%E3%83%81%E3%83%A3%E3%83%A9%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%E3%82%BB%E3%83%A9%E3%83%A0&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="ドクターシーラボ アクアコラーゲンゲル エンリッチリフトEX" data-subtitle="オールインワンゲル 120g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ドクターシーラボ アクアコラーゲンゲル エンリッチリフトEX" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ドクターシーラボ アクアコラーゲンゲル エンリッチリフトEX</p>
+        <p class="card__sub">オールインワンゲル 120g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;8,580<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%B7%E3%83%BC%E3%83%A9%E3%83%9C%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B2%E3%83%B3%E3%82%B2%E3%83%AB%20%E3%82%A8%E3%83%B3%E3%83%AA%E3%83%83%E3%83%81%E3%83%AA%E3%83%95%E3%83%88EX&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="クリニーク モイスチャーサージ 72" data-subtitle="ジェルクリーム 50ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="クリニーク モイスチャーサージ 72" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">クリニーク モイスチャーサージ 72</p>
+        <p class="card__sub">ジェルクリーム 50ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,720<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%BC%E3%82%AF%20%E3%83%A2%E3%82%A4%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B5%E3%83%BC%E3%82%B8%2072&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="オルビスユー ローション" data-subtitle="とろぱしゃ化粧水 180ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="オルビスユー ローション" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">オルビスユー ローション</p>
+        <p class="card__sub">とろぱしゃ化粧水 180ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,970<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%AA%E3%83%AB%E3%83%93%E3%82%B9%E3%83%A6%E3%83%BC%20%E3%83%AD%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="b.glen QuSomeホワイトクリーム2.0" data-subtitle="ハイドロキノン配合 15g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="b.glen QuSomeホワイトクリーム2.0" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">b.glen QuSomeホワイトクリーム2.0</p>
+        <p class="card__sub">ハイドロキノン配合 15g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;6,600<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=b.glen%20QuSome%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%A02.0&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="メラノCC 薬用しみ集中対策美容液" data-subtitle="ロート製薬 20ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="メラノCC 薬用しみ集中対策美容液" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">メラノCC 薬用しみ集中対策美容液</p>
+        <p class="card__sub">ロート製薬 20ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,210<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%A1%E3%83%A9%E3%83%8ECC%20%E8%96%AC%E7%94%A8%E3%81%97%E3%81%BF%E9%9B%86%E4%B8%AD%E5%AF%BE%E7%AD%96%E7%BE%8E%E5%AE%B9%E6%B6%B2&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="雪肌精 クリアウェルネス ナチュラルドリップ" data-subtitle="化粧水 200ml 和漢植物">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="雪肌精 クリアウェルネス ナチュラルドリップ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">雪肌精 クリアウェルネス ナチュラルドリップ</p>
+        <p class="card__sub">化粧水 200ml 和漢植物</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;3,850<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E9%9B%AA%E8%82%8C%E7%B2%BE%20%E3%82%AF%E3%83%AA%E3%82%A2%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%8D%E3%82%B9%20%E3%83%8A%E3%83%81%E3%83%A5%E3%83%A9%E3%83%AB%E3%83%89%E3%83%AA%E3%83%83%E3%83%97&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="肌ラボ 極潤ヒアルロン液" data-subtitle="ロート製薬 170ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="肌ラボ 極潤ヒアルロン液" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">肌ラボ 極潤ヒアルロン液</p>
+        <p class="card__sub">ロート製薬 170ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;814<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E8%82%8C%E3%83%A9%E3%83%9C%20%E6%A5%B5%E6%BD%A4%E3%83%92%E3%82%A2%E3%83%AB%E3%83%AD%E3%83%B3%E6%B6%B2&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="CANMAKE マシュマロフィニッシュパウダー" data-subtitle="プチプラ フェイスパウダー">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="CANMAKE マシュマロフィニッシュパウダー" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">CANMAKE マシュマロフィニッシュパウダー</p>
+        <p class="card__sub">プチプラ フェイスパウダー</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,034<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=CANMAKE%20%E3%83%9E%E3%82%B7%E3%83%A5%E3%83%9E%E3%83%AD%E3%83%95%E3%82%A3%E3%83%8B%E3%83%83%E3%82%B7%E3%83%A5%E3%83%91%E3%82%A6%E3%83%80%E3%83%BC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="ナチュリエ ハトムギ化粧水" data-subtitle="大容量500ml コスパ最強">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ナチュリエ ハトムギ化粧水" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ナチュリエ ハトムギ化粧水</p>
+        <p class="card__sub">大容量500ml コスパ最強</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;715<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%8A%E3%83%81%E3%83%A5%E3%83%AA%E3%82%A8%20%E3%83%8F%E3%83%88%E3%83%A0%E3%82%AE%E5%8C%96%E7%B2%A7%E6%B0%B4&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="LITS リバイバル ステムプラス" data-subtitle="幹細胞コスメ オールインワン 50g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="LITS リバイバル ステムプラス" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">LITS リバイバル ステムプラス</p>
+        <p class="card__sub">幹細胞コスメ オールインワン 50g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.1</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=LITS%20%E3%83%AA%E3%83%90%E3%82%A4%E3%83%90%E3%83%AB%20%E3%82%B9%E3%83%86%E3%83%A0%E3%83%97%E3%83%A9%E3%82%B9&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ReFa CARAT RAY" data-subtitle="マイクロカレント 美容ローラー">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00td4qm.nla07e5c.g00td4qm.nla08c25/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frefa%2Frf-pc2019b%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/jyousui/cabinet/shouhin/refaactive_img/refa_zaikokagiri/refaactive_tmb50.jpg?fitin=500:500" alt="ReFa CARAT RAY" loading="lazy" class="card__img"
@@ -756,7 +1767,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="エステプロラボ チャコールクレンズ" data-subtitle="活性炭パワー 2本セット">
       <span class="badge-ig">IG紹介</span>
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00txasm.nla07a5c.g00txasm.nla08600/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmygift%2Fepl-he-4582317250270-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmygift%2Fi%2F10000275%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/mygift/cabinet/shohin/epl-he/4582317250270-2_z.jpg?_ex=500x500" alt="エステプロラボ チャコールクレンズ" loading="lazy" class="card__img"
@@ -775,7 +1786,64 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="SABON ボディスクラブ パチュリラベンダーバニラ" data-subtitle="死海の塩 600g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="SABON ボディスクラブ パチュリラベンダーバニラ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SABON ボディスクラブ パチュリラベンダーバニラ</p>
+        <p class="card__sub">死海の塩 600g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,940<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=SABON%20%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%96%20%E3%83%91%E3%83%81%E3%83%A5%E3%83%AA%E3%83%A9%E3%83%99%E3%83%B3%E3%83%80%E3%83%BC%E3%83%90%E3%83%8B%E3%83%A9&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="MTG ReFa FINE BUBBLE S" data-subtitle="シャワーヘッド ファインバブル">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="MTG ReFa FINE BUBBLE S" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">MTG ReFa FINE BUBBLE S</p>
+        <p class="card__sub">シャワーヘッド ファインバブル</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;18,480<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=MTG%20ReFa%20FINE%20BUBBLE%20S&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ロクシタン シア ハンドクリーム" data-subtitle="30ml シアバター20%">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ロクシタン シア ハンドクリーム" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ロクシタン シア ハンドクリーム</p>
+        <p class="card__sub">30ml シアバター20%</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,760<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%AD%E3%82%AF%E3%82%B7%E3%82%BF%E3%83%B3%20%E3%82%B7%E3%82%A2%20%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%A0&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="MYTREX リバイブミニ XS" data-subtitle="ハンディガン コンパクト 筋膜リリース">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00tn9hm.nla07c85.g00tn9hm.nla08f1d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmytrex%2Fmt-rmxs21b%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/leapgrow/cabinet/mytrex/p5/p05_rbm_01a.jpg?fitin=500:500" alt="MYTREX リバイブミニ XS" loading="lazy" class="card__img"
@@ -794,7 +1862,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="BARTH 中性重炭酸入浴剤" data-subtitle="90錠 疲労回復 肌あたりなめらか">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00uctrm.nla07c59.g00uctrm.nla08e4f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbarth%2Fbarth-90%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/sleepdays/cabinet/item/barth/bath_tablet/imgrc0101687861.jpg?fitin=500:500" alt="BARTH 中性重炭酸入浴剤" loading="lazy" class="card__img"
@@ -813,7 +1881,64 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="Aesop レスレクションハンドウォッシュ" data-subtitle="ハンドソープ 500ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Aesop レスレクションハンドウォッシュ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Aesop レスレクションハンドウォッシュ</p>
+        <p class="card__sub">ハンドソープ 500ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,500<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Aesop%20%E3%83%AC%E3%82%B9%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%8F%E3%83%B3%E3%83%89%E3%82%A6%E3%82%A9%E3%83%83%E3%82%B7%E3%83%A5&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="パナソニック 頭皮エステ サロンタッチタイプ" data-subtitle="EH-HE0G 防水">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="パナソニック 頭皮エステ サロンタッチタイプ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">パナソニック 頭皮エステ サロンタッチタイプ</p>
+        <p class="card__sub">EH-HE0G 防水</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;13,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%91%E3%83%8A%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF%20%E9%A0%AD%E7%9A%AE%E3%82%A8%E3%82%B9%E3%83%86%20%E3%82%B5%E3%83%AD%E3%83%B3%E3%82%BF%E3%83%83%E3%83%81%E3%82%BF%E3%82%A4%E3%83%97&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ヴェレダ ホワイトバーチ ボディオイル" data-subtitle="セルライトケア 100ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ヴェレダ ホワイトバーチ ボディオイル" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ヴェレダ ホワイトバーチ ボディオイル</p>
+        <p class="card__sub">セルライトケア 100ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,180<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%AC%E3%83%80%20%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%83%90%E3%83%BC%E3%83%81%20%E3%83%9C%E3%83%87%E3%82%A3%E3%82%AA%E3%82%A4%E3%83%AB&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="SIXPAD パワーガン ポケット" data-subtitle="超小型マッサージガン 180g">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00ubwpm.nla07a25.g00ubwpm.nla08f35/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsixpad-shop%2Fse-bf-03a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/mtgec-beauty/cabinet/05449264/fitness/11428056/imgrc0104233492.jpg?fitin=500:500" alt="SIXPAD パワーガン ポケット" loading="lazy" class="card__img"
@@ -832,7 +1957,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="MTG SIXPAD アブズフィット2" data-subtitle="EMS 腹筋トレーニング">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="MTG SIXPAD アブズフィット2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">MTG SIXPAD アブズフィット2</p>
+        <p class="card__sub">EMS 腹筋トレーニング</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;25,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=MTG%20SIXPAD%20%E3%82%A2%E3%83%96%E3%82%BA%E3%83%95%E3%82%A3%E3%83%83%E3%83%882&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="NIPLUX NECK RELAX 1S" data-subtitle="温熱EMS ネックマッサージャー">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00uvmrm.nla07a3c.g00uvmrm.nla08e18/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fniplux%2Fnl-nr101%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/nissoplus/cabinet/item/neck_1s2/main/1s_01_250707.jpg?fitin=500:500" alt="NIPLUX NECK RELAX 1S" loading="lazy" class="card__img"
@@ -851,7 +1995,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="SIXPAD フットフィット ライト" data-subtitle="EMS 足裏 ふくらはぎ トレーニング">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00ubwpm.nla07a25.g00ubwpm.nla08f35/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsixpad-shop%2Fse-ag-00a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/mtgec-beauty/cabinet/05449264/05449265/footfitlite/2412_ffl.jpg?fitin=500:500" alt="SIXPAD フットフィット ライト" loading="lazy" class="card__img"
@@ -870,7 +2014,83 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ボディケア">
+<div class="card" data-cat="ボディケア" data-name="THREE バランシング ボディソープR" data-subtitle="天然由来96% 250ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="THREE バランシング ボディソープR" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">THREE バランシング ボディソープR</p>
+        <p class="card__sub">天然由来96% 250ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;3,520<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=THREE%20%E3%83%90%E3%83%A9%E3%83%B3%E3%82%B7%E3%83%B3%E3%82%B0%20%E3%83%9C%E3%83%87%E3%82%A3%E3%82%BD%E3%83%BC%E3%83%97R&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ファイテン RAKUWAネック メタックス" data-subtitle="磁気ネックレス">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ファイテン RAKUWAネック メタックス" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ファイテン RAKUWAネック メタックス</p>
+        <p class="card__sub">磁気ネックレス</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;8,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A1%E3%82%A4%E3%83%86%E3%83%B3%20RAKUWA%E3%83%8D%E3%83%83%E3%82%AF%20%E3%83%A1%E3%82%BF%E3%83%83%E3%82%AF%E3%82%B9&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="タングルティーザー オリジナル" data-subtitle="絡まない ヘアブラシ">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="タングルティーザー オリジナル" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">タングルティーザー オリジナル</p>
+        <p class="card__sub">絡まない ヘアブラシ</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,200<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%BF%E3%83%B3%E3%82%B0%E3%83%AB%E3%83%86%E3%82%A3%E3%83%BC%E3%82%B6%E3%83%BC%20%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ニベア プレミアムボディミルク" data-subtitle="モイスチャー 190g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ニベア プレミアムボディミルク" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ニベア プレミアムボディミルク</p>
+        <p class="card__sub">モイスチャー 190g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%8B%E3%83%99%E3%82%A2%20%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%83%9C%E3%83%87%E3%82%A3%E3%83%9F%E3%83%AB%E3%82%AF&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="RIZAP 着圧レギンス" data-subtitle="骨盤サポート 段階圧力設計">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00uw2qm.nla07d21.g00uw2qm.nla08a5e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frizap-shop%2Fleggings01%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/koyama-sangyo/cabinet/ladies_inner/botom/01688143/imgrc0072582989.jpg?fitin=500:500" alt="RIZAP 着圧レギンス" loading="lazy" class="card__img"
@@ -889,7 +2109,83 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ボディケア" data-name="ドクターショール 寝ながらメディキュット" data-subtitle="着圧ソックス ロング">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ドクターショール 寝ながらメディキュット" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ドクターショール 寝ながらメディキュット</p>
+        <p class="card__sub">着圧ソックス ロング</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,178<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%AB%20%E5%AF%9D%E3%81%AA%E3%81%8C%E3%82%89%E3%83%A1%E3%83%87%E3%82%A3%E3%82%AD%E3%83%A5%E3%83%83%E3%83%88&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="花王 バブ メディキュア 柑橘の香り" data-subtitle="高濃度炭酸 入浴剤 6錠">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="花王 バブ メディキュア 柑橘の香り" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">花王 バブ メディキュア 柑橘の香り</p>
+        <p class="card__sub">高濃度炭酸 入浴剤 6錠</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;898<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E8%8A%B1%E7%8E%8B%20%E3%83%90%E3%83%96%20%E3%83%A1%E3%83%87%E3%82%A3%E3%82%AD%E3%83%A5%E3%82%A2%20%E6%9F%91%E6%A9%98%E3%81%AE%E9%A6%99%E3%82%8A&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ジョンソン ボディケア エクストラケア" data-subtitle="高保湿ローション 400ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ジョンソン ボディケア エクストラケア" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ジョンソン ボディケア エクストラケア</p>
+        <p class="card__sub">高保湿ローション 400ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;755<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%BD%E3%83%B3%20%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%20%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E3%82%B1%E3%82%A2&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ボディケア" data-name="ルシード デオドラントボディウォッシュ" data-subtitle="40才からのニオイケア 450ml">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ルシード デオドラントボディウォッシュ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ルシード デオドラントボディウォッシュ</p>
+        <p class="card__sub">40才からのニオイケア 450ml</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;877<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.1</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%AB%E3%82%B7%E3%83%BC%E3%83%89%20%E3%83%87%E3%82%AA%E3%83%89%E3%83%A9%E3%83%B3%E3%83%88%E3%83%9C%E3%83%87%E3%82%A3%E3%82%A6%E3%82%A9%E3%83%83%E3%82%B7%E3%83%A5&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Apple AirPods Pro 第2世代" data-subtitle="USB-C アクティブノイズキャンセリング">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qlaam.nla07c52.g00qlaam.nla08e81/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2Fmtjv3j-a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/chisaya/cabinet/10707743/10707749/imgrc0171280603.jpg?fitin=500:500" alt="Apple AirPods Pro 第2世代" loading="lazy" class="card__img"
@@ -908,7 +2204,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="Apple Watch Series 10" data-subtitle="GPS 46mm 健康管理 Siri対応">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00qlaam.nla07c52.g00qlaam.nla08e81/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2Fapple-watch-s10%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/rakutenmobile-store/cabinet/product/apple-watch-series10/zkst2421gy/main_01.jpg?fitin=500:500" alt="Apple Watch Series 10" loading="lazy" class="card__img"
@@ -927,7 +2223,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="HHKB Professional HYBRID Type-S" data-subtitle="静電容量無接点 キーボード">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="HHKB Professional HYBRID Type-S" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">HHKB Professional HYBRID Type-S</p>
+        <p class="card__sub">静電容量無接点 キーボード</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;36,850<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.7</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=HHKB%20Professional%20HYBRID%20Type-S&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Sony WF-1000XM5" data-subtitle="完全ワイヤレス ノイキャン 最高峰">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00px90m.nla07c1a.g00px90m.nla08a3d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsony%2Fwf-1000xm5%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/yamada-denki/cabinet/a07000319/1592550010.jpg?fitin=500:500" alt="Sony WF-1000XM5" loading="lazy" class="card__img"
@@ -946,7 +2261,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="Kindle Paperwhite 第12世代" data-subtitle="電子書籍リーダー 防水 16GB">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Kindle Paperwhite 第12世代" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Kindle Paperwhite 第12世代</p>
+        <p class="card__sub">電子書籍リーダー 防水 16GB</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;22,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Kindle%20Paperwhite%20%E7%AC%AC12%E4%B8%96%E4%BB%A3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Logicool MX Master 3S" data-subtitle="ワイヤレスマウス 静音">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Logicool MX Master 3S" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Logicool MX Master 3S</p>
+        <p class="card__sub">ワイヤレスマウス 静音</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;14,850<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Logicool%20MX%20Master%203S&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="JBL FLIP 6" data-subtitle="Bluetooth スピーカー 防水 IP67">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00u5qsm.nla07e72.g00u5qsm.nla08d55/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjbl%2Fjblflip6%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/jblstore/cabinet/07940778/flip-7/flip-7_1.jpg?fitin=500:500" alt="JBL FLIP 6" loading="lazy" class="card__img"
@@ -965,7 +2318,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="BOSE QuietComfort Ultra Earbuds" data-subtitle="空間オーディオ ノイキャン">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="BOSE QuietComfort Ultra Earbuds" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">BOSE QuietComfort Ultra Earbuds</p>
+        <p class="card__sub">空間オーディオ ノイキャン</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;39,600<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=BOSE%20QuietComfort%20Ultra%20Earbuds&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Fire TV Stick 4K Max 第2世代" data-subtitle="ストリーミングデバイス Alexa対応">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Fire TV Stick 4K Max 第2世代" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Fire TV Stick 4K Max 第2世代</p>
+        <p class="card__sub">ストリーミングデバイス Alexa対応</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;9,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Fire%20TV%20Stick%204K%20Max%20%E7%AC%AC2%E4%B8%96%E4%BB%A3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Anker MagGo モバイルバッテリー 10000mAh" data-subtitle="MagSafe対応 Qi2 ワイヤレス充電">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00tl6pm.nla07d5a.g00tl6pm.nla08c72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa1652%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/anker/cabinet/daily/point/a1664_p10_1000.jpg?fitin=500:500" alt="Anker MagGo モバイルバッテリー 10000mAh" loading="lazy" class="card__img"
@@ -984,7 +2375,83 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="Samsung T7 Shield ポータブルSSD 2TB" data-subtitle="外付けSSD 防水防塵">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Samsung T7 Shield ポータブルSSD 2TB" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Samsung T7 Shield ポータブルSSD 2TB</p>
+        <p class="card__sub">外付けSSD 防水防塵</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;26,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Samsung%20T7%20Shield%20%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%96%E3%83%ABSSD%202TB&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="FlexiSpot E7 電動昇降デスク" data-subtitle="スタンディングデスク メモリ4つ">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="FlexiSpot E7 電動昇降デスク" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">FlexiSpot E7 電動昇降デスク</p>
+        <p class="card__sub">スタンディングデスク メモリ4つ</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;53,900<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=FlexiSpot%20E7%20%E9%9B%BB%E5%8B%95%E6%98%87%E9%99%8D%E3%83%87%E3%82%B9%E3%82%AF&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Anker PowerCore III Elite 25600" data-subtitle="大容量モバイルバッテリー 87W">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Anker PowerCore III Elite 25600" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker PowerCore III Elite 25600</p>
+        <p class="card__sub">大容量モバイルバッテリー 87W</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;12,990<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Anker%20PowerCore%20III%20Elite%2025600&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Shokz OpenRun Pro 2" data-subtitle="骨伝導イヤホン チタニウム">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Shokz OpenRun Pro 2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Shokz OpenRun Pro 2</p>
+        <p class="card__sub">骨伝導イヤホン チタニウム</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;23,880<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Shokz%20OpenRun%20Pro%202&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Anker Soundcore Space A40" data-subtitle="ノイキャン ワイヤレスイヤホン コスパ最強">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00tl6pm.nla07d5a.g00tl6pm.nla08c72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa3936%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/makana--/cabinet/root_sniper_folder/sniper_folder_00014/imgrc0144611897.jpg?fitin=500:500" alt="Anker Soundcore Space A40" loading="lazy" class="card__img"
@@ -1003,7 +2470,64 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="Anker 737 Charger GaNPrime 120W" data-subtitle="USB-C充電器 3ポート">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Anker 737 Charger GaNPrime 120W" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker 737 Charger GaNPrime 120W</p>
+        <p class="card__sub">USB-C充電器 3ポート</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;8,990<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Anker%20737%20Charger%20GaNPrime%20120W&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Google Pixel Buds Pro 2" data-subtitle="AIノイキャン ワイヤレスイヤホン">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Google Pixel Buds Pro 2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Google Pixel Buds Pro 2</p>
+        <p class="card__sub">AIノイキャン ワイヤレスイヤホン</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;28,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Google%20Pixel%20Buds%20Pro%202&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="GARMIN Venu 3" data-subtitle="GPS スマートウォッチ AMOLED">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="GARMIN Venu 3" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">GARMIN Venu 3</p>
+        <p class="card__sub">GPS スマートウォッチ AMOLED</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;65,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=GARMIN%20Venu%203&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Galaxy Watch7" data-subtitle="AI健康分析 睡眠スコア 体組成計">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00ux2rm.nla07b52.g00ux2rm.nla08c18/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgalaxymobile%2Fgalaxy-watch7%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/laflife/cabinet/biiino/item/main-image/20250903164541_1.jpg?fitin=500:500" alt="Galaxy Watch7" loading="lazy" class="card__img"
@@ -1022,7 +2546,45 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="ガジェット">
+<div class="card" data-cat="ガジェット" data-name="SwitchBot ハブ2" data-subtitle="スマートリモコン 温湿度計付き">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="SwitchBot ハブ2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SwitchBot ハブ2</p>
+        <p class="card__sub">スマートリモコン 温湿度計付き</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;8,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=SwitchBot%20%E3%83%8F%E3%83%962&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Belkin MagSafe 3-in-1 充電器" data-subtitle="ワイヤレス充電パッド">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Belkin MagSafe 3-in-1 充電器" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Belkin MagSafe 3-in-1 充電器</p>
+        <p class="card__sub">ワイヤレス充電パッド</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;14,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Belkin%20MagSafe%203-in-1%20%E5%85%85%E9%9B%BB%E5%99%A8&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="OURA Ring Gen3" data-subtitle="スマートリング 睡眠分析 心拍数">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00vb3pm.nla07c28.g00vb3pm.nla08a5c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Foura-ring%2Fgen3-horizon%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/pocketalk/cabinet/shuppin6/oura_official.jpg?fitin=500:500" alt="OURA Ring Gen3" loading="lazy" class="card__img"
@@ -1041,7 +2603,121 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="ガジェット" data-name="TP-Link Deco XE75" data-subtitle="メッシュWi-Fi 6E ルーター">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="TP-Link Deco XE75" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">TP-Link Deco XE75</p>
+        <p class="card__sub">メッシュWi-Fi 6E ルーター</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;29,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=TP-Link%20Deco%20XE75&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Anker Eufy Security Indoor Cam S350" data-subtitle="屋内セキュリティカメラ 4K">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Anker Eufy Security Indoor Cam S350" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker Eufy Security Indoor Cam S350</p>
+        <p class="card__sub">屋内セキュリティカメラ 4K</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;9,990<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Anker%20Eufy%20Security%20Indoor%20Cam%20S350&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Sony LinkBuds S" data-subtitle="軽量4.8g ノイキャン ワイヤレス">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Sony LinkBuds S" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Sony LinkBuds S</p>
+        <p class="card__sub">軽量4.8g ノイキャン ワイヤレス</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;19,800<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Sony%20LinkBuds%20S&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="PITAKA MagEZ Case 4" data-subtitle="iPhone用アラミド繊維ケース">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="PITAKA MagEZ Case 4" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">PITAKA MagEZ Case 4</p>
+        <p class="card__sub">iPhone用アラミド繊維ケース</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;7,499<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=PITAKA%20MagEZ%20Case%204&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="エレコム トラックボール HUGE" data-subtitle="ワイヤレス 人差し指操作">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="エレコム トラックボール HUGE" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">エレコム トラックボール HUGE</p>
+        <p class="card__sub">ワイヤレス 人差し指操作</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;5,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0%20%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF%E3%83%9C%E3%83%BC%E3%83%AB%20HUGE&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="Nature Remo mini 2" data-subtitle="スマートリモコン 温度センサー">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="Nature Remo mini 2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Nature Remo mini 2</p>
+        <p class="card__sub">スマートリモコン 温度センサー</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">3.9</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=Nature%20Remo%20mini%202&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="iHerb ビタミンD3 5000IU" data-subtitle="Now Foods 免疫サポート 240粒">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00vxc5m.nla07d18.g00vxc5m.nla08e24/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fiherb%2Fnow-00372%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/iherb-official/cabinet/08739184/08739189/5995819_01.jpg?fitin=500:500" alt="iHerb ビタミンD3 5000IU" loading="lazy" class="card__img"
@@ -1060,7 +2736,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="VALX ホエイプロテイン WPI パーフェクト" data-subtitle="チョコ味 1kg 山本義徳監修">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00uw5lm.nla07e58.g00uw5lm.nla08b2a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvalx%2Fvalx-wpi-chocolate%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/f412031-tosu/cabinet/d_202410/53530563_01_web_s.jpg?fitin=500:500" alt="VALX ホエイプロテイン WPI パーフェクト" loading="lazy" class="card__img"
@@ -1079,7 +2755,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="エビオス錠 2000錠" data-subtitle="ビール酵母 胃腸・栄養補給">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00q0721.nla07eb2.g00q0721.nla086ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4946842100026%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/matsukiyo/cabinet/d0001/4946842100019_1.jpg?fitin=500:500" alt="エビオス錠 2000錠" loading="lazy" class="card__img"
@@ -1098,7 +2774,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="MYPROTEIN Impact ホエイプロテイン" data-subtitle="ナチュラルチョコレート 2.5kg">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00v3slm.nla07a8e.g00v3slm.nla08c72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmyprotein%2F10530911%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/myprotein/cabinet/it3/12202486_new_bannar.jpg?fitin=500:500" alt="MYPROTEIN Impact ホエイプロテイン" loading="lazy" class="card__img"
@@ -1117,7 +2793,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="SAVAS ホエイプロテイン100 ココア味" data-subtitle="明治 たんぱく質15g 1050g">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00q0721.nla07eb2.g00q0721.nla086ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4902777301341%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/alpen/cabinet/img/713/3420110204_7.jpg?fitin=500:500" alt="SAVAS ホエイプロテイン100 ココア味" loading="lazy" class="card__img"
@@ -1136,7 +2812,7 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="DHC マルチビタミン 90日分" data-subtitle="13種類のビタミン 毎日の健康に">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00pv7um.nla07a52.g00pv7um.nla08e38/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdhc-online%2F32171%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/dhcshop/cabinet/white/8000032845.jpg?fitin=500:500" alt="DHC マルチビタミン 90日分" loading="lazy" class="card__img"
@@ -1155,7 +2831,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="大塚製薬 エクエル" data-subtitle="エクオール含有食品 112粒 28日分">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="大塚製薬 エクエル" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">大塚製薬 エクエル</p>
+        <p class="card__sub">エクオール含有食品 112粒 28日分</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,320<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E5%A4%A7%E5%A1%9A%E8%A3%BD%E8%96%AC%20%E3%82%A8%E3%82%AF%E3%82%A8%E3%83%AB&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="ORBIS ディフェンセラ" data-subtitle="飲むスキンケア トクホ 30日分">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00q8z5m.nla07c12.g00q8z5m.nla08f47/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forbis%2Fdefencera30%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/orbis-shop/cabinet/orbis_prd/08/r00504108_2603.jpg?fitin=500:500" alt="ORBIS ディフェンセラ" loading="lazy" class="card__img"
@@ -1174,7 +2869,26 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="明治 SAVAS ソイプロテイン100 ココア味" data-subtitle="大豆プロテイン 1050g">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="明治 SAVAS ソイプロテイン100 ココア味" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">明治 SAVAS ソイプロテイン100 ココア味</p>
+        <p class="card__sub">大豆プロテイン 1050g</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;4,380<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E6%98%8E%E6%B2%BB%20SAVAS%20%E3%82%BD%E3%82%A4%E3%83%97%E3%83%AD%E3%83%86%E3%82%A4%E3%83%B3100%20%E3%82%B3%E3%82%B3%E3%82%A2%E5%91%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="大塚製薬 ネイチャーメイド スーパーフィッシュオイル" data-subtitle="EPA DHA オメガ3 90粒">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00q0721.nla07eb2.g00q0721.nla086ef/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4987035513018%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/k-relight/cabinet/otsuka/4987035691914.jpg?fitin=500:500" alt="大塚製薬 ネイチャーメイド スーパーフィッシュオイル" loading="lazy" class="card__img"
@@ -1193,7 +2907,140 @@
         </div>
       </div>
     </div>
-<div class="card" data-cat="健康食品">
+<div class="card" data-cat="健康食品" data-name="California Gold Nutrition オメガ-3" data-subtitle="フィッシュオイル 240粒">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="California Gold Nutrition オメガ-3" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">California Gold Nutrition オメガ-3</p>
+        <p class="card__sub">フィッシュオイル 240粒</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,480<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=California%20Gold%20Nutrition%20%E3%82%AA%E3%83%A1%E3%82%AC-3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="ディアナチュラ ストロング39アミノ マルチビタミン&ミネラル" data-subtitle="150粒 50日分">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ディアナチュラ ストロング39アミノ マルチビタミン&ミネラル" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ディアナチュラ ストロング39アミノ マルチビタミン&ミネラル</p>
+        <p class="card__sub">150粒 50日分</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,980<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%87%E3%82%A3%E3%82%A2%E3%83%8A%E3%83%81%E3%83%A5%E3%83%A9%20%E3%82%B9%E3%83%88%E3%83%AD%E3%83%B3%E3%82%B039%E3%82%A2%E3%83%9F%E3%83%8E%20%E3%83%9E%E3%83%AB%E3%83%81%E3%83%93%E3%82%BF%E3%83%9F%E3%83%B3%26%E3%83%9F%E3%83%8D%E3%83%A9%E3%83%AB&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="わかもと製薬 強力わかもと" data-subtitle="胃腸・整腸・栄養 1000錠">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="わかもと製薬 強力わかもと" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">わかもと製薬 強力わかもと</p>
+        <p class="card__sub">胃腸・整腸・栄養 1000錠</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,580<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%8F%E3%81%8B%E3%82%82%E3%81%A8%E8%A3%BD%E8%96%AC%20%E5%BC%B7%E5%8A%9B%E3%82%8F%E3%81%8B%E3%82%82%E3%81%A8&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="DHC ビタミンC 90日分" data-subtitle="1日1000mg 180粒">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="DHC ビタミンC 90日分" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">DHC ビタミンC 90日分</p>
+        <p class="card__sub">1日1000mg 180粒</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;680<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=DHC%20%E3%83%93%E3%82%BF%E3%83%9F%E3%83%B3C%2090%E6%97%A5%E5%88%86&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="森永製菓 inゼリー エネルギー" data-subtitle="すばやいエネルギー補給 180g×6">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="森永製菓 inゼリー エネルギー" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">森永製菓 inゼリー エネルギー</p>
+        <p class="card__sub">すばやいエネルギー補給 180g×6</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,164<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E6%A3%AE%E6%B0%B8%E8%A3%BD%E8%8F%93%20in%E3%82%BC%E3%83%AA%E3%83%BC%20%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="ファンケル カロリミット" data-subtitle="食事の糖と脂肪の吸収を抑える 30回分">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ファンケル カロリミット" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ファンケル カロリミット</p>
+        <p class="card__sub">食事の糖と脂肪の吸収を抑える 30回分</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,563<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%B1%E3%83%AB%20%E3%82%AB%E3%83%AD%E3%83%AA%E3%83%9F%E3%83%83%E3%83%88&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="ファンケル えんきん" data-subtitle="機能性表示食品 30日分">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="ファンケル えんきん" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ファンケル えんきん</p>
+        <p class="card__sub">機能性表示食品 30日分</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,160<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%B1%E3%83%AB%20%E3%81%88%E3%82%93%E3%81%8D%E3%82%93&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="ファンケル 内脂サポート" data-subtitle="BMI改善 機能性表示食品 30日分">
       
       <a href="https://hb.afl.rakuten.co.jp/hgc/g00pm2am.nla07f85.g00pm2am.nla08e98/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancl%2F5773a%2F&rafcid=wsc_i_is_9a8ce79b-f1e1-456c-af74-6abc78f0910b" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://tshop.r10s.jp/fancl-shop/cabinet/item-img/5000-5499/5398_2601.jpg?fitin=500:500" alt="ファンケル 内脂サポート" loading="lazy" class="card__img"
@@ -1212,6 +3059,120 @@
         </div>
       </div>
     </div>
+<div class="card" data-cat="健康食品" data-name="大塚製薬 賢者の食卓 ダブルサポート" data-subtitle="食物繊維 30包">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="大塚製薬 賢者の食卓 ダブルサポート" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">大塚製薬 賢者の食卓 ダブルサポート</p>
+        <p class="card__sub">食物繊維 30包</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;2,138<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E5%A4%A7%E5%A1%9A%E8%A3%BD%E8%96%AC%20%E8%B3%A2%E8%80%85%E3%81%AE%E9%A3%9F%E5%8D%93%20%E3%83%80%E3%83%96%E3%83%AB%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="大正製薬 リポビタンD" data-subtitle="栄養ドリンク タウリン1000mg 10本">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="大正製薬 リポビタンD" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">大正製薬 リポビタンD</p>
+        <p class="card__sub">栄養ドリンク タウリン1000mg 10本</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;1,480<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E5%A4%A7%E6%AD%A3%E8%A3%BD%E8%96%AC%20%E3%83%AA%E3%83%9D%E3%83%93%E3%82%BF%E3%83%B3D&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="アサヒ ディアナチュラ 亜鉛" data-subtitle="60粒 60日分">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="アサヒ ディアナチュラ 亜鉛" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">アサヒ ディアナチュラ 亜鉛</p>
+        <p class="card__sub">60粒 60日分</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;580<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%B5%E3%83%92%20%E3%83%87%E3%82%A3%E3%82%A2%E3%83%8A%E3%83%81%E3%83%A5%E3%83%A9%20%E4%BA%9C%E9%89%9B&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="小林製薬 ナイシトールZa" data-subtitle="内臓脂肪減少 420錠">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="小林製薬 ナイシトールZa" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">小林製薬 ナイシトールZa</p>
+        <p class="card__sub">内臓脂肪減少 420錠</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;6,050<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=%E5%B0%8F%E6%9E%97%E8%A3%BD%E8%96%AC%20%E3%83%8A%E3%82%A4%E3%82%B7%E3%83%88%E3%83%BC%E3%83%ABZa&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="UHA味覚糖 グミサプリ 鉄&葉酸" data-subtitle="20日分 40粒">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="UHA味覚糖 グミサプリ 鉄&葉酸" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">UHA味覚糖 グミサプリ 鉄&葉酸</p>
+        <p class="card__sub">20日分 40粒</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;540<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.1</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=UHA%E5%91%B3%E8%A6%9A%E7%B3%96%20%E3%82%B0%E3%83%9F%E3%82%B5%E3%83%97%E3%83%AA%20%E9%89%84%26%E8%91%89%E9%85%B8&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="健康食品" data-name="DHC プラセンタ 30日分" data-subtitle="濃縮エキス 90粒">
+      
+      <a href="" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://placehold.co/500x500/f5f5f5/999?text=No+Image" alt="DHC プラセンタ 30日分" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">DHC プラセンタ 30日分</p>
+        <p class="card__sub">濃縮エキス 90粒</p>
+        <div class="card__meta">
+          <span class="card__price">&yen;960<span class="card__tax">（税込）</span></span>
+          <span class="card__score">4.0</span>
+        </div>
+        <div class="card__actions">
+          <a href="" target="_blank" rel="noopener" class="btn btn--rakuten">楽天で見る</a>
+          <a href="https://www.amazon.co.jp/s?k=DHC%20%E3%83%97%E3%83%A9%E3%82%BB%E3%83%B3%E3%82%BF%2030%E6%97%A5%E5%88%86&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazonで見る</a>
+        </div>
+      </div>
+    </div>
 
     </div>
   </section>
@@ -1225,7 +3186,7 @@
       </div>
       <p class="footer__text">
         本ページにはアフィリエイトリンクが含まれます<br>
-        &copy; tsune.eth | 2026.03.15 更新
+        &copy; tsune.eth | 2026.03.16 更新
       </p>
     </div>
   </footer>
@@ -1234,27 +3195,72 @@
   <button class="scroll-top" id="scroll-top" aria-label="トップへ戻る">&uarr;</button>
 
   <script>
-    // Category filter
+    // State
+    let activeCat = 'all';
+    let searchQuery = '';
+
+    // Elements
     const tabs = document.querySelectorAll('.nav__tab');
     const cards = document.querySelectorAll('#product-grid .card');
     const resultCount = document.getElementById('result-count');
+    const searchInput = document.getElementById('search-input');
+    const searchClear = document.getElementById('search-clear');
+    const searchResult = document.getElementById('search-result');
 
+    // Combined filter: category + search
+    function applyFilters() {
+      const q = searchQuery.toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
+        let matchesSearch = true;
+        if (q) {
+          const name = (card.dataset.name || '').toLowerCase();
+          const subtitle = (card.dataset.subtitle || '').toLowerCase();
+          const cat = (card.dataset.cat || '').toLowerCase();
+          matchesSearch = name.includes(q) || subtitle.includes(q) || cat.includes(q);
+        }
+        if (matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      resultCount.innerHTML = visible + '件 <span>のアイテム</span>';
+      // Search result count
+      if (q) {
+        searchResult.innerHTML = '<strong>' + visible + '件</strong>見つかりました';
+        searchResult.classList.add('search-bar__result--visible');
+      } else {
+        searchResult.classList.remove('search-bar__result--visible');
+      }
+    }
+
+    // Category filter
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         tabs.forEach(t => t.classList.remove('nav__tab--active'));
         tab.classList.add('nav__tab--active');
-        const cat = tab.dataset.cat;
-        let visible = 0;
-        cards.forEach(card => {
-          if (cat === 'all' || card.dataset.cat === cat) {
-            card.classList.remove('hidden');
-            visible++;
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-        resultCount.innerHTML = visible + '件 <span>のアイテム</span>';
+        activeCat = tab.dataset.cat;
+        applyFilters();
       });
+    });
+
+    // Search input
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim();
+      searchClear.classList.toggle('search-bar__clear--visible', searchQuery.length > 0);
+      applyFilters();
+    });
+
+    // Clear search
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      searchClear.classList.remove('search-bar__clear--visible');
+      applyFilters();
+      searchInput.focus();
     });
 
     // Scroll to top
