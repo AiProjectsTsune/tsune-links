@@ -61,6 +61,31 @@
     }
     @media(max-width:768px){.hero__grid{grid-template-columns:repeat(2,1fr)}}
 
+    /* ===== Category Pickup ===== */
+    .pickup-section{
+      max-width:1280px;margin:0 auto;padding:32px 16px;
+    }
+    .pickup-section__title{
+      font-size:20px;font-weight:700;color:#111;margin-bottom:4px;
+    }
+    .pickup-section__sub{
+      font-size:13px;color:#888;margin-bottom:24px;
+    }
+    .pickup-cat{
+      margin-bottom:28px;
+    }
+    .pickup-cat__title{
+      font-size:15px;font-weight:600;color:#333;
+      padding-bottom:8px;border-bottom:2px solid #111;
+      margin-bottom:12px;
+    }
+    .pickup-cat__grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+    }
+    @media(max-width:900px){
+      .pickup-cat__grid{grid-template-columns:repeat(2,1fr)}
+    }
+
     /* ===== Category Nav ===== */
     .nav{
       background:#fff;border-bottom:1px solid #e5e5e5;
@@ -155,6 +180,25 @@
       font-size:10px;font-weight:600;color:#f59e0b;
       background:#fffbeb;padding:2px 7px;border-radius:4px;
       white-space:nowrap;
+    }
+    .card__review{
+      display:flex;align-items:center;gap:6px;margin-top:6px;
+    }
+    .review-stars{
+      color:#f59e0b;font-weight:700;font-size:13px;
+    }
+    .review-count{
+      color:#999;font-size:11px;
+    }
+    .card__features{
+      list-style:none;margin:8px 0 0;padding:0;
+    }
+    .card__features li{
+      font-size:11px;color:#555;padding:2px 0;
+      border-bottom:1px solid #f0f0f0;
+    }
+    .card__features li::before{
+      content:'✓ ';color:#2ecc71;font-weight:700;
     }
     .card__actions{display:flex;gap:6px;margin-top:8px}
     .btn{
@@ -316,6 +360,8 @@
       <div class="card__body">
         <p class="card__name">フェイシャルスチーマー FS300</p>
         <p class="card__sub">ナノスチーム&温冷切替</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(129件)</span></div>
+        <ul class="card__features"><li>ナノサイズ温冷スチーム</li><li>オゾン殺菌搭載</li><li>エステサロン実使用モデル</li></ul>
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -337,6 +383,8 @@
       <div class="card__body">
         <p class="card__name">Panasonic スチーマー ナノケア EH-SA70</p>
         <p class="card__sub">ナノサイズ温スチーム 集中保湿</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(33件)</span></div>
+        <ul class="card__features"><li>3D振動ヘッドスパ</li><li>IPX7防水</li><li>頭皮+首肩対応</li></ul>
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -358,6 +406,8 @@
       <div class="card__body">
         <p class="card__name">SK-II フェイシャルトリートメントエッセンス</p>
         <p class="card__sub">ピテラ配合 肌荒れ防止 230ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(544件)</span></div>
+        <ul class="card__features"><li>EMS+ポレーション</li><li>本格派美顔器</li><li>楽天★4.0</li></ul>
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -379,6 +429,8 @@
       <div class="card__body">
         <p class="card__name">Apple AirPods Pro 第2世代</p>
         <p class="card__sub">USB-C アクティブノイズキャンセリング</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(8件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -392,6 +444,585 @@
       </div>
     </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Category Pick Up -->
+  <section class="pickup-section">
+    <div class="pickup-section__inner">
+      <h2 class="pickup-section__title">カテゴリ別 おすすめ</h2>
+      <p class="pickup-section__sub">楽天レビュー × スコアで厳選した各カテゴリTOP4</p>
+      
+    <div class="pickup-cat">
+      <h3 class="pickup-cat__title">美容家電 TOP 4</h3>
+      <div class="pickup-cat__grid"><div class="card card--featured" data-cat="美容家電" data-name="SALONIA ストレートヘアアイロン" data-subtitle="15mm 230℃ プロ仕様">
+      
+      <a href="https://www.amazon.co.jp/dp/B0DYP1LBDX?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/beautyeveryday/cabinet/heakea/11920277/imgrc0175600573.jpg?_ex=500x500" alt="SALONIA ストレートヘアアイロン" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SALONIA ストレートヘアアイロン</p>
+        <p class="card__sub">15mm 230℃ プロ仕様</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(38,140件)</span></div>
+        <ul class="card__features"><li>230℃高温設定</li><li>チタニウムプレート</li><li>30秒スピード加熱</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;3,828</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00r23nm.nla078cc.g00r23nm.nla082a7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkobe-beauty-labo%2Fmain-salo6%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkobe-beauty-labo%2Fi%2F10000074%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;3,828 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0DYP1LBDX?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="美容家電" data-name="BRAUN シルクエキスパート Pro5" data-subtitle="光美容器 家庭用 全身対応">
+      
+      <a href="https://www.amazon.co.jp/dp/B0D78D54M8?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/irodorikukan/cabinet/210/21010606.jpg?_ex=500x500" alt="BRAUN シルクエキスパート Pro5" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">BRAUN シルクエキスパート Pro5</p>
+        <p class="card__sub">光美容器 家庭用 全身対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(17,063件)</span></div>
+        <ul class="card__features"><li>肌色センサー搭載</li><li>照射スピード0.5秒</li><li>40万回照射</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;94,800</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00t4o9m.nla079fa.g00t4o9m.nla08dcd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbraun%2Fsilk-expert-pl-p%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbraun%2Fi%2F10000409%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;94,800 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0D78D54M8?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="美容家電" data-name="MYTREX EMS ヘッドスパ PRO" data-subtitle="電動頭皮ブラシ 3Dフィット">
+      
+      <a href="https://www.amazon.co.jp/dp/B0CK4JCQGS?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/leapgrow/cabinet/mytrex/p0/p00_hsp_01.jpg?_ex=500x500" alt="MYTREX EMS ヘッドスパ PRO" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">MYTREX EMS ヘッドスパ PRO</p>
+        <p class="card__sub">電動頭皮ブラシ 3Dフィット</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(13,520件)</span></div>
+        <ul class="card__features"><li>3Dフィットピン</li><li>IPX7防水</li><li>リフトケア対応</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;15,950</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00ssj2m.nla078a5.g00ssj2m.nla085c1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fleapgrow%2Fmt-hs1808b%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fleapgrow%2Fi%2F10000267%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;15,950 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0CK4JCQGS?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="美容家電" data-name="美ルル クラッシィ 超音波美顔器" data-subtitle="イオン導入・導出 1台5役">
+      <span class="badge-ig">IG紹介</span>
+      <a href="https://www.amazon.co.jp/dp/B0CBSPMYML?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/f082350-tsukubamirai/cabinet/08025774/09303888/001/dd01-nt-sku-1-5.jpg?_ex=500x500" alt="美ルル クラッシィ 超音波美顔器" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">美ルル クラッシィ 超音波美顔器</p>
+        <p class="card__sub">イオン導入・導出 1台5役</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(2,943件)</span></div>
+        <ul class="card__features"><li>超音波+イオン導入</li><li>1台5役</li><li>楽天レビュー★4.15</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;9,180</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00rvokm.nla07677.g00rvokm.nla08bd6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyancomstore%2Fbelulu_classy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyancomstore%2Fi%2F10001558%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;9,180 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0CBSPMYML?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div></div>
+    </div>
+    <div class="pickup-cat">
+      <h3 class="pickup-cat__title">スキンケア TOP 4</h3>
+      <div class="pickup-cat__grid"><div class="card card--featured" data-cat="スキンケア" data-name="FANCL マイルドクレンジングオイル" data-subtitle="メイク落とし 120ml 無添加">
+      
+      <a href="https://www.amazon.co.jp/dp/B07Q1P8V4T?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fancl-shop/cabinet/item-img/3500-3999_2/3721-32_rn.jpg?_ex=500x500" alt="FANCL マイルドクレンジングオイル" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">FANCL マイルドクレンジングオイル</p>
+        <p class="card__sub">メイク落とし 120ml 無添加</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(12,836件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;1,870</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00sms5m.nla07637.g00sms5m.nla08b23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancl-shop%2F3721-32%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffancl-shop%2Fi%2F10009421%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;1,870 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B07Q1P8V4T?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="スキンケア" data-name="b.glen QuSomeホワイトクリーム2.0" data-subtitle="ハイドロキノン配合 15g">
+      
+      <a href="https://www.amazon.co.jp/dp/B091G4KJ2J?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/retailer/cabinet/oth3/oth-5200-01.jpg?_ex=500x500" alt="b.glen QuSomeホワイトクリーム2.0" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">b.glen QuSomeホワイトクリーム2.0</p>
+        <p class="card__sub">ハイドロキノン配合 15g</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(707件)</span></div>
+        <ul class="card__features"><li>ハイドロキノン配合</li><li>QuSome浸透技術</li><li>集中美白ケア</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;9,570</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00qf42m.nla07ecc.g00qf42m.nla08ba2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fretailer%2Foth-5200-01%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fretailer%2Fi%2F10051289%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;9,570 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B091G4KJ2J?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="スキンケア" data-name="SK-II フェイシャルトリートメントエッセンス" data-subtitle="ピテラ配合 肌荒れ防止 230ml">
+      
+      <a href="https://www.amazon.co.jp/dp/B07DMCRJS9?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/arianakosume/cabinet/main-ariana/4979006070064-rk3.jpg?_ex=500x500" alt="SK-II フェイシャルトリートメントエッセンス" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SK-II フェイシャルトリートメントエッセンス</p>
+        <p class="card__sub">ピテラ配合 肌荒れ防止 230ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(544件)</span></div>
+        <ul class="card__features"><li>EMS+ポレーション</li><li>本格派美顔器</li><li>楽天★4.0</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.7</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;6,980</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00siy3m.nla07f93.g00siy3m.nla085c1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsk-ii%2Ffte_230-sgl%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsk-ii%2Fi%2F10003011%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;6,980 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B07DMCRJS9?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="スキンケア" data-name="DECORTE リポソーム アドバンスト" data-subtitle="リペアセラム 50ml 多重層リポソーム">
+      
+      <a href="https://www.amazon.co.jp/dp/B0F18Q7544?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/arianakosume/cabinet/main-ariana/4971710376227-ra-rk.jpg?_ex=500x500" alt="DECORTE リポソーム アドバンスト" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">DECORTE リポソーム アドバンスト</p>
+        <p class="card__sub">リペアセラム 50ml 多重層リポソーム</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(393件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;1,750</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00t269m.nla078c5.g00t269m.nla08dd7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Farianakosume%2F4971710376227%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Farianakosume%2Fi%2F10003138%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;1,750 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0F18Q7544?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div></div>
+    </div>
+    <div class="pickup-cat">
+      <h3 class="pickup-cat__title">ボディケア TOP 4</h3>
+      <div class="pickup-cat__grid"><div class="card card--featured" data-cat="ボディケア" data-name="NIPLUX NECK RELAX 1S" data-subtitle="温熱EMS ネックマッサージャー">
+      
+      <a href="https://www.amazon.co.jp/dp/B0DFWBZWQX?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nissoplus/cabinet/item/neck_1s2/main/1s_01_250707.jpg?_ex=500x500" alt="NIPLUX NECK RELAX 1S" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">NIPLUX NECK RELAX 1S</p>
+        <p class="card__sub">温熱EMS ネックマッサージャー</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(4,237件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;13,860</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00tmc7m.nla07f93.g00tmc7m.nla08c2f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnissoplus%2Fnp-nr21wt-1sc%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnissoplus%2Fi%2F10000069%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;13,860 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0DFWBZWQX?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="ボディケア" data-name="花王 バブ メディキュア 柑橘の香り" data-subtitle="高濃度炭酸 入浴剤 6錠">
+      
+      <a href="https://www.amazon.co.jp/dp/B0D6C17GGS?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/lifedesignstore/cabinet/cg/cg-0058.jpg?_ex=500x500" alt="花王 バブ メディキュア 柑橘の香り" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">花王 バブ メディキュア 柑橘の香り</p>
+        <p class="card__sub">高濃度炭酸 入浴剤 6錠</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(760件)</span></div>
+        <ul class="card__features"><li>高濃度炭酸</li><li>温浴効果</li><li>肩こり・疲労回復</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.2</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;2,998</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00sqv7m.nla07b85.g00sqv7m.nla08a21/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifedesignstore%2Fcg-0058%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifedesignstore%2Fi%2F10000238%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,998 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0D6C17GGS?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="ボディケア" data-name="ファイテン RAKUWAネック メタックス" data-subtitle="磁気ネックレス">
+      
+      <a href="https://www.amazon.co.jp/dp/B08XWLVKG8?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/phiten/cabinet/item-img/nc_mir_600.jpg?_ex=500x500" alt="ファイテン RAKUWAネック メタックス" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ファイテン RAKUWAネック メタックス</p>
+        <p class="card__sub">磁気ネックレス</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(637件)</span></div>
+        <ul class="card__features"><li>メタックス技術</li><li>肩こり改善</li><li>アクアチタン</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;10,340</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00qenfm.nla07c52.g00qenfm.nla0805a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fphiten%2F10001918%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fphiten%2Fi%2F10004315%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;10,340 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B08XWLVKG8?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="ボディケア" data-name="BARTH 中性重炭酸入浴剤" data-subtitle="90錠 疲労回復 肌あたりなめらか">
+      
+      <a href="https://www.amazon.co.jp/dp/B077H2PLK6?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/sleepdays/cabinet/item/barth/bath_tablet/imgrc0101687859.jpg?_ex=500x500" alt="BARTH 中性重炭酸入浴剤" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">BARTH 中性重炭酸入浴剤</p>
+        <p class="card__sub">90錠 疲労回復 肌あたりなめらか</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(576件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;990</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00sk3um.nla0796a.g00sk3um.nla08d0d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsleepdays%2F20000001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsleepdays%2Fi%2F10000011%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;990 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B077H2PLK6?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div></div>
+    </div>
+    <div class="pickup-cat">
+      <h3 class="pickup-cat__title">ガジェット TOP 4</h3>
+      <div class="pickup-cat__grid"><div class="card card--featured" data-cat="ガジェット" data-name="SwitchBot ハブ2" data-subtitle="スマートリモコン 温湿度計付き">
+      
+      <a href="https://www.amazon.co.jp/dp/B0CXDKPH8W?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/switchbot/cabinet/09377790/09563522/imgrc0078660079.jpg?_ex=500x500" alt="SwitchBot ハブ2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SwitchBot ハブ2</p>
+        <p class="card__sub">スマートリモコン 温湿度計付き</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(1,750件)</span></div>
+        <ul class="card__features"><li>赤外線リモコン集約</li><li>温湿度計内蔵</li><li>Matter対応</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;9,980</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00uc4wm.nla0709e.g00uc4wm.nla082ea/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fswitchbot%2F10000076%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fswitchbot%2Fi%2F10000076%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;9,980 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0CXDKPH8W?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="ガジェット" data-name="Shokz OpenRun Pro 2" data-subtitle="骨伝導イヤホン チタニウム">
+      
+      <a href="https://www.amazon.co.jp/dp/B0D2W5SGJK?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/aftershokz-official/cabinet/10954793/imgrc0129001009.jpg?_ex=500x500" alt="Shokz OpenRun Pro 2" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Shokz OpenRun Pro 2</p>
+        <p class="card__sub">骨伝導イヤホン チタニウム</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(1,329件)</span></div>
+        <ul class="card__features"><li>第9世代骨伝導技術</li><li>IP55防水防塵</li><li>10時間バッテリー</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;23,880</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00tqoum.nla07feb.g00tqoum.nla08c6f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faftershokz-official%2Fskz-sp-000013%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faftershokz-official%2Fi%2F10000018%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;23,880 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0D2W5SGJK?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="ガジェット" data-name="Anker Soundcore Space A40" data-subtitle="ノイキャン ワイヤレスイヤホン コスパ最強">
+      
+      <a href="https://www.amazon.co.jp/dp/B0FR5CRDVG?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/makana--/cabinet/root_sniper_folder/sniper_folder_00014/imgrc0144611897.jpg?_ex=500x500" alt="Anker Soundcore Space A40" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker Soundcore Space A40</p>
+        <p class="card__sub">ノイキャン ワイヤレスイヤホン コスパ最強</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(1,098件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;14,512</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00tziwm.nla07726.g00tziwm.nla08163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0b1n1yr3x%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10533007%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;14,512 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0FR5CRDVG?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="ガジェット" data-name="Anker PowerCore III Elite 25600" data-subtitle="大容量モバイルバッテリー 87W">
+      
+      <a href="https://www.amazon.co.jp/dp/B087PRL215?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/tmb/a1763/a1763_normal.jpg?_ex=500x500" alt="Anker PowerCore III Elite 25600" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker PowerCore III Elite 25600</p>
+        <p class="card__sub">大容量モバイルバッテリー 87W</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(821件)</span></div>
+        <ul class="card__features"><li>25600mAh大容量</li><li>87W USB-C出力</li><li>ノートPC充電可能</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;12,990</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00rr09m.nla07082.g00rr09m.nla089ad/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa1623%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10000883%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;12,990 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B087PRL215?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div></div>
+    </div>
+    <div class="pickup-cat">
+      <h3 class="pickup-cat__title">健康食品 TOP 4</h3>
+      <div class="pickup-cat__grid"><div class="card card--featured" data-cat="健康食品" data-name="大塚製薬 エクエル" data-subtitle="エクオール含有食品 112粒 28日分">
+      
+      <a href="https://www.amazon.co.jp/dp/B0B6FJKFZZ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/shimin2/cabinet/shohin_otsuka/03eqll/eqll_400b-03.jpg?_ex=500x500" alt="大塚製薬 エクエル" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">大塚製薬 エクエル</p>
+        <p class="card__sub">エクオール含有食品 112粒 28日分</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(6,193件)</span></div>
+        <ul class="card__features"><li>エクオール10mg</li><li>大豆イソフラボン由来</li><li>女性の健康サポート</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;11,199</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00s42sm.nla071ba.g00s42sm.nla080b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshimin2%2F4987035545613-3a-m%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshimin2%2Fi%2F10000782%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;11,199 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0B6FJKFZZ?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="健康食品" data-name="VALX ホエイプロテイン WPI パーフェクト" data-subtitle="チョコ味 1kg 山本義徳監修">
+      
+      <a href="https://www.amazon.co.jp/dp/B08BWVQJQM?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/f412031-tosu/cabinet/d_202410/53530563_01_web_s.jpg?_ex=500x500" alt="VALX ホエイプロテイン WPI パーフェクト" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">VALX ホエイプロテイン WPI パーフェクト</p>
+        <p class="card__sub">チョコ味 1kg 山本義徳監修</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(2,346件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;7,980</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00tli8m.nla07631.g00tli8m.nla08a6a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvalx%2Fv002002-cpad%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvalx%2Fi%2F10000269%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;7,980 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B08BWVQJQM?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="健康食品" data-name="MYPROTEIN Impact ホエイプロテイン" data-subtitle="ナチュラルチョコレート 2.5kg">
+      
+      <a href="https://www.amazon.co.jp/dp/B00EZTKZ9S?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/myprotein/cabinet/it3/12202486_new_bannar.jpg?_ex=500x500" alt="MYPROTEIN Impact ホエイプロテイン" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">MYPROTEIN Impact ホエイプロテイン</p>
+        <p class="card__sub">ナチュラルチョコレート 2.5kg</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(1,808件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;3,990</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00t874m.nla077c0.g00t874m.nla08578/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmyprotein%2F12202486_new%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmyprotein%2Fi%2F10007350%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;3,990 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B00EZTKZ9S?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="健康食品" data-name="SAVAS ホエイプロテイン100 ココア味" data-subtitle="明治 たんぱく質15g 1050g">
+      
+      <a href="https://www.amazon.co.jp/dp/B09QPKX9BG?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/supersportsxebio/cabinet/1/8450101/8340413_m.jpg?_ex=500x500" alt="SAVAS ホエイプロテイン100 ココア味" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SAVAS ホエイプロテイン100 ココア味</p>
+        <p class="card__sub">明治 たんぱく質15g 1050g</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(1,421件)</span></div>
+        <ul class="card__features"><li>高品質</li><li>コスパ◎</li><li>話題のアイテム</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;2,490</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00radhm.nla07d89.g00radhm.nla08bfa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsupersportsxebio%2F108340413011%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsupersportsxebio%2Fi%2F21107778%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,490 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B09QPKX9BG?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div></div>
+    </div>
+    <div class="pickup-cat">
+      <h3 class="pickup-cat__title">PCサプライ TOP 4</h3>
+      <div class="pickup-cat__grid"><div class="card card--featured" data-cat="PCサプライ" data-name="BoYata ノートPCスタンド N19" data-subtitle="角度調整アルミスタンド">
+      
+      <a href="https://www.amazon.co.jp/dp/B07XC4DYF8?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/selectshopcrea/cabinet/11115181/13066258/7.jpg?_ex=500x500" alt="BoYata ノートPCスタンド N19" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">BoYata ノートPCスタンド N19</p>
+        <p class="card__sub">角度調整アルミスタンド</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(3,525件)</span></div>
+        <ul class="card__features"><li>無段階角度調整</li><li>アルミ合金製</li><li>17インチまで対応</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;5,299</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00rzshm.nla07c47.g00rzshm.nla08bc3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fselectshopcrea%2Fboyata1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fselectshopcrea%2Fi%2F10000069%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;5,299 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B07XC4DYF8?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="PCサプライ" data-name="Anker PowerLine III Flow USB-C" data-subtitle="絡まないシリコンケーブル">
+      
+      <a href="https://www.amazon.co.jp/dp/B093L5CQ6H?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/daily/coupon/a855_sale_350.jpg?_ex=500x500" alt="Anker PowerLine III Flow USB-C" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker PowerLine III Flow USB-C</p>
+        <p class="card__sub">絡まないシリコンケーブル</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(2,362件)</span></div>
+        <ul class="card__features"><li>柔軟シリコン素材</li><li>100W PD対応</li><li>絡みにくい設計</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;1,790</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00rr09m.nla07082.g00rr09m.nla089ad/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa855%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10000963%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;1,790 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B093L5CQ6H?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="PCサプライ" data-name="SanDisk Ultra 128GB USBメモリ" data-subtitle="高速USB3.0フラッシュドライブ">
+      
+      <a href="https://www.amazon.co.jp/dp/B0CH2X5LBX?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/kazamidori/cabinet/productsbr1/0619659185091_r.jpg?_ex=500x500" alt="SanDisk Ultra 128GB USBメモリ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SanDisk Ultra 128GB USBメモリ</p>
+        <p class="card__sub">高速USB3.0フラッシュドライブ</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(2,214件)</span></div>
+        <ul class="card__features"><li>最大130MB/s転送</li><li>USB 3.0対応</li><li>コンパクトスライド式</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.1</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;2,787</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00q2htm.nla07ecb.g00q2htm.nla084b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkazamidori%2F0619659196509%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkazamidori%2Fi%2F10018218%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,787 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0CH2X5LBX?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card card--featured" data-cat="PCサプライ" data-name="Anker Nano II 65W" data-subtitle="超小型65W急速充電器">
+      
+      <a href="https://www.amazon.co.jp/dp/B08X1GSFTT?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/images/anker_2/a2663_normal.jpg?_ex=500x500" alt="Anker Nano II 65W" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">Anker Nano II 65W</p>
+        <p class="card__sub">超小型65W急速充電器</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(1,230件)</span></div>
+        <ul class="card__features"><li>65W USB-C出力</li><li>約60%の小型化</li><li>GaN II技術</li></ul>
+        <div class="card__meta">
+          <span class="card__score">4.6</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;4,490</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00rr09m.nla07082.g00rr09m.nla089ad/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa2663%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10000961%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;4,490 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B08X1GSFTT?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div></div>
+    </div>
     </div>
   </section>
 
@@ -426,7 +1057,7 @@
   <!-- Info Bar -->
   <div class="info-bar">
     <div class="info-bar__count" id="result-count">265件 <span>のアイテム</span></div>
-    <div class="info-bar__date">最終更新 2026.03.16</div>
+    <div class="info-bar__date">最終更新 2026.03.17</div>
   </div>
 
   <!-- Product Grid -->
@@ -441,6 +1072,8 @@
       <div class="card__body">
         <p class="card__name">Panasonic ナノケア ヘアドライヤー EH-NA0J</p>
         <p class="card__sub">高浸透ナノイー搭載 速乾</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(9件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -462,6 +1095,8 @@
       <div class="card__body">
         <p class="card__name">ReFa FINE BUBBLE PURE</p>
         <p class="card__sub">ウルトラファインバブル シャワーヘッド</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(35件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -483,6 +1118,8 @@
       <div class="card__body">
         <p class="card__name">Dyson Supersonic ヘアドライヤー</p>
         <p class="card__sub">インテリジェント・ヒートコントロール</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(16件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -504,6 +1141,8 @@
       <div class="card__body">
         <p class="card__name">ヤーマン フォトプラス EX</p>
         <p class="card__sub">RF美顔器 6モード搭載</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(18件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -525,6 +1164,8 @@
       <div class="card__body">
         <p class="card__name">Panasonic スチーマー ナノケア EH-SA70</p>
         <p class="card__sub">ナノサイズ温スチーム 集中保湿</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(33件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -546,6 +1187,8 @@
       <div class="card__body">
         <p class="card__name">Dyson Airwrap マルチスタイラー</p>
         <p class="card__sub">カール ブロー ドライ 1台3役</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(15件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -567,6 +1210,8 @@
       <div class="card__body">
         <p class="card__name">Philips ソニッケアー ダイヤモンドクリーン</p>
         <p class="card__sub">音波式電動歯ブラシ</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(66件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -588,6 +1233,8 @@
       <div class="card__body">
         <p class="card__name">Panasonic ラムダッシュ パームイン</p>
         <p class="card__sub">5枚刃 コンパクトシェーバー</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(106件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -609,6 +1256,8 @@
       <div class="card__body">
         <p class="card__name">Panasonic 光エステ スムースエピ ES-WG0A</p>
         <p class="card__sub">光美容器 ボディ&フェイス用</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -630,6 +1279,8 @@
       <div class="card__body">
         <p class="card__name">MYTREX EMS ヘッドスパ PRO</p>
         <p class="card__sub">電動頭皮ブラシ 3Dフィット</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(13,520件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -651,6 +1302,8 @@
       <div class="card__body">
         <p class="card__name">絹女 KINUJO ヘアドライヤー</p>
         <p class="card__sub">大風量 速乾 マイナスイオン</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(187件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -672,6 +1325,8 @@
       <div class="card__body">
         <p class="card__name">ヤーマン キャビスパ360</p>
         <p class="card__sub">キャビテーション EMS 防水</p>
+        <div class="card__review"><span class="review-stars">★ 4.1</span><span class="review-count">(343件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -693,6 +1348,8 @@
       <div class="card__body">
         <p class="card__name">BRAUN シリーズ9 Pro</p>
         <p class="card__sub">電気シェーバー 4+1カットシステム</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -714,6 +1371,8 @@
       <div class="card__body">
         <p class="card__name">YA-MAN メディリフト アクア</p>
         <p class="card__sub">EMS美顔器 防水仕様 ハンズフリー</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(153件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -735,6 +1394,8 @@
       <div class="card__body">
         <p class="card__name">ReFa BEAUTECH ストレートアイロン</p>
         <p class="card__sub">カーボンレイヤープレート 温度調整</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(36件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -756,6 +1417,8 @@
       <div class="card__body">
         <p class="card__name">BRAUN シルクエキスパート Pro5</p>
         <p class="card__sub">光美容器 家庭用 全身対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(17,063件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -777,6 +1440,8 @@
       <div class="card__body">
         <p class="card__name">ケノン 家庭用脱毛器</p>
         <p class="card__sub">日本製 カートリッジ交換式</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -798,6 +1463,8 @@
       <div class="card__body">
         <p class="card__name">ヤーマン レイボーテ ハイパーZERO</p>
         <p class="card__sub">光美容器 全身対応 VIO対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(2,616件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -819,6 +1486,8 @@
       <div class="card__body">
         <p class="card__name">MTG リファビューテック カールアイロン</p>
         <p class="card__sub">プロ仕様 温度5段階</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -840,6 +1509,8 @@
       <div class="card__body">
         <p class="card__name">Panasonic 目もとエステ EH-SW68</p>
         <p class="card__sub">温感ヒーター スチーム方式</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(19件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -861,6 +1532,8 @@
       <div class="card__body">
         <p class="card__name">RELX ヘッドスパ 電動頭皮ブラシ</p>
         <p class="card__sub">3D振動 IPX7防水 サロン級</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(1,561件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -882,6 +1555,8 @@
       <div class="card__body">
         <p class="card__name">SALONIA スピーディーイオンドライヤー</p>
         <p class="card__sub">大風量2.3m3/min 軽量495g</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(323件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -903,6 +1578,8 @@
       <div class="card__body">
         <p class="card__name">ヤーマン スカルプドライヤー プロ</p>
         <p class="card__sub">遠赤外線 低温ドライ 頭皮ケア</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -924,6 +1601,8 @@
       <div class="card__body">
         <p class="card__name">美ルル リバース 美顔器</p>
         <p class="card__sub">EMS エレクトロポレーション</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(625件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -945,6 +1624,8 @@
       <div class="card__body">
         <p class="card__name">Ulike Air3 IPL光美容器</p>
         <p class="card__sub">サファイア冷却 痛くない脱毛</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -966,6 +1647,8 @@
       <div class="card__body">
         <p class="card__name">Re・De Suhada スティック美顔器</p>
         <p class="card__sub">LED EMS 音波振動</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(5件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -987,6 +1670,8 @@
       <div class="card__body">
         <p class="card__name">SALONIA ストレートヘアアイロン</p>
         <p class="card__sub">15mm 230℃ プロ仕様</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(38,140件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -1008,6 +1693,8 @@
       <div class="card__body">
         <p class="card__name">フェイシャルスチーマー FS300</p>
         <p class="card__sub">ナノスチーム&温冷切替</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(129件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1029,6 +1716,8 @@
       <div class="card__body">
         <p class="card__name">ReFa HEART BRUSH</p>
         <p class="card__sub">スカルプブラシ 頭皮ケア</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(2,710件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1050,6 +1739,8 @@
       <div class="card__body">
         <p class="card__name">Rocklean ウォーターピーリング</p>
         <p class="card__sub">複合美顔器 毛穴ケア</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(86件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1071,6 +1762,8 @@
       <div class="card__body">
         <p class="card__name">美ルル クラッシィ 超音波美顔器</p>
         <p class="card__sub">イオン導入・導出 1台5役</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(2,943件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1092,6 +1785,8 @@
       <div class="card__body">
         <p class="card__name">TESCOM ドレープドライヤー TID6J</p>
         <p class="card__sub">速乾 ドレープフロー方式</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1113,6 +1808,8 @@
       <div class="card__body">
         <p class="card__name">OMRON 低周波治療器 HV-F022</p>
         <p class="card__sub">コンパクト 肩こり 腰痛</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(318件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.0</span>
         </div>
@@ -1134,6 +1831,8 @@
       <div class="card__body">
         <p class="card__name">フェイシャルスチーマー ST-1</p>
         <p class="card__sub">コスパ最強スチーマー</p>
+        <div class="card__review"><span class="review-stars">★ 3.9</span><span class="review-count">(37件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">3.9</span>
         </div>
@@ -1155,6 +1854,8 @@
       <div class="card__body">
         <p class="card__name">アイリスオーヤマ ドライヤー HDR-MC1</p>
         <p class="card__sub">コスパ大風量 軽量</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(24件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">3.9</span>
         </div>
@@ -1176,6 +1877,8 @@
       <div class="card__body">
         <p class="card__name">コイズミ エッグアイロン KMC-0610</p>
         <p class="card__sub">USB充電式 コードレス</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">3.8</span>
         </div>
@@ -1197,6 +1900,8 @@
       <div class="card__body">
         <p class="card__name">SK-II フェイシャルトリートメントエッセンス</p>
         <p class="card__sub">ピテラ配合 肌荒れ防止 230ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(544件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -1218,6 +1923,8 @@
       <div class="card__body">
         <p class="card__name">POLA リンクルショット メディカルセラム N</p>
         <p class="card__sub">シワ改善美容液 20g</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(253件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1239,6 +1946,8 @@
       <div class="card__body">
         <p class="card__name">FANCL マイルドクレンジングオイル</p>
         <p class="card__sub">メイク落とし 120ml 無添加</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(12,836件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1260,6 +1969,8 @@
       <div class="card__body">
         <p class="card__name">DECORTE リポソーム アドバンスト</p>
         <p class="card__sub">リペアセラム 50ml 多重層リポソーム</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(393件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1281,6 +1992,8 @@
       <div class="card__body">
         <p class="card__name">CHANEL ル リフト クレーム</p>
         <p class="card__sub">エイジングケアクリーム 50g</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1302,6 +2015,8 @@
       <div class="card__body">
         <p class="card__name">資生堂 アルティミューン パワライジング コンセントレートIII</p>
         <p class="card__sub">免疫美容液 50ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.9</span><span class="review-count">(33件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1323,6 +2038,8 @@
       <div class="card__body">
         <p class="card__name">LANCOME ジェニフィック アドバンスト</p>
         <p class="card__sub">美容液 30ml 整肌成分配合</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(95件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1344,6 +2061,8 @@
       <div class="card__body">
         <p class="card__name">SUQQU ザ クリーム ファンデーション</p>
         <p class="card__sub">高級ファンデーション 30g</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1365,6 +2084,8 @@
       <div class="card__body">
         <p class="card__name">HAKU メラノフォーカスZ</p>
         <p class="card__sub">美白美容液 45g シミ予防</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1386,6 +2107,8 @@
       <div class="card__body">
         <p class="card__name">IPSA ザ・タイムR アクア</p>
         <p class="card__sub">薬用化粧水 200ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(14件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1407,6 +2130,8 @@
       <div class="card__body">
         <p class="card__name">Obagi C25セラム ネオ</p>
         <p class="card__sub">ピュアビタミンC 高濃度美容液 12ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(269件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1428,6 +2153,8 @@
       <div class="card__body">
         <p class="card__name">アネッサ パーフェクトUV スキンケアミルクN</p>
         <p class="card__sub">日焼け止め SPF50+ 60ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(302件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1449,6 +2176,8 @@
       <div class="card__body">
         <p class="card__name">KIEHL'S クリーム UFC</p>
         <p class="card__sub">保湿クリーム 49g</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(23件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1470,6 +2199,8 @@
       <div class="card__body">
         <p class="card__name">無印良品 導入化粧液</p>
         <p class="card__sub">岩手県釜石の天然水使用 400ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(22件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1491,6 +2222,8 @@
       <div class="card__body">
         <p class="card__name">アスタリフト ジェリー アクアリスタ</p>
         <p class="card__sub">先行美容液 ジェリー状 40g</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(250件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1512,6 +2245,8 @@
       <div class="card__body">
         <p class="card__name">SHISEIDO エッセンス スキングロウ</p>
         <p class="card__sub">美容液ファンデーション 30ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.1</span><span class="review-count">(12件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1533,6 +2268,8 @@
       <div class="card__body">
         <p class="card__name">キュレル 潤浸保湿フェイスクリーム</p>
         <p class="card__sub">乾燥性敏感肌 40g</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(227件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1554,6 +2291,8 @@
       <div class="card__body">
         <p class="card__name">ALBION エクサージュホワイト ピュアホワイトミルク</p>
         <p class="card__sub">薬用美白乳液 200g</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(3件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1575,6 +2314,8 @@
       <div class="card__body">
         <p class="card__name">DUO ザ クレンジングバーム ブラックリペア</p>
         <p class="card__sub">毛穴ケア W洗顔不要 90g</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1596,6 +2337,8 @@
       <div class="card__body">
         <p class="card__name">dプログラム アレルバリア エッセンス</p>
         <p class="card__sub">敏感肌用日中美容液 40ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(101件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1617,6 +2360,8 @@
       <div class="card__body">
         <p class="card__name">ONE BY KOSE セラムシールド</p>
         <p class="card__sub">バーム状美容液 固形美容液 40g</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(125件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1638,6 +2383,8 @@
       <div class="card__body">
         <p class="card__name">KOSE 米肌 肌潤化粧水</p>
         <p class="card__sub">ライスパワーNo.11 120ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(7件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1659,6 +2406,8 @@
       <div class="card__body">
         <p class="card__name">ELIXIR デザインタイム セラム</p>
         <p class="card__sub">エイジングケア美容液 40ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(200件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1680,6 +2429,8 @@
       <div class="card__body">
         <p class="card__name">エトヴォス モイスチャライジングセラム</p>
         <p class="card__sub">セラミド美容液 50ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1701,6 +2452,8 @@
       <div class="card__body">
         <p class="card__name">ドクターシーラボ アクアコラーゲンゲル エンリッチリフトEX</p>
         <p class="card__sub">オールインワンゲル 120g</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(93件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1722,6 +2475,8 @@
       <div class="card__body">
         <p class="card__name">クリニーク モイスチャーサージ 72</p>
         <p class="card__sub">ジェルクリーム 50ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(173件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -1743,6 +2498,8 @@
       <div class="card__body">
         <p class="card__name">オルビスユー ローション</p>
         <p class="card__sub">とろぱしゃ化粧水 180ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(82件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -1764,6 +2521,8 @@
       <div class="card__body">
         <p class="card__name">b.glen QuSomeホワイトクリーム2.0</p>
         <p class="card__sub">ハイドロキノン配合 15g</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(707件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -1785,6 +2544,8 @@
       <div class="card__body">
         <p class="card__name">メラノCC 薬用しみ集中対策美容液</p>
         <p class="card__sub">ロート製薬 20ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -1806,6 +2567,8 @@
       <div class="card__body">
         <p class="card__name">雪肌精 クリアウェルネス ナチュラルドリップ</p>
         <p class="card__sub">化粧水 200ml 和漢植物</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(5件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -1827,6 +2590,8 @@
       <div class="card__body">
         <p class="card__name">肌ラボ 極潤ヒアルロン液</p>
         <p class="card__sub">ロート製薬 170ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(20件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -1848,6 +2613,8 @@
       <div class="card__body">
         <p class="card__name">CANMAKE マシュマロフィニッシュパウダー</p>
         <p class="card__sub">プチプラ フェイスパウダー</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1869,6 +2636,8 @@
       <div class="card__body">
         <p class="card__name">ナチュリエ ハトムギ化粧水</p>
         <p class="card__sub">大容量500ml コスパ最強</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(7件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -1890,6 +2659,8 @@
       <div class="card__body">
         <p class="card__name">LITS リバイバル ステムプラス</p>
         <p class="card__sub">幹細胞コスメ オールインワン 50g</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(64件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -1911,6 +2682,8 @@
       <div class="card__body">
         <p class="card__name">ReFa CARAT RAY</p>
         <p class="card__sub">マイクロカレント 美容ローラー</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(8件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -1932,6 +2705,8 @@
       <div class="card__body">
         <p class="card__name">エステプロラボ チャコールクレンズ</p>
         <p class="card__sub">活性炭パワー 2本セット</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(51件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1953,6 +2728,8 @@
       <div class="card__body">
         <p class="card__name">SABON ボディスクラブ パチュリラベンダーバニラ</p>
         <p class="card__sub">死海の塩 600g</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(85件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1974,6 +2751,8 @@
       <div class="card__body">
         <p class="card__name">MTG ReFa FINE BUBBLE S</p>
         <p class="card__sub">シャワーヘッド ファインバブル</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(180件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -1995,6 +2774,8 @@
       <div class="card__body">
         <p class="card__name">ロクシタン シア ハンドクリーム</p>
         <p class="card__sub">30ml シアバター20%</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(30件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2016,6 +2797,8 @@
       <div class="card__body">
         <p class="card__name">MYTREX リバイブミニ XS</p>
         <p class="card__sub">ハンディガン コンパクト 筋膜リリース</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(96件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2037,6 +2820,8 @@
       <div class="card__body">
         <p class="card__name">BARTH 中性重炭酸入浴剤</p>
         <p class="card__sub">90錠 疲労回復 肌あたりなめらか</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(576件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2058,6 +2843,8 @@
       <div class="card__body">
         <p class="card__name">Aesop レスレクションハンドウォッシュ</p>
         <p class="card__sub">ハンドソープ 500ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(122件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2079,6 +2866,8 @@
       <div class="card__body">
         <p class="card__name">パナソニック 頭皮エステ サロンタッチタイプ</p>
         <p class="card__sub">EH-HE0G 防水</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(20件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -2100,6 +2889,8 @@
       <div class="card__body">
         <p class="card__name">ヴェレダ ホワイトバーチ ボディオイル</p>
         <p class="card__sub">セルライトケア 100ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(148件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -2121,6 +2912,8 @@
       <div class="card__body">
         <p class="card__name">SIXPAD パワーガン ポケット</p>
         <p class="card__sub">超小型マッサージガン 180g</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(253件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2142,6 +2935,8 @@
       <div class="card__body">
         <p class="card__name">MTG SIXPAD アブズフィット2</p>
         <p class="card__sub">EMS 腹筋トレーニング</p>
+        <div class="card__review"><span class="review-stars">★ 3.9</span><span class="review-count">(82件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2163,6 +2958,8 @@
       <div class="card__body">
         <p class="card__name">NIPLUX NECK RELAX 1S</p>
         <p class="card__sub">温熱EMS ネックマッサージャー</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(4,237件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2184,6 +2981,8 @@
       <div class="card__body">
         <p class="card__name">SIXPAD フットフィット ライト</p>
         <p class="card__sub">EMS 足裏 ふくらはぎ トレーニング</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(53件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2205,6 +3004,8 @@
       <div class="card__body">
         <p class="card__name">THREE バランシング ボディソープR</p>
         <p class="card__sub">天然由来96% 250ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2226,6 +3027,8 @@
       <div class="card__body">
         <p class="card__name">ファイテン RAKUWAネック メタックス</p>
         <p class="card__sub">磁気ネックレス</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(637件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2247,6 +3050,8 @@
       <div class="card__body">
         <p class="card__name">タングルティーザー オリジナル</p>
         <p class="card__sub">絡まない ヘアブラシ</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(513件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -2268,6 +3073,8 @@
       <div class="card__body">
         <p class="card__name">ニベア プレミアムボディミルク</p>
         <p class="card__sub">モイスチャー 190g</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -2289,6 +3096,8 @@
       <div class="card__body">
         <p class="card__name">RIZAP 着圧レギンス</p>
         <p class="card__sub">骨盤サポート 段階圧力設計</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(196件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -2310,6 +3119,8 @@
       <div class="card__body">
         <p class="card__name">ドクターショール 寝ながらメディキュット</p>
         <p class="card__sub">着圧ソックス ロング</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -2331,6 +3142,8 @@
       <div class="card__body">
         <p class="card__name">花王 バブ メディキュア 柑橘の香り</p>
         <p class="card__sub">高濃度炭酸 入浴剤 6錠</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(760件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -2352,6 +3165,8 @@
       <div class="card__body">
         <p class="card__name">ジョンソン ボディケア エクストラケア</p>
         <p class="card__sub">高保湿ローション 400ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(24件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -2373,6 +3188,8 @@
       <div class="card__body">
         <p class="card__name">ルシード デオドラントボディウォッシュ</p>
         <p class="card__sub">40才からのニオイケア 450ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(17件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -2394,6 +3211,8 @@
       <div class="card__body">
         <p class="card__name">Apple AirPods Pro 第2世代</p>
         <p class="card__sub">USB-C アクティブノイズキャンセリング</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(8件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -2415,6 +3234,8 @@
       <div class="card__body">
         <p class="card__name">Roborock S8 MaxV Ultra ロボット掃除機</p>
         <p class="card__sub">AI物体認識73種類回避 自動給排水</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(52件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -2436,6 +3257,8 @@
       <div class="card__body">
         <p class="card__name">Apple Watch Ultra 2</p>
         <p class="card__sub">Siri AI強化 チタンケース 最大36時間</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(6件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -2457,6 +3280,8 @@
       <div class="card__body">
         <p class="card__name">Apple Watch Series 10</p>
         <p class="card__sub">GPS 46mm 健康管理 Siri対応</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(6件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -2478,6 +3303,8 @@
       <div class="card__body">
         <p class="card__name">HHKB Professional HYBRID Type-S</p>
         <p class="card__sub">静電容量無接点 キーボード</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(38件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -2499,6 +3326,8 @@
       <div class="card__body">
         <p class="card__name">Sony WF-1000XM5</p>
         <p class="card__sub">完全ワイヤレス ノイキャン 最高峰</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(41件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -2520,6 +3349,8 @@
       <div class="card__body">
         <p class="card__name">Kindle Paperwhite 第12世代</p>
         <p class="card__sub">電子書籍リーダー 防水 16GB</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(19件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2541,6 +3372,8 @@
       <div class="card__body">
         <p class="card__name">Logicool MX Master 3S</p>
         <p class="card__sub">ワイヤレスマウス 静音</p>
+        <div class="card__review"><span class="review-stars">★ 3.5</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2562,6 +3395,8 @@
       <div class="card__body">
         <p class="card__name">Ray-Ban Meta スマートグラス</p>
         <p class="card__sub">Meta AI搭載 カメラ付きサングラス</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2583,6 +3418,8 @@
       <div class="card__body">
         <p class="card__name">Anker SOLIX C300 DC ポータブル電源</p>
         <p class="card__sub">AI電力管理 288Wh LiFePO4</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(27件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2604,6 +3441,8 @@
       <div class="card__body">
         <p class="card__name">JBL FLIP 6</p>
         <p class="card__sub">Bluetooth スピーカー 防水 IP67</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(35件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2625,6 +3464,8 @@
       <div class="card__body">
         <p class="card__name">BOSE QuietComfort Ultra Earbuds</p>
         <p class="card__sub">空間オーディオ ノイキャン</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(8件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2646,6 +3487,8 @@
       <div class="card__body">
         <p class="card__name">Fire TV Stick 4K Max 第2世代</p>
         <p class="card__sub">ストリーミングデバイス Alexa対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.9</span><span class="review-count">(8件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -2667,6 +3510,8 @@
       <div class="card__body">
         <p class="card__name">Anker MagGo モバイルバッテリー 10000mAh</p>
         <p class="card__sub">MagSafe対応 Qi2 ワイヤレス充電</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(421件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2688,6 +3533,8 @@
       <div class="card__body">
         <p class="card__name">Samsung T7 Shield ポータブルSSD 2TB</p>
         <p class="card__sub">外付けSSD 防水防塵</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2709,6 +3556,8 @@
       <div class="card__body">
         <p class="card__name">FlexiSpot E7 電動昇降デスク</p>
         <p class="card__sub">スタンディングデスク メモリ4つ</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(160件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2730,6 +3579,8 @@
       <div class="card__body">
         <p class="card__name">Anker PowerCore III Elite 25600</p>
         <p class="card__sub">大容量モバイルバッテリー 87W</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(821件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2751,6 +3602,8 @@
       <div class="card__body">
         <p class="card__name">Shokz OpenRun Pro 2</p>
         <p class="card__sub">骨伝導イヤホン チタニウム</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(1,329件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2772,6 +3625,8 @@
       <div class="card__body">
         <p class="card__name">Anker Soundcore Space A40</p>
         <p class="card__sub">ノイキャン ワイヤレスイヤホン コスパ最強</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(1,098件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2793,6 +3648,8 @@
       <div class="card__body">
         <p class="card__name">Anker 737 Charger GaNPrime 120W</p>
         <p class="card__sub">USB-C充電器 3ポート</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(94件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2814,6 +3671,8 @@
       <div class="card__body">
         <p class="card__name">PLAUD NotePin AIボイスレコーダー</p>
         <p class="card__sub">ウェアラブルAI文字起こし 112言語対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(14件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2835,6 +3694,8 @@
       <div class="card__body">
         <p class="card__name">Oura Ring Generation 3 スマートリング</p>
         <p class="card__sub">AI健康分析 睡眠/心拍/体温トラッキング</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(51件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2856,6 +3717,8 @@
       <div class="card__body">
         <p class="card__name">Dyson Gen5detect コードレス掃除機</p>
         <p class="card__sub">AI自動吸引調整 レーザーゴミ検知</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(21件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2877,6 +3740,8 @@
       <div class="card__body">
         <p class="card__name">Copilot+ PC Surface Pro 第11世代</p>
         <p class="card__sub">Microsoft Copilot AI搭載 Snapdragon X</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(38件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2898,6 +3763,8 @@
       <div class="card__body">
         <p class="card__name">Google Pixel Buds Pro 2</p>
         <p class="card__sub">AIノイキャン ワイヤレスイヤホン</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(378件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2919,6 +3786,8 @@
       <div class="card__body">
         <p class="card__name">GARMIN Venu 3</p>
         <p class="card__sub">GPS スマートウォッチ AMOLED</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(6件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -2940,6 +3809,8 @@
       <div class="card__body">
         <p class="card__name">Galaxy Watch7</p>
         <p class="card__sub">AI健康分析 睡眠スコア 体組成計</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -2961,6 +3832,8 @@
       <div class="card__body">
         <p class="card__name">SwitchBot ハブ2</p>
         <p class="card__sub">スマートリモコン 温湿度計付き</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(1,750件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -2982,6 +3855,8 @@
       <div class="card__body">
         <p class="card__name">PLAUD Note AIレコーダー カード型</p>
         <p class="card__sub">ChatGPT搭載 超薄型AIレコーダー</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(194件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3003,6 +3878,8 @@
       <div class="card__body">
         <p class="card__name">XREAL Air 2 Pro ARグラス</p>
         <p class="card__sub">AI対応 電子調光 最大330インチ</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3024,6 +3901,8 @@
       <div class="card__body">
         <p class="card__name">Meta Quest 3S VRヘッドセット</p>
         <p class="card__sub">Meta AI搭載 MR対応 128GB</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(18件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3045,6 +3924,8 @@
       <div class="card__body">
         <p class="card__name">JBL Tour Pro 3 AIイヤホン</p>
         <p class="card__sub">AI最適化ノイキャン スマートケース</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(133件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3066,6 +3947,8 @@
       <div class="card__body">
         <p class="card__name">Belkin MagSafe 3-in-1 充電器</p>
         <p class="card__sub">ワイヤレス充電パッド</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3087,6 +3970,8 @@
       <div class="card__body">
         <p class="card__name">OURA Ring Gen3</p>
         <p class="card__sub">スマートリング 睡眠分析 心拍数</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3108,6 +3993,8 @@
       <div class="card__body">
         <p class="card__name">TP-Link Deco XE75</p>
         <p class="card__sub">メッシュWi-Fi 6E ルーター</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(106件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3129,6 +4016,8 @@
       <div class="card__body">
         <p class="card__name">Anker Eufy Security Indoor Cam S350</p>
         <p class="card__sub">屋内セキュリティカメラ 4K</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(169件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3150,6 +4039,8 @@
       <div class="card__body">
         <p class="card__name">Sony LinkBuds S</p>
         <p class="card__sub">軽量4.8g ノイキャン ワイヤレス</p>
+        <div class="card__review"><span class="review-stars">★ 4.1</span><span class="review-count">(11件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3171,6 +4062,8 @@
       <div class="card__body">
         <p class="card__name">Timekettle W4 Pro AI翻訳イヤホン</p>
         <p class="card__sub">40言語同時通訳 ノイキャン搭載</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3192,6 +4085,8 @@
       <div class="card__body">
         <p class="card__name">SwitchBot K10+ Pro ロボット掃除機</p>
         <p class="card__sub">AI経路学習 世界最小クラス</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(697件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3213,6 +4108,8 @@
       <div class="card__body">
         <p class="card__name">Amazon Echo Show 10 第3世代</p>
         <p class="card__sub">Alexa AI搭載 自動追従10インチ</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(382件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3234,6 +4131,8 @@
       <div class="card__body">
         <p class="card__name">Samsung Galaxy Ring スマートリング</p>
         <p class="card__sub">Galaxy AI健康管理 チタン製</p>
+        <div class="card__review"><span class="review-stars">★ 3.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3255,6 +4154,8 @@
       <div class="card__body">
         <p class="card__name">PITAKA MagEZ Case 4</p>
         <p class="card__sub">iPhone用アラミド繊維ケース</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(433件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3276,6 +4177,8 @@
       <div class="card__body">
         <p class="card__name">エレコム トラックボール HUGE</p>
         <p class="card__sub">ワイヤレス 人差し指操作</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3297,6 +4200,8 @@
       <div class="card__body">
         <p class="card__name">Timekettle WT2 Edge 翻訳イヤホン</p>
         <p class="card__sub">43言語96アクセント リアルタイム翻訳</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3318,6 +4223,8 @@
       <div class="card__body">
         <p class="card__name">Google Nest Hub Max</p>
         <p class="card__sub">Google AI搭載 10インチスマートディスプレイ</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3339,6 +4246,8 @@
       <div class="card__body">
         <p class="card__name">POCKETALK S2 Plus AI翻訳機</p>
         <p class="card__sub">92言語対応 カメラ翻訳搭載</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -3360,6 +4269,8 @@
       <div class="card__body">
         <p class="card__name">SHARP ロボホン RoBoHoN</p>
         <p class="card__sub">AI搭載 二足歩行ロボット型スマホ</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.0</span>
         </div>
@@ -3381,6 +4292,8 @@
       <div class="card__body">
         <p class="card__name">Nature Remo mini 2</p>
         <p class="card__sub">スマートリモコン 温度センサー</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(83件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">3.9</span>
         </div>
@@ -3402,6 +4315,8 @@
       <div class="card__body">
         <p class="card__name">iHerb ビタミンD3 5000IU</p>
         <p class="card__sub">Now Foods 免疫サポート 240粒</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(36件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -3423,6 +4338,8 @@
       <div class="card__body">
         <p class="card__name">VALX ホエイプロテイン WPI パーフェクト</p>
         <p class="card__sub">チョコ味 1kg 山本義徳監修</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(2,346件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -3444,6 +4361,8 @@
       <div class="card__body">
         <p class="card__name">エビオス錠 2000錠</p>
         <p class="card__sub">ビール酵母 胃腸・栄養補給</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(101件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -3465,6 +4384,8 @@
       <div class="card__body">
         <p class="card__name">MYPROTEIN Impact ホエイプロテイン</p>
         <p class="card__sub">ナチュラルチョコレート 2.5kg</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(1,808件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -3486,6 +4407,8 @@
       <div class="card__body">
         <p class="card__name">SAVAS ホエイプロテイン100 ココア味</p>
         <p class="card__sub">明治 たんぱく質15g 1050g</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(1,421件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -3507,6 +4430,8 @@
       <div class="card__body">
         <p class="card__name">DHC マルチビタミン 90日分</p>
         <p class="card__sub">13種類のビタミン 毎日の健康に</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(38件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -3528,6 +4453,8 @@
       <div class="card__body">
         <p class="card__name">大塚製薬 エクエル</p>
         <p class="card__sub">エクオール含有食品 112粒 28日分</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(6,193件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -3549,6 +4476,8 @@
       <div class="card__body">
         <p class="card__name">ORBIS ディフェンセラ</p>
         <p class="card__sub">飲むスキンケア トクホ 30日分</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(220件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3570,6 +4499,8 @@
       <div class="card__body">
         <p class="card__name">明治 SAVAS ソイプロテイン100 ココア味</p>
         <p class="card__sub">大豆プロテイン 1050g</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(242件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3591,6 +4522,8 @@
       <div class="card__body">
         <p class="card__name">大塚製薬 ネイチャーメイド スーパーフィッシュオイル</p>
         <p class="card__sub">EPA DHA オメガ3 90粒</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(473件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3612,6 +4545,8 @@
       <div class="card__body">
         <p class="card__name">California Gold Nutrition オメガ-3</p>
         <p class="card__sub">フィッシュオイル 240粒</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3633,6 +4568,8 @@
       <div class="card__body">
         <p class="card__name">ディアナチュラ ストロング39アミノ マルチビタミン&ミネラル</p>
         <p class="card__sub">150粒 50日分</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(36件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3654,6 +4591,8 @@
       <div class="card__body">
         <p class="card__name">わかもと製薬 強力わかもと</p>
         <p class="card__sub">胃腸・整腸・栄養 1000錠</p>
+        <div class="card__review"><span class="review-stars">★ 4.9</span><span class="review-count">(17件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -3675,6 +4614,8 @@
       <div class="card__body">
         <p class="card__name">DHC ビタミンC 90日分</p>
         <p class="card__sub">1日1000mg 180粒</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3696,6 +4637,8 @@
       <div class="card__body">
         <p class="card__name">森永製菓 inゼリー エネルギー</p>
         <p class="card__sub">すばやいエネルギー補給 180g×6</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(20件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3717,6 +4660,8 @@
       <div class="card__body">
         <p class="card__name">ファンケル カロリミット</p>
         <p class="card__sub">食事の糖と脂肪の吸収を抑える 30回分</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(81件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3738,6 +4683,8 @@
       <div class="card__body">
         <p class="card__name">ファンケル えんきん</p>
         <p class="card__sub">機能性表示食品 30日分</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(62件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -3759,6 +4706,8 @@
       <div class="card__body">
         <p class="card__name">ファンケル 内脂サポート</p>
         <p class="card__sub">BMI改善 機能性表示食品 30日分</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(69件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3780,6 +4729,8 @@
       <div class="card__body">
         <p class="card__name">大塚製薬 賢者の食卓 ダブルサポート</p>
         <p class="card__sub">食物繊維 30包</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(22件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3801,6 +4752,8 @@
       <div class="card__body">
         <p class="card__name">大正製薬 リポビタンD</p>
         <p class="card__sub">栄養ドリンク タウリン1000mg 10本</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(443件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3822,6 +4775,8 @@
       <div class="card__body">
         <p class="card__name">アサヒ ディアナチュラ 亜鉛</p>
         <p class="card__sub">60粒 60日分</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3843,6 +4798,8 @@
       <div class="card__body">
         <p class="card__name">小林製薬 ナイシトールZa</p>
         <p class="card__sub">内臓脂肪減少 420錠</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -3864,6 +4821,8 @@
       <div class="card__body">
         <p class="card__name">UHA味覚糖 グミサプリ 鉄&葉酸</p>
         <p class="card__sub">20日分 40粒</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(383件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -3885,6 +4844,8 @@
       <div class="card__body">
         <p class="card__name">DHC プラセンタ 30日分</p>
         <p class="card__sub">濃縮エキス 90粒</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(8件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.0</span>
         </div>
@@ -3906,6 +4867,8 @@
       <div class="card__body">
         <p class="card__name">HHKB Professional HYBRID Type-S</p>
         <p class="card__sub">静電容量無接点方式最高峰</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(38件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.8</span>
         </div>
@@ -3927,6 +4890,8 @@
       <div class="card__body">
         <p class="card__name">Logicool MX Master 3S</p>
         <p class="card__sub">静音クリック搭載フラッグシップ</p>
+        <div class="card__review"><span class="review-stars">★ 3.5</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -3948,6 +4913,8 @@
       <div class="card__body">
         <p class="card__name">Logicool G PRO X SUPERLIGHT 2</p>
         <p class="card__sub">プロゲーマー向け超軽量</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -3969,6 +4936,8 @@
       <div class="card__body">
         <p class="card__name">Realforce R3 TKL</p>
         <p class="card__sub">東プレ静電容量無接点テンキーレス</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(20件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -3990,6 +4959,8 @@
       <div class="card__body">
         <p class="card__name">EIZO FlexScan EV2795 27インチ</p>
         <p class="card__sub">USB-Cデイジーチェーン対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -4011,6 +4982,8 @@
       <div class="card__body">
         <p class="card__name">Sony WH-1000XM5</p>
         <p class="card__sub">業界最高峰ノイキャンヘッドホン</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(77件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -4032,6 +5005,8 @@
       <div class="card__body">
         <p class="card__name">CalDigit TS4 Thunderbolt 4 ドック</p>
         <p class="card__sub">最高峰ドッキングステーション</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(6件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -4053,6 +5028,8 @@
       <div class="card__body">
         <p class="card__name">Samsung 990 PRO 2TB NVMe SSD</p>
         <p class="card__sub">Samsung最高性能NVMe</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.7</span>
         </div>
@@ -4074,6 +5051,8 @@
       <div class="card__body">
         <p class="card__name">Logicool PRO X2 SUPERLIGHT</p>
         <p class="card__sub">超軽量63gワイヤレスゲーミング</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(37件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4095,6 +5074,8 @@
       <div class="card__body">
         <p class="card__name">Razer Viper V3 Pro</p>
         <p class="card__sub">プロ仕様超軽量ゲーミング</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(11件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4116,6 +5097,8 @@
       <div class="card__body">
         <p class="card__name">Razer Huntsman V3 Pro TKL</p>
         <p class="card__sub">アナログ光学スイッチ搭載</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4137,6 +5120,8 @@
       <div class="card__body">
         <p class="card__name">Keychron Q1 Max</p>
         <p class="card__sub">75%カスタムメカニカル</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4158,6 +5143,8 @@
       <div class="card__body">
         <p class="card__name">Dell S2725QC 27インチ 4K USB-Cモニター</p>
         <p class="card__sub">USB-C 65W給電 4K IPS HDR400</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4179,6 +5166,8 @@
       <div class="card__body">
         <p class="card__name">Ergotron LX デスクマウントモニターアーム</p>
         <p class="card__sub">定番高品質モニターアーム</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(26件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4200,6 +5189,8 @@
       <div class="card__body">
         <p class="card__name">Anker Nano II 65W</p>
         <p class="card__sub">超小型65W急速充電器</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(1,230件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4221,6 +5212,8 @@
       <div class="card__body">
         <p class="card__name">Samsung T7 Shield 1TB ポータブルSSD</p>
         <p class="card__sub">IP65防塵防水ポータブルSSD</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4242,6 +5235,8 @@
       <div class="card__body">
         <p class="card__name">WD Black SN850X 2TB NVMe SSD</p>
         <p class="card__sub">PCIe4.0最速クラスNVMe</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(11件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.6</span>
         </div>
@@ -4263,6 +5258,8 @@
       <div class="card__body">
         <p class="card__name">Razer DeathAdder V3</p>
         <p class="card__sub">エルゴノミクスゲーミングマウス</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4284,6 +5281,8 @@
       <div class="card__body">
         <p class="card__name">Logicool G502 X LIGHTSPEED</p>
         <p class="card__sub">多ボタンゲーミングマウス</p>
+        <div class="card__review"><span class="review-stars">★ 3.7</span><span class="review-count">(15件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4305,6 +5304,8 @@
       <div class="card__body">
         <p class="card__name">Logicool MX Anywhere 3S</p>
         <p class="card__sub">コンパクトモバイルマウス</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(36件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4326,6 +5327,8 @@
       <div class="card__body">
         <p class="card__name">Logicool MX Ergo S</p>
         <p class="card__sub">ワイヤレストラックボール</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(92件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4347,6 +5350,8 @@
       <div class="card__body">
         <p class="card__name">Logicool MX Keys Mini</p>
         <p class="card__sub">コンパクト薄型ワイヤレス</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(160件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4368,6 +5373,8 @@
       <div class="card__body">
         <p class="card__name">NuPhy Air75 V2</p>
         <p class="card__sub">超薄型75%メカニカル</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4389,6 +5396,8 @@
       <div class="card__body">
         <p class="card__name">Logicool G913 TKL</p>
         <p class="card__sub">ロープロファイルゲーミング</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4410,6 +5419,8 @@
       <div class="card__body">
         <p class="card__name">Corsair K70 MAX</p>
         <p class="card__sub">磁気スイッチゲーミング</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4431,6 +5442,8 @@
       <div class="card__body">
         <p class="card__name">Dell S2722QC 27インチ 4K</p>
         <p class="card__sub">USB-C給電対応4Kモニター</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4452,6 +5465,8 @@
       <div class="card__body">
         <p class="card__name">ASUS ProArt PA278QV 27インチ</p>
         <p class="card__sub">プロ向け色精度モニター</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4473,6 +5488,8 @@
       <div class="card__body">
         <p class="card__name">BenQ MOBIUZ EX2710U 27インチ 4K</p>
         <p class="card__sub">144Hz 4Kゲーミングモニター</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(3件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4494,6 +5511,8 @@
       <div class="card__body">
         <p class="card__name">ASUS ProArt PA278QV 27インチ WQHDモニター</p>
         <p class="card__sub">sRGB/Rec.709 100% クリエイター向け</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4515,6 +5534,8 @@
       <div class="card__body">
         <p class="card__name">LG 32UN880-B UltraFine Ergo 32インチ</p>
         <p class="card__sub">エルゴアーム一体型4K</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4536,6 +5557,8 @@
       <div class="card__body">
         <p class="card__name">MSI MAG274QRF-QD 27インチ WQHD</p>
         <p class="card__sub">量子ドットゲーミング</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4557,6 +5580,8 @@
       <div class="card__body">
         <p class="card__name">Logicool Brio 500</p>
         <p class="card__sub">フルHD自動光補正カメラ</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4578,6 +5603,8 @@
       <div class="card__body">
         <p class="card__name">Razer Kiyo Pro Ultra</p>
         <p class="card__sub">4K対応プロ配信カメラ</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4599,6 +5626,8 @@
       <div class="card__body">
         <p class="card__name">Jabra Evolve2 75</p>
         <p class="card__sub">ハイブリッドワークANCヘッドセット</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4620,6 +5649,8 @@
       <div class="card__body">
         <p class="card__name">SteelSeries Arctis Nova 7 Wireless</p>
         <p class="card__sub">マルチプラットフォーム対応</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(5件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4641,6 +5672,8 @@
       <div class="card__body">
         <p class="card__name">Poly Voyager Focus 2 UC</p>
         <p class="card__sub">プロフェッショナルANCヘッドセット</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(14件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4662,6 +5695,8 @@
       <div class="card__body">
         <p class="card__name">Anker 737 Charger 120W</p>
         <p class="card__sub">3ポート120W急速充電器</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(36件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4683,6 +5718,8 @@
       <div class="card__body">
         <p class="card__name">Anker 735 Charger 65W</p>
         <p class="card__sub">3ポートコンパクト充電器</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(141件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4704,6 +5741,8 @@
       <div class="card__body">
         <p class="card__name">Anker PowerLine III Flow USB-C</p>
         <p class="card__sub">絡まないシリコンケーブル</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(2,362件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4725,6 +5764,8 @@
       <div class="card__body">
         <p class="card__name">Plugable UD-4VPD Thunderbolt 4 ドック</p>
         <p class="card__sub">Thunderbolt 4ドック</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4746,6 +5787,8 @@
       <div class="card__body">
         <p class="card__name">Rain Design mStand</p>
         <p class="card__sub">アルミ一体型スタンド</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4767,6 +5810,8 @@
       <div class="card__body">
         <p class="card__name">SteelSeries QcK Heavy XXL</p>
         <p class="card__sub">大型ゲーミングマウスパッド</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4788,6 +5833,8 @@
       <div class="card__body">
         <p class="card__name">SanDisk Extreme Pro SSD 2TB ポータブル</p>
         <p class="card__sub">プロ向け高速ポータブルSSD</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4809,6 +5856,8 @@
       <div class="card__body">
         <p class="card__name">Crucial T705 2TB NVMe SSD</p>
         <p class="card__sub">PCIe5.0超高速NVMe</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.5</span>
         </div>
@@ -4830,6 +5879,8 @@
       <div class="card__body">
         <p class="card__name">Logicool LIFT M800</p>
         <p class="card__sub">縦型エルゴノミクスマウス</p>
+        <div class="card__review"><span class="review-stars">★ 4.3</span><span class="review-count">(129件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4851,6 +5902,8 @@
       <div class="card__body">
         <p class="card__name">Logicool MX Mechanical Mini</p>
         <p class="card__sub">メカニカル薄型コンパクト</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(219件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4872,6 +5925,8 @@
       <div class="card__body">
         <p class="card__name">Keychron K2 Pro</p>
         <p class="card__sub">75%レイアウト メカニカル</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4893,6 +5948,8 @@
       <div class="card__body">
         <p class="card__name">FILCO Majestouch 3</p>
         <p class="card__sub">Cherry MX搭載定番メカニカル</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4914,6 +5971,8 @@
       <div class="card__body">
         <p class="card__name">Logicool ERGO K860</p>
         <p class="card__sub">エルゴノミクス分割キーボード</p>
+        <div class="card__review"><span class="review-stars">★ 4.1</span><span class="review-count">(122件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4935,6 +5994,8 @@
       <div class="card__body">
         <p class="card__name">NuPhy Halo75 V2</p>
         <p class="card__sub">透明ボディ75%メカニカル</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4956,6 +6017,8 @@
       <div class="card__body">
         <p class="card__name">LG 27UP850N-W 27インチ 4K</p>
         <p class="card__sub">HDR対応クリエイターモニター</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4977,6 +6040,8 @@
       <div class="card__body">
         <p class="card__name">Logicool C920n HD Pro ウェブカメラ</p>
         <p class="card__sub">定番フルHDウェブカメラ</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(117件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -4998,6 +6063,8 @@
       <div class="card__body">
         <p class="card__name">Logicool StreamCam C980</p>
         <p class="card__sub">配信者向けフルHDカメラ</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5019,6 +6086,8 @@
       <div class="card__body">
         <p class="card__name">Logicool G733 LIGHTSPEED</p>
         <p class="card__sub">軽量ワイヤレスゲーミング</p>
+        <div class="card__review"><span class="review-stars">★ 3.5</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5040,6 +6109,8 @@
       <div class="card__body">
         <p class="card__name">Razer BlackShark V2</p>
         <p class="card__sub">eスポーツゲーミングヘッドセット</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(45件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5061,6 +6132,8 @@
       <div class="card__body">
         <p class="card__name">HyperX Cloud III Wireless</p>
         <p class="card__sub">DTS:X空間オーディオ</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(14件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5082,6 +6155,8 @@
       <div class="card__body">
         <p class="card__name">CIO NovaPort TRIO 65W</p>
         <p class="card__sub">3ポート自動出力振り分け</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(57件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5103,6 +6178,8 @@
       <div class="card__body">
         <p class="card__name">Anker 533 Wireless Charger 3in1</p>
         <p class="card__sub">MagSafe対応3in1充電器</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5124,6 +6201,8 @@
       <div class="card__body">
         <p class="card__name">UGREEN Nexode 100W</p>
         <p class="card__sub">4ポート100W大出力充電器</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(902件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5145,6 +6224,8 @@
       <div class="card__body">
         <p class="card__name">Anker 553 USB-C ハブ 8in1</p>
         <p class="card__sub">8ポートUSB-Cハブ</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(24件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5166,6 +6247,8 @@
       <div class="card__body">
         <p class="card__name">Anker PowerExpand 8in1 USB-C PD</p>
         <p class="card__sub">多機能8ポートハブ</p>
+        <div class="card__review"><span class="review-stars">★ 3.9</span><span class="review-count">(11件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5187,6 +6270,8 @@
       <div class="card__body">
         <p class="card__name">Satechi USB4 マルチハブ 6in1</p>
         <p class="card__sub">USB4対応高速ハブ</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5208,6 +6293,8 @@
       <div class="card__body">
         <p class="card__name">BoYata ノートPCスタンド N19</p>
         <p class="card__sub">角度調整アルミスタンド</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(3,525件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5229,6 +6316,8 @@
       <div class="card__body">
         <p class="card__name">Twelve South Curve SE</p>
         <p class="card__sub">MacBook用エレベーター</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5250,6 +6339,8 @@
       <div class="card__body">
         <p class="card__name">Anker 675 USB-Cドッキングステーション モニタースタンド型</p>
         <p class="card__sub">モニタースタンド一体型ドック</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5271,6 +6362,8 @@
       <div class="card__body">
         <p class="card__name">Crucial X9 Pro 1TB ポータブルSSD</p>
         <p class="card__sub">高耐久コンパクトSSD</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5292,6 +6385,8 @@
       <div class="card__body">
         <p class="card__name">Anker 675 USB-Cドッキングステーション</p>
         <p class="card__sub">12in1 ワイヤレス充電対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(38件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.4</span>
         </div>
@@ -5313,6 +6408,8 @@
       <div class="card__body">
         <p class="card__name">Logicool M750</p>
         <p class="card__sub">マルチデバイス静音マウス</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(230件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5334,6 +6431,8 @@
       <div class="card__body">
         <p class="card__name">Kensington SlimBlade Pro</p>
         <p class="card__sub">大玉トラックボール</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5355,6 +6454,8 @@
       <div class="card__body">
         <p class="card__name">Apple Magic Keyboard Touch ID</p>
         <p class="card__sub">Mac用薄型ワイヤレス</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5376,6 +6477,8 @@
       <div class="card__body">
         <p class="card__name">Logicool G715 TKL</p>
         <p class="card__sub">かわいいデザインメカニカル</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(20件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5397,6 +6500,8 @@
       <div class="card__body">
         <p class="card__name">COFO モニターアーム Pro</p>
         <p class="card__sub">ガス式高耐荷重アーム</p>
+        <div class="card__review"><span class="review-stars">★ 4.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5418,6 +6523,8 @@
       <div class="card__body">
         <p class="card__name">Anker PowerConf C200</p>
         <p class="card__sub">2K高画質ウェブカメラ</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(23件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5439,6 +6546,8 @@
       <div class="card__body">
         <p class="card__name">Belkin BoostCharge Pro 4ポート</p>
         <p class="card__sub">4ポート108W充電器</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5460,6 +6569,8 @@
       <div class="card__body">
         <p class="card__name">CIO 柔らかいシリコンケーブル USB-C</p>
         <p class="card__sub">超柔軟100Wケーブル</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(216件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5481,6 +6592,8 @@
       <div class="card__body">
         <p class="card__name">Baseus GaN3 Pro 65W</p>
         <p class="card__sub">2C1A 65W小型充電器</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5502,6 +6615,8 @@
       <div class="card__body">
         <p class="card__name">Belkin Connect USB-C 7in1 マルチポートハブ</p>
         <p class="card__sub">7ポートスリムハブ</p>
+        <div class="card__review"><span class="review-stars">★ 4.9</span><span class="review-count">(18件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5523,6 +6638,8 @@
       <div class="card__body">
         <p class="card__name">UGREEN Revodok Pro 13in1 ドッキング</p>
         <p class="card__sub">13ポート多機能ドック</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(8件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5544,6 +6661,8 @@
       <div class="card__body">
         <p class="card__name">WAVLINK USB-C ドッキングステーション</p>
         <p class="card__sub">トリプルディスプレイ対応</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(19件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5565,6 +6684,8 @@
       <div class="card__body">
         <p class="card__name">MOFT ノートPCスタンド 超薄型</p>
         <p class="card__sub">貼り付け式超薄型スタンド</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(319件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5586,6 +6707,8 @@
       <div class="card__body">
         <p class="card__name">Majextand 超薄型スタンド</p>
         <p class="card__sub">世界最薄ノートPCスタンド</p>
+        <div class="card__review"><span class="review-stars">★ 4.7</span><span class="review-count">(6件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5607,6 +6730,8 @@
       <div class="card__body">
         <p class="card__name">Logicool Desk Mat Studio Series</p>
         <p class="card__sub">大型布製デスクマット</p>
+        <div class="card__review"><span class="review-stars">★ 4.9</span><span class="review-count">(15件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5628,6 +6753,8 @@
       <div class="card__body">
         <p class="card__name">Satechi デスクマット エコレザー</p>
         <p class="card__sub">Satechiエコレザーマット</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5649,6 +6776,8 @@
       <div class="card__body">
         <p class="card__name">Kingston XS2000 1TB ポータブルSSD</p>
         <p class="card__sub">超小型高速ポータブルSSD</p>
+        <div class="card__review"><span class="review-stars">★ 3.3</span><span class="review-count">(3件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5670,6 +6799,8 @@
       <div class="card__body">
         <p class="card__name">Transcend ESD310C 1TB ポータブルSSD</p>
         <p class="card__sub">USB-C&A両対応スティック型SSD</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(38件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5691,6 +6822,8 @@
       <div class="card__body">
         <p class="card__name">Logicool Desk Mat Studio Series</p>
         <p class="card__sub">大型デスクマット 防水PU素材</p>
+        <div class="card__review"><span class="review-stars">★ 4.9</span><span class="review-count">(15件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.3</span>
         </div>
@@ -5712,6 +6845,8 @@
       <div class="card__body">
         <p class="card__name">SteelSeries Rival 5</p>
         <p class="card__sub">9ボタン軽量ゲーミングマウス</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5733,6 +6868,8 @@
       <div class="card__body">
         <p class="card__name">エレコム EX-G M-XGM30BBSK</p>
         <p class="card__sub">握りの極みBluetooth静音</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(14件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5754,6 +6891,8 @@
       <div class="card__body">
         <p class="card__name">Philips 278E1A 27インチ 4K</p>
         <p class="card__sub">コスパ4Kモニター</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5775,6 +6914,8 @@
       <div class="card__body">
         <p class="card__name">Amazonベーシック モニターアーム シングル</p>
         <p class="card__sub">コスパ最強モニターアーム</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5796,6 +6937,8 @@
       <div class="card__body">
         <p class="card__name">サンワサプライ モニターアーム CR-LA1801</p>
         <p class="card__sub">4関節ロングアーム</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5817,6 +6960,8 @@
       <div class="card__body">
         <p class="card__name">Logicool Zone Vibe 125</p>
         <p class="card__sub">ビジネスワイヤレスヘッドセット</p>
+        <div class="card__review"><span class="review-stars">★ 4.2</span><span class="review-count">(5件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5838,6 +6983,8 @@
       <div class="card__body">
         <p class="card__name">Anker 341 USB-C ハブ 7in1</p>
         <p class="card__sub">エントリー7ポートハブ</p>
+        
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5859,6 +7006,8 @@
       <div class="card__body">
         <p class="card__name">BUFFALO SSD-PGT 1TB ポータブルSSD</p>
         <p class="card__sub">テレビ録画対応ポータブルSSD</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(1件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.2</span>
         </div>
@@ -5880,6 +7029,8 @@
       <div class="card__body">
         <p class="card__name">Logicool Pebble Mouse 2 M750</p>
         <p class="card__sub">薄型ポータブルマウス</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(304件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -5901,6 +7052,8 @@
       <div class="card__body">
         <p class="card__name">エレコム モニターアーム DPA-SS02BK</p>
         <p class="card__sub">クランプ式ガスシリンダー</p>
+        <div class="card__review"><span class="review-stars">★ 4.1</span><span class="review-count">(9件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -5922,6 +7075,8 @@
       <div class="card__body">
         <p class="card__name">Jabra Talk 45</p>
         <p class="card__sub">ビジネスBluetoothイヤホン</p>
+        <div class="card__review"><span class="review-stars">★ 4.4</span><span class="review-count">(15件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -5943,6 +7098,8 @@
       <div class="card__body">
         <p class="card__name">SanDisk Ultra 128GB USBメモリ</p>
         <p class="card__sub">高速USB3.0フラッシュドライブ</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(2,214件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.1</span>
         </div>
@@ -5964,6 +7121,8 @@
       <div class="card__body">
         <p class="card__name">Microsoft Arc Mouse</p>
         <p class="card__sub">折りたたみ薄型マウス</p>
+        <div class="card__review"><span class="review-stars">★ 5.0</span><span class="review-count">(2件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">4.0</span>
         </div>
@@ -5985,6 +7144,8 @@
       <div class="card__body">
         <p class="card__name">Logicool H540r USBヘッドセット</p>
         <p class="card__sub">コスパUSBヘッドセット</p>
+        <div class="card__review"><span class="review-stars">★ 3.5</span><span class="review-count">(4件)</span></div>
+        
         <div class="card__meta">
           <span class="card__score">3.9</span>
         </div>
@@ -6010,7 +7171,7 @@
       </div>
       <p class="footer__text">
         本ページにはアフィリエイトリンクが含まれます<br>
-        &copy; tsune.eth | 2026.03.16 更新
+        &copy; tsune.eth | 2026.03.17 更新
       </p>
     </div>
   </footer>
