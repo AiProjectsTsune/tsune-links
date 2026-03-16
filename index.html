@@ -74,11 +74,19 @@
     .pickup-cat{
       margin-bottom:28px;
     }
-    .pickup-cat__title{
-      font-size:15px;font-weight:600;color:#333;
+    .pickup-cat__header{
+      display:flex;align-items:center;justify-content:space-between;
       padding-bottom:8px;border-bottom:2px solid #111;
       margin-bottom:12px;
     }
+    .pickup-cat__title{
+      font-size:15px;font-weight:600;color:#333;margin:0;
+    }
+    .pickup-cat__more{
+      font-size:12px;color:#666;text-decoration:none;
+      transition:color .15s;
+    }
+    .pickup-cat__more:hover{color:#111;text-decoration:underline}
     .pickup-cat__grid{
       display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
     }
@@ -454,7 +462,10 @@
       <p class="pickup-section__sub">楽天レビュー × スコアで厳選した各カテゴリTOP4</p>
       
     <div class="pickup-cat">
-      <h3 class="pickup-cat__title">美容家電 TOP 4</h3>
+      <div class="pickup-cat__header">
+        <h3 class="pickup-cat__title">美容家電 TOP 4</h3>
+        <a href="#" class="pickup-cat__more" data-cat="美容家電">他の商品も見る →</a>
+      </div>
       <div class="pickup-cat__grid"><div class="card card--featured" data-cat="美容家電" data-name="SALONIA ストレートヘアアイロン" data-subtitle="15mm 230℃ プロ仕様">
       
       <a href="https://www.amazon.co.jp/dp/B0DYP1LBDX?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -549,7 +560,10 @@
     </div></div>
     </div>
     <div class="pickup-cat">
-      <h3 class="pickup-cat__title">スキンケア TOP 4</h3>
+      <div class="pickup-cat__header">
+        <h3 class="pickup-cat__title">スキンケア TOP 4</h3>
+        <a href="#" class="pickup-cat__more" data-cat="スキンケア">他の商品も見る →</a>
+      </div>
       <div class="pickup-cat__grid"><div class="card card--featured" data-cat="スキンケア" data-name="FANCL マイルドクレンジングオイル" data-subtitle="メイク落とし 120ml 無添加">
       
       <a href="https://www.amazon.co.jp/dp/B07Q1P8V4T?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -644,7 +658,10 @@
     </div></div>
     </div>
     <div class="pickup-cat">
-      <h3 class="pickup-cat__title">ボディケア TOP 4</h3>
+      <div class="pickup-cat__header">
+        <h3 class="pickup-cat__title">ボディケア TOP 4</h3>
+        <a href="#" class="pickup-cat__more" data-cat="ボディケア">他の商品も見る →</a>
+      </div>
       <div class="pickup-cat__grid"><div class="card card--featured" data-cat="ボディケア" data-name="NIPLUX NECK RELAX 1S" data-subtitle="温熱EMS ネックマッサージャー">
       
       <a href="https://www.amazon.co.jp/dp/B0DFWBZWQX?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -739,7 +756,10 @@
     </div></div>
     </div>
     <div class="pickup-cat">
-      <h3 class="pickup-cat__title">ガジェット TOP 4</h3>
+      <div class="pickup-cat__header">
+        <h3 class="pickup-cat__title">ガジェット TOP 4</h3>
+        <a href="#" class="pickup-cat__more" data-cat="ガジェット">他の商品も見る →</a>
+      </div>
       <div class="pickup-cat__grid"><div class="card card--featured" data-cat="ガジェット" data-name="SwitchBot ハブ2" data-subtitle="スマートリモコン 温湿度計付き">
       
       <a href="https://www.amazon.co.jp/dp/B0CXDKPH8W?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -834,7 +854,10 @@
     </div></div>
     </div>
     <div class="pickup-cat">
-      <h3 class="pickup-cat__title">健康食品 TOP 4</h3>
+      <div class="pickup-cat__header">
+        <h3 class="pickup-cat__title">健康食品 TOP 4</h3>
+        <a href="#" class="pickup-cat__more" data-cat="健康食品">他の商品も見る →</a>
+      </div>
       <div class="pickup-cat__grid"><div class="card card--featured" data-cat="健康食品" data-name="大塚製薬 エクエル" data-subtitle="エクオール含有食品 112粒 28日分">
       
       <a href="https://www.amazon.co.jp/dp/B0B6FJKFZZ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -929,7 +952,10 @@
     </div></div>
     </div>
     <div class="pickup-cat">
-      <h3 class="pickup-cat__title">PCサプライ TOP 4</h3>
+      <div class="pickup-cat__header">
+        <h3 class="pickup-cat__title">PCサプライ TOP 4</h3>
+        <a href="#" class="pickup-cat__more" data-cat="PCサプライ">他の商品も見る →</a>
+      </div>
       <div class="pickup-cat__grid"><div class="card card--featured" data-cat="PCサプライ" data-name="BoYata ノートPCスタンド N19" data-subtitle="角度調整アルミスタンド">
       
       <a href="https://www.amazon.co.jp/dp/B07XC4DYF8?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -7246,6 +7272,22 @@
       searchClear.classList.remove('search-bar__clear--visible');
       applyFilters();
       searchInput.focus();
+    });
+
+    // 「他の商品も見る」クリック → カテゴリタブ選択+スクロール
+    document.querySelectorAll('.pickup-cat__more').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const cat = link.dataset.cat;
+        // カテゴリタブをクリック
+        document.querySelectorAll('.nav__tab').forEach(tab => {
+          if (tab.dataset.cat === cat) {
+            tab.click();
+          }
+        });
+        // 商品グリッドまでスクロール
+        document.querySelector('.info-bar').scrollIntoView({behavior:'smooth'});
+      });
     });
 
     // Scroll to top
