@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>tsune.eth | 美容家電・ガジェット・PCサプライ 291商品の価格比較＆おすすめランキング</title>
-  <meta name="description" content="楽天・Amazonの価格比較で最安値をチェック。美容家電、スキンケア、PCサプライなど291商品を厳選レビュー。ReFa、Panasonic、SALONIA、Logicool等の人気ブランドを網羅。カテゴリ別TOP4ランキング付き。">
+  <title>tsune.eth | 美容家電・ガジェット・PCサプライ 295商品の価格比較＆おすすめランキング</title>
+  <meta name="description" content="楽天・Amazonの価格比較で最安値をチェック。美容家電、スキンケア、PCサプライなど295商品を厳選レビュー。ReFa、Panasonic、SALONIA、Logicool等の人気ブランドを網羅。カテゴリ別TOP4ランキング付き。">
   <meta name="keywords" content="美容家電,おすすめ,ランキング,価格比較,楽天,Amazon,ReFa,Panasonic,ヤーマン,SALONIA,PCサプライ,ガジェット,スキンケア,レビュー">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://aiprojectstsune.github.io/tsune-links/">
-  <meta property="og:title" content="tsune.eth | 291商品の価格比較＆おすすめランキング">
-  <meta property="og:description" content="楽天・Amazonの価格比較で最安値をチェック。美容家電からPCサプライまで291商品を厳選。">
+  <meta property="og:title" content="tsune.eth | 295商品の価格比較＆おすすめランキング">
+  <meta property="og:description" content="楽天・Amazonの価格比較で最安値をチェック。美容家電からPCサプライまで295商品を厳選。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aiprojectstsune.github.io/tsune-links/">
   <meta property="og:site_name" content="tsune.eth">
@@ -18,8 +18,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="tsune.eth | 291商品の価格比較＆おすすめランキング">
-  <meta name="twitter:description" content="楽天・Amazonの価格比較。美容家電・ガジェット・PCサプライ291商品を厳選。">
+  <meta name="twitter:title" content="tsune.eth | 295商品の価格比較＆おすすめランキング">
+  <meta name="twitter:description" content="楽天・Amazonの価格比較。美容家電・ガジェット・PCサプライ295商品を厳選。">
   <meta name="twitter:image" content="https://aiprojectstsune.github.io/tsune-links/ogp.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
@@ -29,7 +29,7 @@
     "@type": "WebSite",
     "name": "tsune.eth おすすめアイテム",
     "url": "https://aiprojectstsune.github.io/tsune-links/",
-    "description": "美容家電・ガジェット・PCサプライ291商品の価格比較＆おすすめランキング",
+    "description": "美容家電・ガジェット・PCサプライ295商品の価格比較＆おすすめランキング",
     "inLanguage": "ja"
   }
   </script>
@@ -369,7 +369,7 @@
     "@type": "WebSite",
     "name": "tsune.eth",
     "url": "https://aiprojectstsune.github.io/tsune-links/",
-    "description": "楽天・Amazonの価格比較で最安値をチェック。美容家電からPCサプライまで291商品を厳選。",
+    "description": "楽天・Amazonの価格比較で最安値をチェック。美容家電からPCサプライまで295商品を厳選。",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://aiprojectstsune.github.io/tsune-links/?q={search_term_string}",
@@ -431,13 +431,34 @@
         }catch(e){}
       }
     });
+    // ページ内ナビゲーション追跡（カテゴリ移動、スクロール位置）
+    var lastSection='top';
+    var navLog=[];
+    document.addEventListener('click',function(e){
+      var nav=e.target.closest('.nav__tab, [data-category], a[href^="#"]');
+      if(nav){
+        var section=nav.textContent||nav.getAttribute('data-category')||nav.hash||'unknown';
+        navLog.push({from:lastSection,to:section.trim().substring(0,30),t:Date.now()});
+        lastSection=section.trim().substring(0,30);
+      }
+    });
+    // スクロール深度追跡
+    var maxScroll=0;
+    window.addEventListener('scroll',function(){
+      var pct=Math.round(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100);
+      if(pct>maxScroll)maxScroll=pct;
+    });
     // ページ滞在時間追跡
     var startTime=Date.now();
     window.addEventListener('beforeunload',function(){
       var duration=Math.round((Date.now()-startTime)/1000);
       try{
         var st=JSON.parse(localStorage.getItem('tl_session_log')||'[]');
-        st.push({t:startTime,duration:duration,p:location.pathname});
+        st.push({
+          t:startTime,duration:duration,p:location.pathname,
+          maxScroll:maxScroll,
+          nav:navLog.slice(-20)
+        });
         if(st.length>200)st=st.slice(-200);
         localStorage.setItem('tl_session_log',JSON.stringify(st));
       }catch(e){}
@@ -563,6 +584,55 @@
       </div>
     </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Category Quick Nav (PICK UP上) -->
+  <section style="max-width:1280px;margin:0 auto;padding:24px 16px 0;">
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+      <a href="#all-products" class="cat-quick-btn cat-quick-btn--active" data-cat-quick="ALL"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#111;color:#fff;font-size:13px;font-weight:600;
+                text-decoration:none;transition:all .2s;">
+        ALL <span style="background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:12px;font-size:11px;">295</span>
+      </a>
+      <a href="#all-products" class="cat-quick-btn" data-cat-quick="美容家電"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#f1f1f1;color:#333;font-size:13px;font-weight:500;
+                text-decoration:none;transition:all .2s;border:1px solid #e5e5e5;"
+         onmouseover="this.style.background='#e5e5e5'" onmouseout="this.style.background='#f1f1f1'">
+        美容家電 <span style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:12px;font-size:11px;color:#666;">66</span>
+      </a><a href="#all-products" class="cat-quick-btn" data-cat-quick="スキンケア"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#f1f1f1;color:#333;font-size:13px;font-weight:500;
+                text-decoration:none;transition:all .2s;border:1px solid #e5e5e5;"
+         onmouseover="this.style.background='#e5e5e5'" onmouseout="this.style.background='#f1f1f1'">
+        スキンケア <span style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:12px;font-size:11px;color:#666;">34</span>
+      </a><a href="#all-products" class="cat-quick-btn" data-cat-quick="ボディケア"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#f1f1f1;color:#333;font-size:13px;font-weight:500;
+                text-decoration:none;transition:all .2s;border:1px solid #e5e5e5;"
+         onmouseover="this.style.background='#e5e5e5'" onmouseout="this.style.background='#f1f1f1'">
+        ボディケア <span style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:12px;font-size:11px;color:#666;">23</span>
+      </a><a href="#all-products" class="cat-quick-btn" data-cat-quick="ガジェット"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#f1f1f1;color:#333;font-size:13px;font-weight:500;
+                text-decoration:none;transition:all .2s;border:1px solid #e5e5e5;"
+         onmouseover="this.style.background='#e5e5e5'" onmouseout="this.style.background='#f1f1f1'">
+        ガジェット <span style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:12px;font-size:11px;color:#666;">48</span>
+      </a><a href="#all-products" class="cat-quick-btn" data-cat-quick="健康食品"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#f1f1f1;color:#333;font-size:13px;font-weight:500;
+                text-decoration:none;transition:all .2s;border:1px solid #e5e5e5;"
+         onmouseover="this.style.background='#e5e5e5'" onmouseout="this.style.background='#f1f1f1'">
+        健康食品 <span style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:12px;font-size:11px;color:#666;">24</span>
+      </a><a href="#all-products" class="cat-quick-btn" data-cat-quick="PCサプライ"
+         style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+                border-radius:24px;background:#f1f1f1;color:#333;font-size:13px;font-weight:500;
+                text-decoration:none;transition:all .2s;border:1px solid #e5e5e5;"
+         onmouseover="this.style.background='#e5e5e5'" onmouseout="this.style.background='#f1f1f1'">
+        PCサプライ <span style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:12px;font-size:11px;color:#666;">100</span>
+      </a>
     </div>
   </section>
 
@@ -1166,11 +1236,11 @@
   <!-- Category Nav -->
   <nav class="nav">
     <div class="nav__inner">
-      <button class="nav__tab nav__tab--active" data-cat="all">ALL<span class="nav__count">291</span></button>
+      <button class="nav__tab nav__tab--active" data-cat="all">ALL<span class="nav__count">295</span></button>
       <button class="nav__tab" data-cat="美容家電">美容家電<span class="nav__count">66</span></button>
-      <button class="nav__tab" data-cat="スキンケア">スキンケア<span class="nav__count">31</span></button>
+      <button class="nav__tab" data-cat="スキンケア">スキンケア<span class="nav__count">34</span></button>
       <button class="nav__tab" data-cat="ボディケア">ボディケア<span class="nav__count">23</span></button>
-      <button class="nav__tab" data-cat="ガジェット">ガジェット<span class="nav__count">47</span></button>
+      <button class="nav__tab" data-cat="ガジェット">ガジェット<span class="nav__count">48</span></button>
       <button class="nav__tab" data-cat="健康食品">健康食品<span class="nav__count">24</span></button>
       <button class="nav__tab" data-cat="PCサプライ">PCサプライ<span class="nav__count">100</span></button>
 
@@ -1193,7 +1263,7 @@
 
   <!-- Info Bar -->
   <div class="info-bar">
-    <div class="info-bar__count" id="result-count">291件 <span>のアイテム</span></div>
+    <div class="info-bar__count" id="result-count">295件 <span>のアイテム</span></div>
     <div class="info-bar__date">最終更新 2026.03.17</div>
   </div>
 
@@ -2971,6 +3041,29 @@
         </div>
       </div>
     </div>
+<div class="card" data-cat="スキンケア" data-name="アネッサ パーフェクトUV スキンケアミルクN" data-subtitle="日焼け止め SPF50+ 60ml">
+      
+      <a href="https://www.amazon.co.jp/dp/B09TW4PMCY?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/tokitomecosme/cabinet/main-tokitome/4909978147105-ra-2.jpg?_ex=500x500" alt="アネッサ パーフェクトUV スキンケアミルクN" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">アネッサ パーフェクトUV スキンケアミルクN</p>
+        <p class="card__sub">日焼け止め SPF50+ 60ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.8</span><span class="review-count">(302件)</span></div>
+        
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;3,058</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00r136m.nla0758c.g00r136m.nla08b16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F406691%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11386626%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;3,058 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B09TW4PMCY?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
 <div class="card" data-cat="スキンケア" data-name="KIEHL'S クリーム UFC" data-subtitle="保湿クリーム 49g">
       
       <a href="https://www.amazon.co.jp/dp/B0C1RYKXBF?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
@@ -3037,6 +3130,29 @@
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00tnwtm.nla07c76.g00tnwtm.nla085a2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancylifecosme%2F4547410396324%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffancylifecosme%2Fi%2F10000049%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;7,020 楽天</a>
           <a href="https://www.amazon.co.jp/dp/B0C6V4VHM6?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="SHISEIDO エッセンス スキングロウ" data-subtitle="美容液ファンデーション 30ml">
+      
+      <a href="https://www.amazon.co.jp/dp/B0D4YNWRVJ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/cosmedenet-dx/cabinet/item/0235/3104151_1.jpg?_ex=500x500" alt="SHISEIDO エッセンス スキングロウ" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">SHISEIDO エッセンス スキングロウ</p>
+        <p class="card__sub">美容液ファンデーション 30ml</p>
+        <div class="card__review"><span class="review-stars">★ 4.1</span><span class="review-count">(12件)</span></div>
+        
+        <div class="card__meta">
+          <span class="card__score">4.5</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;4,914</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00umptm.nla07a82.g00umptm.nla08cf5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbrandshiseido%2Feud0001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbrandshiseido%2Fi%2F10000010%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;4,914 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0D4YNWRVJ?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -3129,6 +3245,29 @@
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00ss0em.nla07636.g00ss0em.nla08a85/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmatsuya-cosme%2F10177%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmatsuya-cosme%2Fi%2F10009181%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,004 楽天</a>
           <a href="https://www.amazon.co.jp/dp/B08P7GKBG9?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="スキンケア" data-name="ONE BY KOSE セラムシールド" data-subtitle="バーム状美容液 固形美容液 40g">
+      
+      <a href="https://www.amazon.co.jp/dp/B0C6XQ6J7H?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fancylifecosme/cabinet/12759776/56506-rank.jpg?_ex=500x500" alt="ONE BY KOSE セラムシールド" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">ONE BY KOSE セラムシールド</p>
+        <p class="card__sub">バーム状美容液 固形美容液 40g</p>
+        <div class="card__review"><span class="review-stars">★ 4.5</span><span class="review-count">(125件)</span></div>
+        
+        <div class="card__meta">
+          <span class="card__score">4.4</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;4,350</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00r136m.nla0758c.g00r136m.nla08b16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakuten24%2F4971710561395%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakuten24%2Fi%2F11188202%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;4,350 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0C6XQ6J7H?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -4900,6 +5039,29 @@
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00uaazm.nla0794b.g00uaazm.nla08e5b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgrandprixjapan%2F50000006%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgrandprixjapan%2Fi%2F10000023%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;788 楽天</a>
           <a href="https://www.amazon.co.jp/dp/B0DQPGCF23?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+        </div>
+      </div>
+    </div>
+<div class="card" data-cat="ガジェット" data-name="PITAKA MagEZ Case 4" data-subtitle="iPhone用アラミド繊維ケース">
+      
+      <a href="https://www.amazon.co.jp/dp/B0CQYQ8D8F?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/pitaka/cabinet/11610061/imgrc0111554636.jpg?_ex=500x500" alt="PITAKA MagEZ Case 4" loading="lazy" class="card__img"
+             onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
+      </a>
+      <div class="card__body">
+        <p class="card__name">PITAKA MagEZ Case 4</p>
+        <p class="card__sub">iPhone用アラミド繊維ケース</p>
+        <div class="card__review"><span class="review-stars">★ 4.6</span><span class="review-count">(433件)</span></div>
+        
+        <div class="card__meta">
+          <span class="card__score">4.3</span>
+        </div>
+        <div class="card__prices">
+          <span class="card__price card__price--rakuten">&yen;7,499</span>
+        </div>
+        <div class="card__actions">
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00u1xvm.nla07903.g00u1xvm.nla08e33/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpitaka%2Fmg1-01120100-jp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpitaka%2Fi%2F10000135%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;7,499 楽天</a>
+          <a href="https://www.amazon.co.jp/dp/B0CQYQ8D8F?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -7998,6 +8160,35 @@
         const nav = document.querySelector('.nav');
         const offset = nav.offsetTop - 10;
         window.scrollTo({top: offset, behavior:'smooth'});
+      });
+    });
+
+    // カテゴリクイックナビ（PICK UP上）→ カテゴリタブ連動
+    document.querySelectorAll('.cat-quick-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const cat = btn.dataset.catQuick;
+        // アクティブ状態切替
+        document.querySelectorAll('.cat-quick-btn').forEach(b => {
+          b.style.background = '#f1f1f1';
+          b.style.color = '#333';
+          b.classList.remove('cat-quick-btn--active');
+        });
+        btn.style.background = '#111';
+        btn.style.color = '#fff';
+        btn.classList.add('cat-quick-btn--active');
+        // カテゴリタブをクリック
+        const targetCat = cat === 'ALL' ? 'all' : cat;
+        document.querySelectorAll('.nav__tab').forEach(tab => {
+          if (tab.dataset.cat === targetCat) {
+            tab.click();
+          }
+        });
+        // 商品一覧までスクロール
+        const nav = document.querySelector('.nav');
+        if (nav) {
+          window.scrollTo({top: nav.offsetTop - 10, behavior:'smooth'});
+        }
       });
     });
 
