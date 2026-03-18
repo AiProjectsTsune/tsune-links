@@ -12803,6 +12803,11 @@
     const searchResult = document.getElementById('search-result');
 
     // Combined filter: category + search
+    // 検索時に非表示にするセクション
+    const heroSection = document.querySelector('.hero');
+    const pickupSections = document.querySelectorAll('.pickup-section');
+    const catQuickNav = document.querySelector('.cat-quick');
+
     function applyFilters() {
       const q = searchQuery.toLowerCase();
       let visible = 0;
@@ -12823,12 +12828,19 @@
         }
       });
       resultCount.innerHTML = visible + '件 <span>のアイテム</span>';
-      // Search result count
+      // 検索時: Pick Up等を非表示にして商品グリッドにスクロール
       if (q) {
         searchResult.innerHTML = '<strong>' + visible + '件</strong>見つかりました';
         searchResult.classList.add('header__search-result--visible');
+        if (heroSection) heroSection.style.display = 'none';
+        pickupSections.forEach(s => s.style.display = 'none');
+        if (catQuickNav) catQuickNav.style.display = 'none';
+        document.getElementById('product-grid').scrollIntoView({behavior:'smooth',block:'start'});
       } else {
         searchResult.classList.remove('header__search-result--visible');
+        if (heroSection) heroSection.style.display = '';
+        pickupSections.forEach(s => s.style.display = '');
+        if (catQuickNav) catQuickNav.style.display = '';
       }
     }
 
