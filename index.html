@@ -56,8 +56,40 @@
     }
     .header__inner{
       max-width:1280px;margin:0 auto;padding:0 20px;
-      height:56px;display:flex;align-items:center;justify-content:space-between;
+      height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;
     }
+    .header__search{
+      position:relative;flex:1;max-width:400px;
+    }
+    .header__search-icon{
+      position:absolute;left:10px;top:50%;transform:translateY(-50%);
+      pointer-events:none;color:#bbb;display:flex;align-items:center;
+    }
+    .header__search-input{
+      width:100%;padding:7px 34px 7px 34px;
+      font-family:'Noto Sans JP','Inter',sans-serif;
+      font-size:13px;color:#222;
+      background:#f5f5f5;border:1px solid transparent;border-radius:20px;
+      outline:none;transition:all .15s ease;
+    }
+    .header__search-input::placeholder{color:#bbb}
+    .header__search-input:focus{background:#fff;border-color:#ddd;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+    .header__search-clear{
+      position:absolute;right:8px;top:50%;transform:translateY(-50%);
+      width:20px;height:20px;border-radius:50%;
+      background:#ddd;color:#666;font-size:12px;line-height:20px;
+      text-align:center;cursor:pointer;
+      display:none;border:none;font-family:inherit;padding:0;
+    }
+    .header__search-clear:hover{background:#ccc;color:#333}
+    .header__search-clear--visible{display:block}
+    .header__search-result{
+      position:absolute;top:100%;left:0;margin-top:4px;
+      font-size:12px;color:#999;white-space:nowrap;display:none;
+    }
+    .header__search-result--visible{display:block}
+    .header__search-result strong{color:#111;font-weight:600}
+    @media(max-width:640px){.header__search{max-width:none;}}
     .header__logo{
       font-family:'Inter',sans-serif;font-size:22px;font-weight:700;
       letter-spacing:-.5px;color:#111;
@@ -324,12 +356,12 @@
       border:none;font-family:inherit;padding:0;
     }
     .search-bar__clear:hover{background:#ccc;color:#333}
-    .search-bar__clear--visible{display:block}
+    .header__search-clear--visible{display:block}
     .search-bar__result{
       font-size:12px;color:#999;margin-top:6px;
       display:none;
     }
-    .search-bar__result--visible{display:block}
+    .header__search-result--visible{display:block}
     .search-bar__result strong{color:#111;font-weight:600}
     @media(max-width:640px){
       .search-bar__wrap{max-width:100%}
@@ -472,6 +504,14 @@
   <header class="header">
     <div class="header__inner">
       <a href="#" class="header__logo">tsune<em>.eth</em></a>
+      <div class="header__search">
+        <span class="header__search-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="search" class="header__search-input" id="search-input" placeholder="アイテムを検索..." aria-label="アイテムを検索">
+        <button class="header__search-clear" id="search-clear" aria-label="検索をクリア">&times;</button>
+        <div class="header__search-result" id="search-result"></div>
+      </div>
       <div class="header__right">
         <a href="https://www.instagram.com/tsune.eth/" target="_blank" rel="noopener" class="header__link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -1254,19 +1294,7 @@
     </div>
   </nav>
 
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <div class="search-bar__inner">
-      <div class="search-bar__wrap">
-        <span class="search-bar__icon" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </span>
-        <input type="search" class="search-bar__input" id="search-input" placeholder="アイテムを検索..." aria-label="アイテムを検索">
-        <button class="search-bar__clear" id="search-clear" aria-label="検索をクリア">&times;</button>
-      </div>
-      <div class="search-bar__result" id="search-result"></div>
-    </div>
-  </div>
+  <!-- Search Bar moved to header -->
 
   <!-- Info Bar -->
   <div class="info-bar">
@@ -10273,9 +10301,9 @@
       // Search result count
       if (q) {
         searchResult.innerHTML = '<strong>' + visible + '件</strong>見つかりました';
-        searchResult.classList.add('search-bar__result--visible');
+        searchResult.classList.add('header__search-result--visible');
       } else {
-        searchResult.classList.remove('search-bar__result--visible');
+        searchResult.classList.remove('header__search-result--visible');
       }
     }
 
@@ -10292,7 +10320,7 @@
     // Search input
     searchInput.addEventListener('input', () => {
       searchQuery = searchInput.value.trim();
-      searchClear.classList.toggle('search-bar__clear--visible', searchQuery.length > 0);
+      searchClear.classList.toggle('header__search-clear--visible', searchQuery.length > 0);
       applyFilters();
     });
 
@@ -10300,7 +10328,7 @@
     searchClear.addEventListener('click', () => {
       searchInput.value = '';
       searchQuery = '';
-      searchClear.classList.remove('search-bar__clear--visible');
+      searchClear.classList.remove('header__search-clear--visible');
       applyFilters();
       searchInput.focus();
     });
