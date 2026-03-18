@@ -56,14 +56,26 @@
     }
     .header__inner{
       max-width:1280px;margin:0 auto;padding:0 20px;
-      height:56px;display:flex;align-items:center;justify-content:space-between;
+      height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;
     }
     .header__logo{
       font-family:'Inter',sans-serif;font-size:22px;font-weight:700;
-      letter-spacing:-.5px;color:#111;
+      letter-spacing:-.5px;color:#111;flex-shrink:0;
     }
     .header__logo em{font-style:normal;color:#111;opacity:.4}
-    .header__right{display:flex;align-items:center;gap:16px}
+    .header__search{position:relative;flex:1;max-width:400px;}
+    .header__search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;color:#bbb;display:flex;align-items:center;}
+    .header__search-input{width:100%;padding:7px 34px 7px 34px;font-family:'Noto Sans JP','Inter',sans-serif;font-size:13px;color:#222;background:#f5f5f5;border:1px solid transparent;border-radius:20px;outline:none;transition:all .15s ease;}
+    .header__search-input::placeholder{color:#bbb}
+    .header__search-input:focus{background:#fff;border-color:#ddd;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+    .header__search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:#ddd;color:#666;font-size:12px;line-height:20px;text-align:center;cursor:pointer;display:none;border:none;font-family:inherit;padding:0;}
+    .header__search-clear:hover{background:#ccc;color:#333}
+    .header__search-clear--visible{display:block}
+    .header__search-result{position:absolute;top:100%;left:0;margin-top:4px;font-size:12px;color:#999;white-space:nowrap;display:none;}
+    .header__search-result--visible{display:block}
+    .header__search-result strong{color:#111;font-weight:600}
+    @media(max-width:640px){.header__search{max-width:none;}}
+    .header__right{display:flex;align-items:center;gap:16px;flex-shrink:0;}
     .header__link{
       font-size:12px;color:#666;display:flex;align-items:center;gap:5px;
       padding:6px 14px;border:1px solid #ddd;border-radius:20px;
@@ -324,12 +336,12 @@
       border:none;font-family:inherit;padding:0;
     }
     .search-bar__clear:hover{background:#ccc;color:#333}
-    .search-bar__clear--visible{display:block}
+    .header__search-clear--visible{display:block}
     .search-bar__result{
       font-size:12px;color:#999;margin-top:6px;
       display:none;
     }
-    .search-bar__result--visible{display:block}
+    .header__search-result--visible{display:block}
     .search-bar__result strong{color:#111;font-weight:600}
     @media(max-width:640px){
       .search-bar__wrap{max-width:100%}
@@ -472,6 +484,14 @@
   <header class="header">
     <div class="header__inner">
       <a href="#" class="header__logo">tsune<em>.eth</em></a>
+      <div class="header__search">
+        <span class="header__search-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="search" class="header__search-input" id="search-input" placeholder="アイテムを検索..." aria-label="アイテムを検索">
+        <button class="header__search-clear" id="search-clear" aria-label="検索をクリア">&times;</button>
+        <div class="header__search-result" id="search-result"></div>
+      </div>
       <div class="header__right">
         <a href="https://www.instagram.com/tsune.eth/" target="_blank" rel="noopener" class="header__link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -1352,19 +1372,7 @@
     </div>
   </nav>
 
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <div class="search-bar__inner">
-      <div class="search-bar__wrap">
-        <span class="search-bar__icon" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </span>
-        <input type="search" class="search-bar__input" id="search-input" placeholder="アイテムを検索..." aria-label="アイテムを検索">
-        <button class="search-bar__clear" id="search-clear" aria-label="検索をクリア">&times;</button>
-      </div>
-      <div class="search-bar__result" id="search-result"></div>
-    </div>
-  </div>
+  <!-- Search bar is in header -->
 
   <!-- Info Bar -->
   <div class="info-bar">
@@ -1377,7 +1385,7 @@
     <div class="grid" id="product-grid">
       <div class="card" data-cat="美容家電" data-name="Panasonic ナノケア EH-NA0K" data-subtitle="ナノミスト搭載 速乾ドライヤー">
       
-      <a href="https://www.amazon.co.jp/dp/B0FHGY1FYH?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0FHGXJWVL?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/masayosiryouhin/cabinet/12326613/dj-eh-na0j-w_1.jpg?_ex=500x500" alt="Panasonic ナノケア EH-NA0K" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -1394,7 +1402,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00ubhym.nla07c81.g00ubhym.nla08f4e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic-store%2Feh-na0j-a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpanasonic-store%2Fi%2F10000005%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;32,911 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0FHGY1FYH?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0FHGXJWVL?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -1423,7 +1431,7 @@
     </div>
 <div class="card" data-cat="美容家電" data-name="ReFa BEAUTECH DRYER BX W" data-subtitle="プロ仕様 サロンクオリティ">
       
-      <a href="https://www.amazon.co.jp/dp/B0DM7QHVC6?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0DM7QSBGN?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/mtgec-beauty/cabinet/refa/06277055/2603_spring_new/imgrc0124847081.jpg?_ex=500x500" alt="ReFa BEAUTECH DRYER BX W" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -1440,7 +1448,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00tnb9m.nla07970.g00tnb9m.nla08256/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmasayosiryouhin%2Frfdryerpro%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmasayosiryouhin%2Fi%2F10003117%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;58,300 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0DM7QHVC6?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0DM7QSBGN?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -1492,7 +1500,7 @@
     </div>
 <div class="card" data-cat="美容家電" data-name="Panasonic イオンエフェクター EH-ST0A" data-subtitle="浸透力10倍 導入美顔器">
       
-      <a href="https://www.amazon.co.jp/dp/B0BGN8PGKM?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0861FZVBH?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/partscomstore/cabinet/shohin01/panasonic/pa002001/ehst63w7657.jpg?_ex=500x500" alt="Panasonic イオンエフェクター EH-ST0A" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -1509,13 +1517,13 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00sjs2m.nla0795b.g00sjs2m.nla08c91/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fb-surprise2%2F4549980687611%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fb-surprise2%2Fi%2F10100036%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;3,520 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0BGN8PGKM?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0861FZVBH?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
 <div class="card" data-cat="美容家電" data-name="ブラウン オーラルB iO シリーズ9" data-subtitle="AI搭載 電動歯ブラシ">
       
-      <a href="https://www.amazon.co.jp/dp/B09PQ4DTSV?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B08RHL3WLP?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/oralb-braun/cabinet/item/io9/thumb/io9pro_thum_2509_p10.jpg?_ex=500x500" alt="ブラウン オーラルB iO シリーズ9" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -1532,7 +1540,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00qjklm.nla074e9.g00qjklm.nla0899b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Friso-sya%2Foralbi9w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Friso-sya%2Fi%2F10002796%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;29,920 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B09PQ4DTSV?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B08RHL3WLP?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -1768,7 +1776,7 @@
     </div>
 <div class="card" data-cat="美容家電" data-name="SMOOTHSKIN Pure Fit" data-subtitle="英国製 超速フラッシュ脱毛器">
       
-      <a href="https://www.amazon.co.jp/dp/B0FJ1ZTZFD?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0D263NBCD?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/smoothskin/cabinet/product-image/10759243/main_adapt_mv.jpg?_ex=500x500" alt="SMOOTHSKIN Pure Fit" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -1785,7 +1793,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00sosem.nla072b4.g00sosem.nla08703/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsmoothskin%2Fsmoothskinpure%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsmoothskin%2Fi%2F10000022%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;76,000 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0FJ1ZTZFD?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0D263NBCD?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -1998,7 +2006,7 @@
     </div>
 <div class="card" data-cat="美容家電" data-name="ヤーマン キャビスパ360" data-subtitle="キャビテーション EMS 防水">
       
-      <a href="https://www.amazon.co.jp/dp/B07Q4D4YTQ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B07GKJB7YV?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/ya-man/cabinet/square500/yty_body/r1903a-main.jpg?_ex=500x500" alt="ヤーマン キャビスパ360" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -2015,7 +2023,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00rutom.nla07633.g00rutom.nla08704/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fya-man%2Fr1903a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fya-man%2Fi%2F10002140%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;37,400 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B07Q4D4YTQ?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B07GKJB7YV?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -2228,7 +2236,7 @@
     </div>
 <div class="card" data-cat="美容家電" data-name="ケノン 家庭用脱毛器" data-subtitle="日本製 カートリッジ交換式">
       
-      <a href="https://www.amazon.co.jp/dp/B01GDKL3QU?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B01GTN65Z0?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/nsn-japan/cabinet/dg20251027140633543/qnebv8uv9lgz0qwt.jpg?_ex=500x500" alt="ケノン 家庭用脱毛器" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -2245,7 +2253,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00rigrm.nla07484.g00rigrm.nla083c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyasukukaeru%2Ft10951037%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyasukukaeru%2Fi%2F11138125%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;6,780 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B01GDKL3QU?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B01GTN65Z0?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -3562,7 +3570,7 @@
     </div>
 <div class="card" data-cat="スキンケア" data-name="ポイント最大19倍★お買い物マラソン 3/20 20:00~ 3/26 01:59★エファクラ ピールケア セラム ［ " data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E6%9C%80%E5%A4%A719%E5%80%8D%E2%98%85%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%9E%E3%83%A9%E3%82%BD%E3%83%B3%203/20%2020%3A00~&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0823XVG13?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/larocheposay/cabinet/products/main/10389578/imgrc0127627291.jpg?_ex=128x128" alt="ポイント最大19倍★お買い物マラソン 3/20 20:00~ 3/26 01:59★エファクラ ピールケア セラム ［ " loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -3579,7 +3587,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00twl6m.nla07b11.g00twl6m.nla08385/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flarocheposay%2Fl00348%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flarocheposay%2Fi%2F10000063%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;5,280 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E6%9C%80%E5%A4%A719%E5%80%8D%E2%98%85%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%9E%E3%83%A9%E3%82%BD%E3%83%B3%203/20%2020%3A00~&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0823XVG13?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -4068,7 +4076,7 @@
     </div>
 <div class="card" data-cat="スキンケア" data-name="まつげ美容液 ラッシュアディクト アドバンス 正規品 QR 1位 2024 まつ毛美容液 5ml アイラッシュコンディシ" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%E3%81%BE%E3%81%A4%E3%81%92%E7%BE%8E%E5%AE%B9%E6%B6%B2%20%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%82%A2%E3%83%87%E3%82%A3%E3%82%AF%E3%83%88%20%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20%E6%AD%A3%E8%A6%8F%E5%93%81%20QR%20&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0D35G2PPS?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/justrich/cabinet/10053591/lash_addict_top.jpg?_ex=128x128" alt="まつげ美容液 ラッシュアディクト アドバンス 正規品 QR 1位 2024 まつ毛美容液 5ml アイラッシュコンディシ" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -4085,7 +4093,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00trwwm.nla07ad8.g00trwwm.nla08b06/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjustrich%2Flash-addict%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjustrich%2Fi%2F10001157%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;6,980 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%E3%81%BE%E3%81%A4%E3%81%92%E7%BE%8E%E5%AE%B9%E6%B6%B2%20%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%82%A2%E3%83%87%E3%82%A3%E3%82%AF%E3%83%88%20%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20%E6%AD%A3%E8%A6%8F%E5%93%81%20QR%20&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0D35G2PPS?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -4275,7 +4283,7 @@
     </div>
 <div class="card" data-cat="スキンケア" data-name="日焼け止めパウダー UV ノンケミカル SPF50+ PA++++ フラーレン セラミド 毛穴 くすみ 皮脂防止 敏感肌" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%E6%97%A5%E7%84%BC%E3%81%91%E6%AD%A2%E3%82%81%E3%83%91%E3%82%A6%E3%83%80%E3%83%BC%20UV%20%E3%83%8E%E3%83%B3%E3%82%B1%E3%83%9F%E3%82%AB%E3%83%AB%20SPF50%2B%20PA%2B&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B01LZD5LFA?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/tvert/cabinet/goods/cart/airysun_topr2026.jpg?_ex=128x128" alt="日焼け止めパウダー UV ノンケミカル SPF50+ PA++++ フラーレン セラミド 毛穴 くすみ 皮脂防止 敏感肌" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -4292,7 +4300,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00q4g8m.nla07878.g00q4g8m.nla08fa1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftvert%2F9196012313-2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftvert%2Fi%2F10000130%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,320 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%E6%97%A5%E7%84%BC%E3%81%91%E6%AD%A2%E3%82%81%E3%83%91%E3%82%A6%E3%83%80%E3%83%BC%20UV%20%E3%83%8E%E3%83%B3%E3%82%B1%E3%83%9F%E3%82%AB%E3%83%AB%20SPF50%2B%20PA%2B&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B01LZD5LFA?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -4689,7 +4697,7 @@
     </div>
 <div class="card" data-cat="スキンケア" data-name="美容液 レチノール エッセンスTWK・20mL セラミド レチノール ビタミンC誘導体 アルジレリン 乳液" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%E7%BE%8E%E5%AE%B9%E6%B6%B2%20%E3%83%AC%E3%83%81%E3%83%8E%E3%83%BC%E3%83%AB%20%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B9TWK%E3%83%BB20mL%20%E3%82%BB%E3%83%A9%E3%83%9F%E3%83%89%20%E3%83%AC&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0C45Y816C?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/bs-cosme/cabinet/item/twk/a000.jpg?_ex=128x128" alt="美容液 レチノール エッセンスTWK・20mL セラミド レチノール ビタミンC誘導体 アルジレリン 乳液" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -4706,7 +4714,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00q16jm.nla07089.g00q16jm.nla08a19/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbs-cosme%2F10000800%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbs-cosme%2Fi%2F10000800%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,850 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%E7%BE%8E%E5%AE%B9%E6%B6%B2%20%E3%83%AC%E3%83%81%E3%83%8E%E3%83%BC%E3%83%AB%20%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B9TWK%E3%83%BB20mL%20%E3%82%BB%E3%83%A9%E3%83%9F%E3%83%89%20%E3%83%AC&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0C45Y816C?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -5172,7 +5180,7 @@
     </div>
 <div class="card" data-cat="ボディケア" data-name="パナソニック フットマッサージャー EW-NA75" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/dp/B08K3DXLN9?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B01D9SURLQ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/panasonic-store/cabinet/banner/thumb/m_ew-ra192.jpg?_ex=128x128" alt="パナソニック フットマッサージャー EW-NA75" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -5189,7 +5197,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00qhp9m.nla0770f.g00qhp9m.nla08bcb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fokadadenki%2Few-na75%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fokadadenki%2Fi%2F10003569%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;49,954 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B08K3DXLN9?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B01D9SURLQ?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -5241,7 +5249,7 @@
     </div>
 <div class="card" data-cat="ボディケア" data-name="オムロン ネックマッサージャー HM-341" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/dp/B01MCXIE1G?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B07VBCHDS6?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/f262081-muko/cabinet/d_202309/52230177_01_web_s.jpg?_ex=128x128" alt="オムロン ネックマッサージャー HM-341" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -5258,13 +5266,13 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00u0s4m.nla07061.g00u0s4m.nla084b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff262081-muko%2F52230177%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff262081-muko%2Fi%2F10000161%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;92,000 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B01MCXIE1G?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B07VBCHDS6?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
 <div class="card" data-cat="ボディケア" data-name="パナソニック ネックマッサージャー EH-NA65" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/dp/B00UHLTRI8?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0F1FDWXW6?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/koike-dayori/cabinet/compass1700644955.jpg?_ex=128x128" alt="パナソニック ネックマッサージャー EH-NA65" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -5281,7 +5289,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00u6sfm.nla071b2.g00u6sfm.nla08e46/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkoike-dayori%2Few-ra550-h%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkoike-dayori%2Fi%2F10001050%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;38,964 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B00UHLTRI8?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0F1FDWXW6?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -5310,7 +5318,7 @@
     </div>
 <div class="card" data-cat="ボディケア" data-name="シックスパッド アブズフィット3" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/dp/B0CPP7RFKB?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B071Y4JR4Y?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/mtgec-beauty/cabinet/05449264/05449265/11635065/imgrc0116461970.jpg?_ex=128x128" alt="シックスパッド アブズフィット3" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -5327,7 +5335,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00r20gm.nla07b8b.g00r20gm.nla085af/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmtgec-beauty%2F1071230102%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmtgec-beauty%2Fi%2F10002084%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;44,990 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0CPP7RFKB?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B071Y4JR4Y?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -5747,7 +5755,7 @@
     </div>
 <div class="card" data-cat="ボディケア" data-name="オムロン フットマッサージャー HM-261" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/dp/B0756SV88B?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0756SDWT4?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/f262081-muko/cabinet/d_202309/52230177_01_web_s.jpg?_ex=128x128" alt="オムロン フットマッサージャー HM-261" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -5764,7 +5772,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00u0s4m.nla07061.g00u0s4m.nla084b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff262081-muko%2F52230177%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff262081-muko%2Fi%2F10000161%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;92,000 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0756SV88B?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0756SDWT4?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -6552,7 +6560,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="Apple Watch Ultra 2" data-subtitle="Siri AI強化 チタンケース 最大36時間">
       
-      <a href="https://www.amazon.co.jp/dp/B0BKGZBNB4?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0DGJD1PKD?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/keitai-god/cabinet/06339609/10970887/imgrc0094105225.jpg?_ex=500x500" alt="Apple Watch Ultra 2" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -6569,7 +6577,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/51a6b4e7.4dc912e6.51a6b4e8.02c4ef95/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenmobile-store%2Fapple-watch-u2_zkst2432bt%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJpdGVtIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;128,800 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0BKGZBNB4?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0DGJD1PKD?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -6598,7 +6606,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="HHKB Professional HYBRID Type-S" data-subtitle="静電容量無接点 キーボード">
       
-      <a href="https://www.amazon.co.jp/dp/B0BFH5NWCH?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0BFH7DBRV?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/pfudirect/cabinet/kb/hhkb/pfudirect_pd-kb800bs.jpg?_ex=500x500" alt="HHKB Professional HYBRID Type-S" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -6615,13 +6623,13 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00sltim.nla07a8e.g00sltim.nla083a1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff141500-sagamihara%2F110126-30060424%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff141500-sagamihara%2Fi%2F10000699%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;33,850 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0BFH5NWCH?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0BFH7DBRV?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
 <div class="card" data-cat="ガジェット" data-name="Sony WF-1000XM5" data-subtitle="完全ワイヤレス ノイキャン 最高峰">
       
-      <a href="https://www.amazon.co.jp/dp/B0CBKQZXT7?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0936LP3PF?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/auc-worldichi/cabinet/8/4548736143470.jpg?_ex=500x500" alt="Sony WF-1000XM5" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -6638,7 +6646,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00r2mum.nla0720b.g00r2mum.nla08a72/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-worldichi%2F4548736143470%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-worldichi%2Fi%2F10019928%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;24,949 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0CBKQZXT7?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0936LP3PF?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -6759,7 +6767,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="BOSE QuietComfort Ultra Earbuds" data-subtitle="空間オーディオ ノイキャン">
       
-      <a href="https://www.amazon.co.jp/dp/B0FCSHC5H1?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0CFY6MWMZ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/superdeal/cabinet/09061004/11661997/12425850/4969929261113-1.jpg?_ex=500x500" alt="BOSE QuietComfort Ultra Earbuds" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -6776,7 +6784,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00t81xm.nla07722.g00t81xm.nla0896b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsuperdeal%2F16111ultraopenearbudsgen22509%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsuperdeal%2Fi%2F10006894%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;39,600 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0FCSHC5H1?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0CFY6MWMZ?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -6989,7 +6997,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="Oura Ring Generation 3 スマートリング" data-subtitle="AI健康分析 睡眠/心拍/体温トラッキング">
       
-      <a href="https://www.amazon.co.jp/dp/B0D1735B8R?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0CX7SX634?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/pocketalk/cabinet/shuppin6/oura_official.jpg?_ex=500x500" alt="Oura Ring Generation 3 スマートリング" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -7006,7 +7014,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00t6k3m.nla0764f.g00t6k3m.nla0880c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpocketalk%2For4%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpocketalk%2Fi%2F10001244%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;44,900 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0D1735B8R?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0CX7SX634?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -7265,7 +7273,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="OURA Ring Gen3" data-subtitle="スマートリング 睡眠分析 心拍数">
       
-      <a href="https://www.amazon.co.jp/dp/B0D9WVHS7S?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0B8F2SKKJ?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/blade/cabinet/img/24052a/rnge3-x09t-h240523.jpg?_ex=500x500" alt="OURA Ring Gen3" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -7282,7 +7290,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00t6k3m.nla0764f.g00t6k3m.nla0880c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpocketalk%2For4%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpocketalk%2Fi%2F10001244%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;875 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0D9WVHS7S?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0B8F2SKKJ?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -7426,7 +7434,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="Samsung Galaxy Ring スマートリング" data-subtitle="Galaxy AI健康管理 チタン製">
       
-      <a href="https://www.amazon.co.jp/dp/B0DQPF5R59?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0DQP9SFR3?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/deer-shop/cabinet/4600/5qn-gx-ringcvr_1.jpg?_ex=500x500" alt="Samsung Galaxy Ring スマートリング" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -7443,7 +7451,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/51a6b4e7.4dc912e6.51a6b4e8.02c4ef95/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmaison-outre%2Fse-0dqpcvrg7%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJpdGVtIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;788 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0DQPF5R59?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0DQP9SFR3?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -7495,7 +7503,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="Timekettle WT2 Edge 翻訳イヤホン" data-subtitle="43言語96アクセント リアルタイム翻訳">
       
-      <a href="https://www.amazon.co.jp/dp/B0B8GKXN6X?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0B8G5XS84?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/happynight/cabinet/g/15/e9rpt0oau7-1.jpg?_ex=500x500" alt="Timekettle WT2 Edge 翻訳イヤホン" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -7512,7 +7520,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00r3cem.nla07b67.g00r3cem.nla086e3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjumblestore%2F2340653671287%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjumblestore%2Fi%2F37382124%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;34,980 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0B8GKXN6X?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0B8G5XS84?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -7564,7 +7572,7 @@
     </div>
 <div class="card" data-cat="ガジェット" data-name="SHARP ロボホン RoBoHoN" data-subtitle="AI搭載 二足歩行ロボット型スマホ">
       
-      <a href="https://www.amazon.co.jp/dp/B0763MX3GS?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B01MA3RKPW?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000000190/4974019967936_1.jpg?_ex=500x500" alt="SHARP ロボホン RoBoHoN" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -7581,7 +7589,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00r8mvm.nla07a68.g00r8mvm.nla08e57/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4974019967936%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F10884132%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;130,911 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0763MX3GS?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B01MA3RKPW?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -8300,7 +8308,7 @@
     </div>
 <div class="card" data-cat="健康食品" data-name="山田養蜂場 ローヤルゼリー サプリメント" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/dp/B00B8KJGOM?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B00B8KJH7S?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/yamada3838/cabinet/item/sam/626_th_01.jpg?_ex=128x128" alt="山田養蜂場 ローヤルゼリー サプリメント" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -8317,7 +8325,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00rf1am.nla073da.g00rf1am.nla08194/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada3838%2F626%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada3838%2Fi%2F10000775%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;33,480 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B00B8KJGOM?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B00B8KJH7S?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -8761,7 +8769,7 @@
 <div class="card" data-cat="健康食品" data-name="アミノ酸 スポーツドリンク粉末" data-subtitle="">
       
       <a href="https://www.amazon.co.jp/dp/B002VED68G?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
-        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/f141305-kawasaki/cabinet/frp_goods/frp003/17691361.jpg?_ex=128x128" alt="アミノ酸 スポーツドリンク粉末" loading="lazy" class="card__img"
+        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/tarza/cabinet/tarza/tarza-citric-001.jpg?_ex=128x128" alt="アミノ酸 スポーツドリンク粉末" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
       <div class="card__body">
@@ -8773,10 +8781,10 @@
           <span class="card__score">4.4</span>
         </div>
         <div class="card__prices">
-          <span class="card__price card__price--rakuten">&yen;61,000</span>
+          <span class="card__price card__price--rakuten">&yen;2,480</span>
         </div>
         <div class="card__actions">
-          <a href="https://hb.afl.rakuten.co.jp/hgc/g00tmjtm.nla07f01.g00tmjtm.nla08dd5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftarza%2Ftarza-citric-grapefruit-30%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftarza%2Fi%2F10000015%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;61,000 楽天</a>
+          <a href="https://hb.afl.rakuten.co.jp/hgc/g00tmjtm.nla07f01.g00tmjtm.nla08dd5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftarza%2Ftarza-citric-grapefruit-30%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftarza%2Fi%2F10000015%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;2,480 楽天</a>
           <a href="https://www.amazon.co.jp/dp/B002VED68G?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
@@ -9036,7 +9044,7 @@
     </div>
 <div class="card" data-cat="健康食品" data-name="βカロテン サプリ" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%CE%B2%E3%82%AB%E3%83%AD%E3%83%86%E3%83%B3%20%E3%82%B5%E3%83%97%E3%83%AA&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B09LQM2B98?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/fancl-shop/cabinet/item-img/5269.jpg?_ex=128x128" alt="βカロテン サプリ" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -9053,7 +9061,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00sms5m.nla07637.g00sms5m.nla08b23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffancl-shop%2F5269%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffancl-shop%2Fi%2F10001430%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;1,183 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%CE%B2%E3%82%AB%E3%83%AD%E3%83%86%E3%83%B3%20%E3%82%B5%E3%83%97%E3%83%AA&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B09LQM2B98?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -9289,7 +9297,7 @@
     </div>
 <div class="card" data-cat="PCサプライ" data-name="Realforce R3 TKL" data-subtitle="東プレ静電容量無接点テンキーレス">
       
-      <a href="https://www.amazon.co.jp/dp/B0B3QX2J25?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B09J5152SG?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/buriruby/cabinet/12789089/41165462_2.jpg?_ex=500x500" alt="Realforce R3 TKL" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -9306,7 +9314,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00umkym.nla076c6.g00umkym.nla0853a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fburiruby%2Fc66wr3b3xomkegqkro6m3gxvky%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fburiruby%2Fi%2F10709603%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;53,150 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0B3QX2J25?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B09J5152SG?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -9335,7 +9343,7 @@
     </div>
 <div class="card" data-cat="PCサプライ" data-name="Sony WH-1000XM5" data-subtitle="業界最高峰ノイキャンヘッドホン">
       
-      <a href="https://www.amazon.co.jp/dp/B0DGKYNLWF?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0F98Z3XXM?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/sokutei/cabinet/rank/4548736132566r1.jpg?_ex=500x500" alt="Sony WH-1000XM5" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -9352,7 +9360,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00sxgsm.nla07e39.g00sxgsm.nla08508/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsokutei%2F4548736132566%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsokutei%2Fi%2F10131163%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;37,378 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0DGKYNLWF?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0F98Z3XXM?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -9795,7 +9803,7 @@
     </div>
 <div class="card" data-cat="PCサプライ" data-name="Dell S2722QC 27インチ 4K" data-subtitle="USB-C給電対応4Kモニター">
       
-      <a href="https://www.amazon.co.jp/dp/B09CGY99X5?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B09DTDRJWP?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/mino76market/cabinet/12513519/imgrc0095720508.jpg?_ex=500x500" alt="Dell S2722QC 27インチ 4K" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -9812,7 +9820,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00us8vm.nla07d3b.g00us8vm.nla08651/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmino76market%2F20250928-01%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmino76market%2Fi%2F10000005%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;58,880 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B09CGY99X5?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B09DTDRJWP?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -10002,7 +10010,7 @@
     </div>
 <div class="card" data-cat="PCサプライ" data-name="Poly Voyager Focus 2 UC" data-subtitle="プロフェッショナルANCヘッドセット">
       
-      <a href="https://www.amazon.co.jp/dp/B09BZH9J55?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B09VYH5C9D?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/ign-store/cabinet/11445425/11448737/11466296/imgrc0109540241.jpg?_ex=500x500" alt="Poly Voyager Focus 2 UC" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -10019,7 +10027,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00r8mvm.nla07a68.g00r8mvm.nla08e57/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4988481895925%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11658896%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;33,800 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B09BZH9J55?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B09VYH5C9D?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -10186,7 +10194,7 @@
     </div>
 <div class="card" data-cat="PCサプライ" data-name="Crucial T705 2TB NVMe SSD" data-subtitle="PCIe5.0超高速NVMe">
       
-      <a href="https://www.amazon.co.jp/dp/B0CW656KT5?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0CW61R85R?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/americagoodvibes/cabinet/img_20260302/4/aytsmlrk3w_0.jpg?_ex=500x500" alt="Crucial T705 2TB NVMe SSD" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -10203,7 +10211,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00upw5m.nla07da5.g00upw5m.nla08951/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Famericagoodvibes%2Faytsmlrk3w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Famericagoodvibes%2Fi%2F10009023%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;74,726 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0CW656KT5?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0CW61R85R?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -11083,7 +11091,7 @@
     </div>
 <div class="card" data-cat="PCサプライ" data-name="Kingston XS2000 1TB ポータブルSSD" data-subtitle="超小型高速ポータブルSSD">
       
-      <a href="https://www.amazon.co.jp/dp/B0B1W45C97?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B09KHCNXJ6?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/ajworks/cabinet/item39/020230625132102.jpg?_ex=500x500" alt="Kingston XS2000 1TB ポータブルSSD" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -11100,7 +11108,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00po8tm.nla07b83.g00po8tm.nla081d7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprinceton%2Fsxs2000-1000g%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprinceton%2Fi%2F10005269%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;38,810 楽天</a>
-          <a href="https://www.amazon.co.jp/dp/B0B1W45C97?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B09KHCNXJ6?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -11451,7 +11459,7 @@
     </div>
 <div class="card" data-cat="工具" data-name="日本製 アクセサリー 工具セット J ニッパー 丸ペンチ 平ヤットコ 丸ヤットコ 平ペンチ ハンドメイド ビーズアクセサ" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%E6%97%A5%E6%9C%AC%E8%A3%BD%20%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B5%E3%83%AA%E3%83%BC%20%E5%B7%A5%E5%85%B7%E3%82%BB%E3%83%83%E3%83%88%20J%20%E3%83%8B%E3%83%83%E3%83%91%E3%83%BC%20%E4%B8%B8%E3%83%9A%E3%83%B3%E3%83%81%20%E5%B9%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B07KWLTRY7?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/mineshima/cabinet/08406964/imgrc0086286080.jpg?_ex=128x128" alt="日本製 アクセサリー 工具セット J ニッパー 丸ペンチ 平ヤットコ 丸ヤットコ 平ペンチ ハンドメイド ビーズアクセサ" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -11468,7 +11476,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00ts5zm.nla07b80.g00ts5zm.nla0844e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmineshima%2Fjps3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmineshima%2Fi%2F10000120%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;7,700 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%E6%97%A5%E6%9C%AC%E8%A3%BD%20%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B5%E3%83%AA%E3%83%BC%20%E5%B7%A5%E5%85%B7%E3%82%BB%E3%83%83%E3%83%88%20J%20%E3%83%8B%E3%83%83%E3%83%91%E3%83%BC%20%E4%B8%B8%E3%83%9A%E3%83%B3%E3%83%81%20%E5%B9%B3&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B07KWLTRY7?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -12739,7 +12747,7 @@
     </div>
 <div class="card" data-cat="工具" data-name="精密ドライバー 精密ドライバーセット ビット ドライバー ドライバーセット 精密工具セット 115 ドライバービットセッ" data-subtitle="">
       
-      <a href="https://www.amazon.co.jp/s?k=%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%20%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%20%E3%83%93%E3%83%83%E3%83%88%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%20%E3%83%89&tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
+      <a href="https://www.amazon.co.jp/dp/B0FZVHM23C?tag=tsune9949-22" target="_blank" rel="noopener" class="card__img-link">
         <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/farson/cabinet/10310220/imgrc0118531098.jpg?_ex=128x128" alt="精密ドライバー 精密ドライバーセット ビット ドライバー ドライバーセット 精密工具セット 115 ドライバービットセッ" loading="lazy" class="card__img"
              onerror="this.style.display='none';this.parentElement.classList.add('card__img-link--noimg')">
       </a>
@@ -12756,7 +12764,7 @@
         </div>
         <div class="card__actions">
           <a href="https://hb.afl.rakuten.co.jp/hgc/g00sa73m.nla073f8.g00sa73m.nla083ce/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffarson%2F000000126003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffarson%2Fi%2F10003001%2F&rafcid=wsc_i_is_1301abe7-d007-4ce5-8348-d2009f94795f" target="_blank" rel="noopener" class="btn btn--rakuten">&yen;1,780 楽天</a>
-          <a href="https://www.amazon.co.jp/s?k=%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%20%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%20%E3%83%93%E3%83%83%E3%83%88%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%20%E3%83%89&tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
+          <a href="https://www.amazon.co.jp/dp/B0FZVHM23C?tag=tsune9949-22" target="_blank" rel="noopener" class="btn btn--amazon">Amazon 価格を見る</a>
         </div>
       </div>
     </div>
@@ -12818,9 +12826,9 @@
       // Search result count
       if (q) {
         searchResult.innerHTML = '<strong>' + visible + '件</strong>見つかりました';
-        searchResult.classList.add('search-bar__result--visible');
+        searchResult.classList.add('header__search-result--visible');
       } else {
-        searchResult.classList.remove('search-bar__result--visible');
+        searchResult.classList.remove('header__search-result--visible');
       }
     }
 
@@ -12837,7 +12845,7 @@
     // Search input
     searchInput.addEventListener('input', () => {
       searchQuery = searchInput.value.trim();
-      searchClear.classList.toggle('search-bar__clear--visible', searchQuery.length > 0);
+      searchClear.classList.toggle('header__search-clear--visible', searchQuery.length > 0);
       applyFilters();
     });
 
@@ -12845,7 +12853,7 @@
     searchClear.addEventListener('click', () => {
       searchInput.value = '';
       searchQuery = '';
-      searchClear.classList.remove('search-bar__clear--visible');
+      searchClear.classList.remove('header__search-clear--visible');
       applyFilters();
       searchInput.focus();
     });
