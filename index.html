@@ -289,6 +289,14 @@
     .footer__text a:hover{color:#111}
 
     /* ===== Scroll Top ===== */
+    .pagination{display:flex;align-items:center;justify-content:center;gap:8px;padding:32px 20px;flex-wrap:wrap}
+    .pagination__btn{min-width:40px;height:40px;padding:0 12px;border-radius:8px;font-size:14px;font-weight:600;color:#555;background:#f5f5f5;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;transition:all .15s;cursor:pointer}
+    .pagination__btn:hover{background:#eee;color:#111}
+    .pagination__btn--active{background:#111;color:#fff;border-color:#111}
+    .pagination__btn--disabled{opacity:.3;pointer-events:none}
+    .pagination__info{font-size:13px;color:#999;margin:0 4px}
+    @media(max-width:640px){.pagination__btn{min-width:36px;height:36px;font-size:13px;padding:0 8px}}
+
     .scroll-top{
       position:fixed;bottom:24px;right:24px;z-index:100;
       width:44px;height:44px;border-radius:50%;
@@ -13115,6 +13123,7 @@
     </div>
 
     </div>
+    <div class="pagination" id="pagination"></div>
   </section>
 
   <!-- Footer -->
@@ -13138,6 +13147,8 @@
     // State
     let activeCat = 'all';
     let searchQuery = '';
+    let currentPage = 1;
+    const ITEMS_PER_PAGE = 100;
 
     // Elements
     const tabs = document.querySelectorAll('.nav__tab');
@@ -13146,16 +13157,17 @@
     const searchInput = document.getElementById('search-input');
     const searchClear = document.getElementById('search-clear');
     const searchResult = document.getElementById('search-result');
+    const paginationEl = document.getElementById('pagination');
 
-    // Combined filter: category + search
-    // 検索時に非表示にするセクション
     const heroSection = document.querySelector('.hero');
     const pickupSections = document.querySelectorAll('.pickup-section');
     const catQuickNav = document.querySelector('.cat-quick');
 
     function applyFilters() {
       const q = searchQuery.toLowerCase();
-      let visible = 0;
+
+      // Step 1: フィルタに合うカードを収集
+      const matched = [];
       cards.forEach(card => {
         const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
         let matchesSearch = true;
@@ -13165,17 +13177,29 @@
           const cat = (card.dataset.cat || '').toLowerCase();
           matchesSearch = name.includes(q) || subtitle.includes(q) || cat.includes(q);
         }
-        if (matchesCat && matchesSearch) {
-          card.classList.remove('hidden');
-          visible++;
-        } else {
-          card.classList.add('hidden');
-        }
+        if (matchesCat && matchesSearch) matched.push(card);
       });
-      resultCount.innerHTML = visible + '件 <span>のアイテム</span>';
-      // 検索時: Pick Up等を非表示にして商品グリッドにスクロール
+
+      const total = matched.length;
+      const totalPages = Math.max(1, Math.ceil(total / ITEMS_PER_PAGE));
+      if (currentPage > totalPages) currentPage = 1;
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+
+      // Step 2: 全非表示→ページ分だけ表示
+      cards.forEach(c => c.classList.add('hidden'));
+      matched.forEach((c, i) => { if (i >= start && i < end) c.classList.remove('hidden'); });
+
+      // Step 3: カウント
+      const s = total > 0 ? start + 1 : 0;
+      resultCount.innerHTML = total + '件中 ' + s + '-' + Math.min(end, total) + '件 <span>を表示</span>';
+
+      // Step 4: ページネーション
+      renderPagination(totalPages);
+
+      // 検索時
       if (q) {
-        searchResult.innerHTML = '<strong>' + visible + '件</strong>見つかりました';
+        searchResult.innerHTML = '<strong>' + total + '件</strong>見つかりました';
         searchResult.classList.add('header__search-result--visible');
         if (heroSection) heroSection.style.display = 'none';
         pickupSections.forEach(s => s.style.display = 'none');
@@ -13189,9 +13213,42 @@
       }
     }
 
-    // Category filter
+    function renderPagination(totalPages) {
+      if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
+      let h = '';
+      h += '<button class="pagination__btn' + (currentPage<=1?' pagination__btn--disabled':'') + '" data-page="'+(currentPage-1)+'">&laquo; 前へ</button>';
+      const range = [];
+      if (totalPages <= 7) { for (let i=1;i<=totalPages;i++) range.push(i); }
+      else {
+        range.push(1);
+        if (currentPage > 3) range.push('...');
+        for (let i=Math.max(2,currentPage-1);i<=Math.min(totalPages-1,currentPage+1);i++) range.push(i);
+        if (currentPage < totalPages-2) range.push('...');
+        range.push(totalPages);
+      }
+      range.forEach(p => {
+        if (p==='...') h += '<span class="pagination__info">...</span>';
+        else h += '<button class="pagination__btn'+(p===currentPage?' pagination__btn--active':'')+'" data-page="'+p+'">'+p+'</button>';
+      });
+      h += '<button class="pagination__btn'+(currentPage>=totalPages?' pagination__btn--disabled':'')+'" data-page="'+(currentPage+1)+'">次へ &raquo;</button>';
+      paginationEl.innerHTML = h;
+      paginationEl.querySelectorAll('.pagination__btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const pg = parseInt(btn.dataset.page);
+          if (pg>=1 && pg<=totalPages && pg!==currentPage) {
+            currentPage = pg;
+            applyFilters();
+            const nav = document.querySelector('.nav');
+            if (nav) window.scrollTo({top:nav.offsetTop-10,behavior:'smooth'});
+          }
+        });
+      });
+    }
+
+    // Category filter (ページリセット)
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
+        currentPage = 1;
         tabs.forEach(t => t.classList.remove('nav__tab--active'));
         tab.classList.add('nav__tab--active');
         activeCat = tab.dataset.cat;
@@ -13199,9 +13256,10 @@
       });
     });
 
-    // Search input
+    // Search input (ページリセット)
     searchInput.addEventListener('input', () => {
       searchQuery = searchInput.value.trim();
+      currentPage = 1;
       searchClear.classList.toggle('header__search-clear--visible', searchQuery.length > 0);
       applyFilters();
     });
@@ -13270,6 +13328,9 @@
     scrollBtn.addEventListener('click', () => {
       window.scrollTo({top:0,behavior:'smooth'});
     });
+
+    // 初期表示: 最初の100件だけ表示
+    applyFilters();
   </script>
 
 </body>
