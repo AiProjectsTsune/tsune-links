@@ -13394,57 +13394,7 @@
       saveData(d);
     });
 
-    // アナリティクスパネル表示（?analytics=1 でアクセス）
-    if(location.search.indexOf('analytics=1') !== -1){
-      var d = loadData();
-      var avgTime = d.avgTimeOnPage.length > 0 ?
-        Math.round(d.avgTimeOnPage.reduce(function(a,b){return a+b},0)/d.avgTimeOnPage.length) : 0;
-
-      // 商品クリックTOP10
-      var topProducts = Object.entries(d.productClicks)
-        .sort(function(a,b){return (b[1].rakuten+b[1].amazon)-(a[1].rakuten+a[1].amazon)})
-        .slice(0,10);
-
-      // リファラーTOP5
-      var topRefs = Object.entries(d.referrers)
-        .sort(function(a,b){return b[1]-a[1]}).slice(0,5);
-
-      // 日別ビューTOP7
-      var recentDays = Object.entries(d.dailyViews)
-        .sort(function(a,b){return b[0].localeCompare(a[0])}).slice(0,7);
-
-      var panel = document.createElement('div');
-      panel.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);color:#fff;z-index:9999;overflow:auto;padding:40px;font-family:monospace;font-size:14px;';
-      panel.innerHTML = '<h2 style="color:#60a5fa;margin-bottom:20px;">📊 tsune-links アクセスアナライザー</h2>'
-        + '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;">'
-        + '<div style="background:#1e293b;padding:16px;border-radius:8px;"><div style="color:#94a3b8;font-size:12px;">総PV</div><div style="font-size:28px;font-weight:bold;color:#60a5fa;">'+d.totalViews+'</div></div>'
-        + '<div style="background:#1e293b;padding:16px;border-radius:8px;"><div style="color:#94a3b8;font-size:12px;">ユニークセッション</div><div style="font-size:28px;font-weight:bold;color:#22c55e;">'+d.uniqueSessions.length+'</div></div>'
-        + '<div style="background:#1e293b;padding:16px;border-radius:8px;"><div style="color:#94a3b8;font-size:12px;">平均滞在時間</div><div style="font-size:28px;font-weight:bold;color:#f59e0b;">'+avgTime+'秒</div></div>'
-        + '<div style="background:#1e293b;padding:16px;border-radius:8px;"><div style="color:#94a3b8;font-size:12px;">デバイス</div><div style="font-size:16px;color:#e2e8f0;">📱'+(d.devices.mobile||0)+' 💻'+(d.devices.desktop||0)+' 📋'+(d.devices.tablet||0)+'</div></div>'
-        + '</div>'
-        + '<h3 style="color:#f59e0b;margin:16px 0 8px;">📅 日別PV（直近7日）</h3>'
-        + '<table style="width:100%;border-collapse:collapse;margin-bottom:16px;">'
-        + '<tr style="border-bottom:1px solid #334155;"><th style="text-align:left;padding:6px;color:#94a3b8;">日付</th><th style="text-align:right;padding:6px;color:#94a3b8;">PV</th></tr>'
-        + recentDays.map(function(r){return '<tr style="border-bottom:1px solid #1e293b;"><td style="padding:6px;">'+r[0]+'</td><td style="text-align:right;padding:6px;color:#60a5fa;">'+r[1]+'</td></tr>'}).join('')
-        + '</table>'
-        + '<h3 style="color:#22c55e;margin:16px 0 8px;">🛍️ 商品クリックTOP10</h3>'
-        + '<table style="width:100%;border-collapse:collapse;margin-bottom:16px;">'
-        + '<tr style="border-bottom:1px solid #334155;"><th style="text-align:left;padding:6px;color:#94a3b8;">商品</th><th style="text-align:right;padding:6px;color:#ef4444;">楽天</th><th style="text-align:right;padding:6px;color:#f59e0b;">Amazon</th></tr>'
-        + topProducts.map(function(r){return '<tr style="border-bottom:1px solid #1e293b;"><td style="padding:6px;">'+r[0]+'</td><td style="text-align:right;padding:6px;color:#ef4444;">'+r[1].rakuten+'</td><td style="text-align:right;padding:6px;color:#f59e0b;">'+r[1].amazon+'</td></tr>'}).join('')
-        + '</table>'
-        + '<h3 style="color:#a78bfa;margin:16px 0 8px;">🔗 リファラーTOP5</h3>'
-        + topRefs.map(function(r){return '<div style="padding:4px 0;">'+r[0]+': <span style="color:#60a5fa;">'+r[1]+'</span></div>'}).join('')
-        + '<h3 style="color:#fb923c;margin:16px 0 8px;">🔍 最近の検索（直近10件）</h3>'
-        + d.searchQueries.slice(-10).reverse().map(function(r){return '<div style="padding:2px 0;color:#94a3b8;">'+r.q+' <span style="color:#475569;font-size:11px;">'+r.at.slice(0,16)+'</span></div>'}).join('')
-        + '<div style="margin-top:24px;padding:16px;background:#1e293b;border-radius:8px;">'
-        + '<button onclick="navigator.clipboard.writeText(JSON.stringify('+JSON.stringify(d).replace(/'/g,"\\'")+'));alert(\'コピーしました\')" style="background:#3b82f6;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;margin-right:8px;">📋 JSONをコピー</button>'
-        + '<button onclick="this.parentElement.parentElement.remove()" style="background:#ef4444;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;">✕ 閉じる</button>'
-        + '<div style="color:#64748b;font-size:11px;margin-top:8px;">初回訪問: '+d.firstVisit.slice(0,10)+' / 最終更新: '+(d.lastUpdated||'').slice(0,16)+'</div>'
-        + '</div>';
-      document.body.appendChild(panel);
-    }
-
-    // 初期化
+    // 初期化（データ収集のみ、表示はローカルダッシュボードで行う）
     recordPageView();
     trackProductClicks();
     trackSearch();
