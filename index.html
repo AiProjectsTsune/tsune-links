@@ -13264,12 +13264,12 @@
     applyFilters();
   </script>
 
-  <!-- ===== 自作アクセスアナライザー ===== -->
+  <!-- ===== アクセスアナライザー（Supabase送信） ===== -->
   <script>
   (function(){
-    // 自PCからのアクセスを除外
+    var SB_URL = 'https://wngvcinkatndmjvflqfh.supabase.co';
+    var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InduZ3ZjaW5rYXRuZG1qdmZscWZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI0OTMwNTIsImV4cCI6MjA3ODA2OTA1Mn0.S8Q3a2Ygo1-UlayJKNYsY2JTmuRrYlMArlall9vIp8U';
     var EXCLUDED_IPS = ['150.9.156.64'];
-    var STORAGE_KEY = 'tsune_analytics';
     var SESSION_KEY = 'tsune_session';
 
     // IPチェック（非同期）
@@ -13287,117 +13287,67 @@
       sessionStorage.setItem(SESSION_KEY, sessionId);
     }
 
-    // データ読み込み
-    function loadData(){
-      try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || initData(); }
-      catch(e){ return initData(); }
-    }
-    function initData(){
-      return {
-        totalViews: 0,
-        uniqueSessions: [],
-        dailyViews: {},
-        productClicks: {},
-        searchQueries: [],
-        referrers: {},
-        devices: {},
-        pages: {},
-        avgTimeOnPage: [],
-        firstVisit: new Date().toISOString(),
-        lastUpdated: null
-      };
-    }
-    function saveData(d){
-      d.lastUpdated = new Date().toISOString();
-      try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }catch(e){}
+    // Supabaseに送信
+    function sbInsert(table, data){
+      try {
+        fetch(SB_URL + '/rest/v1/' + table, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SB_KEY,
+            'Authorization': 'Bearer ' + SB_KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(data)
+        });
+      } catch(e){}
     }
 
     // ページビュー記録
     function recordPageView(){
       setTimeout(function(){
         if(isExcluded) return;
-        var d = loadData();
-        var today = new Date().toISOString().slice(0,10);
-
-        d.totalViews++;
-        d.dailyViews[today] = (d.dailyViews[today]||0) + 1;
-
-        // ユニークセッション
-        if(d.uniqueSessions.indexOf(sessionId)===-1){
-          d.uniqueSessions.push(sessionId);
-          if(d.uniqueSessions.length > 1000) d.uniqueSessions = d.uniqueSessions.slice(-500);
-        }
-
-        // リファラー
-        var ref = document.referrer || 'direct';
+        var ref = 'direct';
         try{ ref = new URL(document.referrer).hostname || 'direct'; }catch(e){}
-        d.referrers[ref] = (d.referrers[ref]||0) + 1;
-
-        // デバイス
         var ua = navigator.userAgent;
         var device = /Mobile|Android|iPhone/.test(ua) ? 'mobile' : (/Tablet|iPad/.test(ua) ? 'tablet' : 'desktop');
-        d.devices[device] = (d.devices[device]||0) + 1;
-
-        // ページ（カテゴリ）
-        var cat = activeCat || 'all';
-        d.pages[cat] = (d.pages[cat]||0) + 1;
-
-        saveData(d);
-      }, 2000); // IP判定を待つ
+        sbInsert('page_views', {
+          session_id: sessionId,
+          referrer: ref,
+          device: device,
+          category: activeCat || 'all'
+        });
+      }, 2000);
     }
 
     // 商品クリック追跡
-    function trackProductClicks(){
-      document.addEventListener('click', function(e){
-        if(isExcluded) return;
-        var link = e.target.closest('a.btn--rakuten, a.btn--amazon, a.card__img-link');
-        if(!link) return;
-        var card = link.closest('.card');
-        if(!card) return;
-        var name = card.dataset.name || 'unknown';
-        var type = link.classList.contains('btn--rakuten') ? 'rakuten' :
-                   link.classList.contains('btn--amazon') ? 'amazon' : 'product_view';
-        var d = loadData();
-        var key = name.substring(0,30);
-        if(!d.productClicks[key]) d.productClicks[key] = {rakuten:0, amazon:0, product_view:0, last:''};
-        d.productClicks[key][type]++;
-        d.productClicks[key].last = new Date().toISOString();
-        saveData(d);
+    document.addEventListener('click', function(e){
+      if(isExcluded) return;
+      var link = e.target.closest('a.btn--rakuten, a.btn--amazon');
+      if(!link) return;
+      var card = link.closest('.card');
+      if(!card) return;
+      sbInsert('product_clicks', {
+        session_id: sessionId,
+        product_name: (card.dataset.name || 'unknown').substring(0, 60),
+        click_type: link.classList.contains('btn--rakuten') ? 'rakuten' : 'amazon'
       });
-    }
+    });
 
     // 検索クエリ追跡
-    function trackSearch(){
-      var si = document.getElementById('search-input');
-      if(!si) return;
-      var lastQuery = '';
+    var si = document.getElementById('search-input');
+    if(si){
+      var lastQ = '';
       si.addEventListener('change', function(){
         if(isExcluded) return;
         var q = si.value.trim();
-        if(!q || q === lastQuery) return;
-        lastQuery = q;
-        var d = loadData();
-        d.searchQueries.push({q:q, at:new Date().toISOString()});
-        if(d.searchQueries.length > 500) d.searchQueries = d.searchQueries.slice(-200);
-        saveData(d);
+        if(!q || q === lastQ) return;
+        lastQ = q;
+        sbInsert('search_queries', { session_id: sessionId, query: q });
       });
     }
 
-    // 滞在時間追跡
-    var pageStart = Date.now();
-    window.addEventListener('beforeunload', function(){
-      if(isExcluded) return;
-      var elapsed = Math.round((Date.now() - pageStart)/1000);
-      var d = loadData();
-      d.avgTimeOnPage.push(elapsed);
-      if(d.avgTimeOnPage.length > 200) d.avgTimeOnPage = d.avgTimeOnPage.slice(-100);
-      saveData(d);
-    });
-
-    // 初期化（データ収集のみ、表示はローカルダッシュボードで行う）
     recordPageView();
-    trackProductClicks();
-    trackSearch();
   })();
   </script>
 
