@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aiprojectstsune.github.io/tsune-links/sitemap.xml
