@@ -201,12 +201,12 @@
 
     sortBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var key = btn.dataset.sortKey;
-        var dir = btn.dataset.sortDir || 'desc';
+        var key = btn.dataset.sortKey || btn.dataset.sort;
+        var dir = btn.dataset.sortDir || (key === 'price' ? 'asc' : 'desc');
 
         // アクティブ状態の切替
-        sortBtns.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
+        sortBtns.forEach(function (b) { b.classList.remove('sort-btn--active'); });
+        btn.classList.add('sort-btn--active');
 
         sortCards(key, dir);
       });
