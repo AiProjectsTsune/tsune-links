@@ -48,7 +48,7 @@
   var searchClear = document.getElementById('search-clear');
   var searchResult = document.getElementById('search-result');
   var resultCount = document.getElementById('result-count');
-  var productGrid = document.getElementById('product-grid');
+  var productGrid = document.getElementById('productGrid') || document.getElementById('product-grid');
   var categoryTabs = document.querySelectorAll('.nav__tab');
   var navInner = document.querySelector('.nav__inner');
   var heroSection = document.querySelector('.hero');
@@ -63,7 +63,7 @@
 
   function initCardDataAttributes() {
     if (!productGrid) return;
-    var cards = productGrid.querySelectorAll('.card');
+    var cards = productGrid.querySelectorAll('.product-card');
     cards.forEach(function (card) {
       // data-score: .card__score テキスト
       if (!card.hasAttribute('data-score')) {
@@ -108,7 +108,7 @@
 
   function applyFilters() {
     if (!productGrid) return;
-    var cards = productGrid.querySelectorAll('.card');
+    var cards = productGrid.querySelectorAll('.product-card');
     var q = state.searchQuery.toLowerCase();
     var visible = 0;
 
@@ -173,7 +173,7 @@
     state.sortKey = key;
     state.sortDir = dir;
 
-    var cards = Array.from(productGrid.querySelectorAll('.card'));
+    var cards = Array.from(productGrid.querySelectorAll('.product-card'));
     var attr = 'data-' + key;
 
     cards.sort(function (a, b) {
