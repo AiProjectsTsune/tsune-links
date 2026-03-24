@@ -44,9 +44,9 @@
    * ========================================================== */
 
   var header = document.querySelector('.header');
-  var searchInput = document.getElementById('search-input');
-  var searchClear = document.getElementById('search-clear');
-  var searchResult = document.getElementById('search-result');
+  var searchInput = document.getElementById('searchInput');
+  var searchClear = document.getElementById('searchClear');
+  var searchResult = document.getElementById('searchResult');
   var resultCount = document.getElementById('result-count');
   var productGrid = document.getElementById('productGrid') || document.getElementById('product-grid');
   var categoryTabs = document.querySelectorAll('.nav__tab');
