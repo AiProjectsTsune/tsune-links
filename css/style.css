@@ -757,6 +757,60 @@ ul, ol {
 }
 
 /* ==========================================================================
+   Features + Best Review Row Layout
+   ========================================================================== */
+.features-review-row {
+  display: flex;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+.features-col {
+  flex: 1;
+  min-width: 0;
+}
+.features-col h2,
+.review-col h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+}
+.review-col {
+  flex: 1;
+  min-width: 0;
+}
+.best-review-card {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 1px solid #fbbf24;
+  border-radius: 12px;
+  padding: 20px;
+}
+.best-review-stars {
+  color: #f59e0b;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.best-review-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0 0 12px;
+  font-style: italic;
+}
+.best-review-source {
+  font-size: 12px;
+  color: #888;
+}
+@media (max-width: 768px) {
+  .features-review-row {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
    User Reviews (.product-reviews)
    ========================================================================== */
 .product-reviews {
