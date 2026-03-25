@@ -88,6 +88,32 @@
         var ratingEl = card.querySelector('.review-stars');
         card.setAttribute('data-rating', ratingEl ? parseNumber(ratingEl.textContent) : 0);
       }
+
+      // data-name: .card-name テキスト（検索用）
+      if (!card.hasAttribute('data-name')) {
+        var nameEl = card.querySelector('.card-name');
+        card.setAttribute('data-name', nameEl ? nameEl.textContent.trim() : '');
+      }
+
+      // data-subtitle: .card-subtitle テキスト（検索用）
+      if (!card.hasAttribute('data-subtitle')) {
+        var subtitleEl = card.querySelector('.card-subtitle');
+        card.setAttribute('data-subtitle', subtitleEl ? subtitleEl.textContent.trim() : '');
+      }
+
+      // data-cat: カテゴリ（カードのセクション or リンクURLから推定）
+      if (!card.hasAttribute('data-cat')) {
+        var section = card.closest('[data-cat]');
+        if (section) {
+          card.setAttribute('data-cat', section.dataset.cat);
+        } else {
+          var link = card.querySelector('a[href]');
+          if (link) {
+            var m = link.getAttribute('href').match(/\/category\/([^/]+)\//);
+            if (m) card.setAttribute('data-cat', m[1]);
+          }
+        }
+      }
     });
   }
 
@@ -113,7 +139,8 @@
     var visible = 0;
 
     cards.forEach(function (card) {
-      var matchesCat = state.activeCat === 'all' || card.dataset.cat === state.activeCat;
+      // 検索時は全商品を対象にする（カテゴリフィルタ無視）
+      var matchesCat = q || state.activeCat === 'all' || card.dataset.cat === state.activeCat;
       var matchesSearch = true;
 
       if (q) {
