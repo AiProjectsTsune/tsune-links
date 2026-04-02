@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aiprojectstsune.github.io/tsune-links/sitemap.xml
+Sitemap: https://yicr.info/tsune-links/sitemap.xml
